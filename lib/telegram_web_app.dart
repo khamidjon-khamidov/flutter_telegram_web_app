@@ -1,6 +1,9 @@
 library telegram_web_app;
 
 import 'package:telegram_web_app/src/models/telegram_color_scheme.dart';
+import 'package:telegram_web_app/src/telegram/data/chat_types.dart';
+import 'package:telegram_web_app/src/telegram/data/popup_params.dart';
+import 'package:telegram_web_app/src/telegram/data/scan_qr_popu_params.dart';
 import 'package:telegram_web_app/src/telegram/data/theme_params.dart';
 import 'package:telegram_web_app/src/telegram/data/web_app_init_data.dart';
 import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';

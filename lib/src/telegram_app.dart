@@ -17,6 +17,7 @@ class TelegramWebApp {
   /// The name of the platform of the user's Telegram app.
   String get platform => tg.platform;
 
+  /// The color scheme currently used in the Telegram app. Either “light” or “dark”.
   TelegramColorScheme get colorScheme =>
       tg.colorScheme == 'dark' ? TelegramColorScheme.Dark : TelegramColorScheme.Light;
 
@@ -93,4 +94,110 @@ class TelegramWebApp {
   /// A method that deletes a previously set event handler.
   void offEvent(TelegramEvent event) =>
       tg.offEvent(event.eventType, tg.JsDynamicCallback(event.eventHandler));
+
+  /// A method used to send data to the bot. When this method is called,
+  /// a service message is sent to the bot containing the data data of
+  /// the length up to 4096 bytes, and the Mini App is closed. See the field web_app_data in the class Message.
+  /// This method is only available for Mini Apps launched via a Keyboard button.
+  Future<void> sendData(String data) => tg.sendData(data);
+
+  /// A method that inserts the bot's username and the specified inline
+  /// query in the current chat's input field. Query may be empty, in
+  /// which case only the bot's username will be inserted. If an optional
+  /// choose_chat_types parameter was passed, the client prompts the user
+  /// to choose a specific chat, then opens that chat and inserts the bot's
+  /// username and the specified inline query in the input field. You can
+  /// specify which types of chats the user will be able to choose from.
+  /// It can be one or more of the following types: users, bots, groups, channels
+  Future<void> switchInlineQuery(String query, [ChatType? chatType]) =>
+      tg.switchInlineQuery(query, chatType);
+
+  /// A method that opens a link in an external browser. The Mini App will not be closed.
+  /// Bot API 6.4+ If the optional [options] parameter is passed with the field
+  /// try_instant_view=true, the link will be opened in Instant View mode if possible.
+  /// Note that this method can be called only in response to user interaction with
+  /// the Mini App interface (e.g. a click inside the Mini App or on the main button)
+  Future<void> openLink(String url, [dynamic options]) => tg.openLink(url, options);
+
+  /// A method that opens a telegram link inside the Telegram app. The Mini App will
+  /// not be closed after this method is called.
+  /// Up to Bot API 7.0 The Mini App will be closed after this method is called.
+  Future<void> openTelegramLink(String url) => tg.openTelegramLink(url);
+
+  /// A method that opens an invoice using the link url. The Mini App will receive
+  /// the event invoiceClosed when the invoice is closed. If an optional callback
+  /// parameter was passed, the callback function will be called and the invoice
+  /// status will be passed as the first argument
+  Future<void> openInvoice(String url, [Function(dynamic)? onInvoiceStatus]) =>
+      onInvoiceStatus != null ? tg.openInvoice(url, onInvoiceStatus) : tg.openInvoice(url);
+
+  /// A method that shows a native popup described by the [params] argument of the
+  /// type [PopupParams]. The Mini App will receive the event [popupClosed] when the
+  /// popup is closed. If an optional [callback] parameter was passed, the callback
+  /// function will be called and the field [id] of the pressed button will be passed
+  /// as the first argument.
+  Future<void> showPopup(PopupParams params, [Function(String id)? callback]) => callback != null
+      ? tg.showPopup(params, tg.JsDynamicCallback(callback))
+      : tg.showPopup(params);
+
+  /// A method that shows message in a simple alert with a 'Close' button. If an optional
+  /// callback parameter was passed, the callback function will be called when the popup is closed.
+  Future<void> showAlert(String message, [Function()? callback]) =>
+      callback != null ? tg.showAlert(message, tg.JsVoidCallback(callback)) : tg.showAlert(message);
+
+  /// A method that shows message in a simple confirmation window with 'OK' and 'Cancel' buttons.
+  /// If an optional callback parameter was passed, the callback function will be called when
+  /// the popup is closed and the first argument will be a boolean indicating whether the user
+  /// pressed the 'OK' button.
+  Future<void> showConfirm(String message, [Function(bool isOkPressed)? callback]) =>
+      callback != null ? tg.showConfirm(message, tg.JsCallback(callback)) : tg.showConfirm(message);
+
+  /// A method that shows a native popup for scanning a QR code described by the params argument
+  /// of the type [ScanQrPopupParams]. The Mini App will receive the event [qrTextReceived] every time
+  /// the scanner catches a code with text data. If an optional callback parameter was passed,
+  /// the callback function will be called and the text from the QR code will be passed as the
+  /// [first argument]. Returning true inside this [callback] function causes the popup to be closed.
+  Future<void> showScanQrPopup(ScanQrPopupParams params,
+          [bool Function(String result)? callback]) =>
+      callback != null
+          ? tg.showScanQrPopup(params, tg.JsDynamicCallback(callback))
+          : tg.showScanQrPopup(params);
+
+  /// A method that closes the native popup for scanning a QR code opened with the showScanQrPopup method.
+  /// Run it if you received valid data in the event qrTextReceived.
+  Future<void> closeScanQrPopup() => tg.closeScanQrPopup();
+
+  /// A method that requests text from the clipboard. The Mini App will receive the event clipboardTextReceived.
+  /// If an optional callback parameter was passed, the callback function will be called and the text from the
+  /// clipboard will be passed as the first argument.
+  /// Note: this method can be called only for Mini Apps launched from the attachment menu and only in
+  /// response to a user interaction with the Mini App interface (e.g. a click inside the Mini App
+  /// or on the main button).
+  Future<void> readTextFromClipboard([Function(String clipboardText)? onRead]) =>
+      onRead != null ? tg.readTextFromClipboard(tg.JsCallback(onRead)) : tg.readTextFromClipboard();
+
+  /// A method that shows a native popup requesting permission for the bot to send messages to the user.
+  /// If an optional [callback] parameter was passed, the callback function will be called when the popup
+  /// is closed and the first argument will be a boolean indicating whether the user granted this access.
+  Future<void> requestWriteAccess([Function(bool granted)? onResult]) =>
+      onResult != null ? tg.requestWriteAccess(onResult) : tg.requestWriteAccess();
+
+  /// A method that shows a native popup prompting the user for their phone number. If an optional
+  /// [callback] parameter was passed, the callback function will be called when the popup is
+  /// closed and the first argument will be a boolean indicating whether the user shared its phone number.
+  Future<void> requestContact([Function(bool granted)? onResult]) =>
+      onResult != null ? tg.requestContact(onResult) : tg.requestContact();
+
+  /// A method that informs the Telegram app that the Mini App is ready to be displayed.
+  /// It is recommended to call this method as early as possible, as soon as all essential interface elements
+  /// are loaded. Once this method is called, the loading placeholder is hidden and the Mini App is shown.
+  /// If the method is not called, the placeholder will be hidden only when the page is fully loaded.
+  Future<void> ready() => tg.ready();
+
+  /// A method that expands the Mini App to the maximum available height. To find out if the Mini
+  /// App is expanded to the maximum height, refer to the value of the Telegram.WebApp.isExpanded parameter
+  Future<void> expand() => tg.expand();
+
+  /// A method that closes the Mini App.
+  Future<void> close() => tg.close();
 }

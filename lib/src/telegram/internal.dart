@@ -2,6 +2,8 @@
 library internal;
 
 import 'package:js/js.dart';
+import 'package:telegram_web_app/src/telegram/data/popup_params.dart';
+import 'package:telegram_web_app/src/telegram/data/scan_qr_popu_params.dart';
 import 'package:telegram_web_app/src/telegram/models/settings_button.dart' as sb;
 
 import 'data/theme_params.dart';
@@ -43,13 +45,16 @@ external Future<void> switchInlineQuery(query, [choose_chat_types]);
 external Future<void> openLink(url, [options]);
 external Future<void> openTelegramLink(String url);
 external Future<void> openInvoice(String url, [JsCallback]);
-external Future<void> readTextFromClipboard(JsCallback);
+external Future<void> readTextFromClipboard([JsCallback]);
+
+external Future<void> requestWriteAccess([JsCallback]);
+external Future<void> requestContact([JsCallback]);
 
 /// use [TelegramPopup.show()] to show the popup, instead of this method directly
-external Future<void> showPopup(Record param, [JsCallback]);
+external Future<void> showPopup(PopupParams param, [JsCallback]);
 external Future<void> showAlert(String message, [JsCallback]);
 external Future<void> showConfirm(String message, [JsCallback]);
-external Future<void> showScanQrPopup(Record params, [JsCallback]);
+external Future<void> showScanQrPopup(ScanQrPopupParams params, [JsCallback]);
 external Future<void> closeScanQrPopup();
 
 ///Events
