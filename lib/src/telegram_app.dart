@@ -89,11 +89,11 @@ class TelegramWebApp {
   /// All events mapped to events of TelegramEvent
   /// WARNING: call offEvent method to unregister callback
   void onEvent(TelegramEvent event) =>
-      tg.onEvent(event.eventType, tg.JsDynamicCallback(event.eventHandler));
+      tg.onEvent(event.eventType.name, tg.JsDynamicCallback(event.eventHandler));
 
   /// A method that deletes a previously set event handler.
   void offEvent(TelegramEvent event) =>
-      tg.offEvent(event.eventType, tg.JsDynamicCallback(event.eventHandler));
+      tg.offEvent(event.eventType.name, tg.JsDynamicCallback(event.eventHandler));
 
   /// A method used to send data to the bot. When this method is called,
   /// a service message is sent to the bot containing the data data of
