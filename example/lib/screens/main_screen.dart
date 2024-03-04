@@ -61,7 +61,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Telegram Web App')),
       body: ListView(
-        children: [
+        children: const [
           ListTile(
             title: Text('Init Data'),
             subtitle: Text('Subtitle description'),
