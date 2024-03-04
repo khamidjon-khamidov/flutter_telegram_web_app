@@ -30,3 +30,9 @@ build/
 
 .fvm
 pubspec.lock
+
+example/pubspec.lock
+example/.dart_tool
+example/.idea
+example/build
+example/pubspec.lock
