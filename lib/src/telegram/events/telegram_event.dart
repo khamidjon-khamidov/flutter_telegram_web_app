@@ -1,4 +1,4 @@
-sealed class TelegramEvent {
+abstract class TelegramEvent {
   TelegramEvent(this.eventType, this.eventHandler);
 
   final String eventType;
