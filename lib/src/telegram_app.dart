@@ -2,6 +2,10 @@ part of '../telegram_web_app.dart';
 
 /// All the apis provided at https://core.telegram.org/bots/webapps#initializing-mini-apps
 class TelegramWebApp {
+  TelegramWebApp? _instance;
+
+  TelegramWebApp get instance => _instance ??= TelegramWebApp();
+
   /// A string with raw data transferred to the Mini App, convenient for validating data.
   /// WARNING: Validate data from this field before using it on the bot's server.
   String get initData => tg.initData;
