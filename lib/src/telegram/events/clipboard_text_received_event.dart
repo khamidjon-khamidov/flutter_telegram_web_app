@@ -8,5 +8,5 @@ import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 /// will be null.
 class ClipboardTextReceivedEvent extends TelegramEvent {
   ClipboardTextReceivedEvent(Function(String) eventHandler)
-      : super("clipboardTextReceived", eventHandler);
+      : super(TelegramEventType.clipboardTextReceived, eventHandler);
 }

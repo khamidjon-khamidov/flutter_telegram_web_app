@@ -6,5 +6,6 @@ import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 // field id of the pressed button. If no buttons
 // were pressed, the field button_id will be null.
 class PopupClosedEvent extends TelegramEvent {
-  PopupClosedEvent(Function(String? buttonId) eventHandler) : super("popupClosed", eventHandler);
+  PopupClosedEvent(Function(String? buttonId) eventHandler)
+      : super(TelegramEventType.popupClosed, eventHandler);
 }

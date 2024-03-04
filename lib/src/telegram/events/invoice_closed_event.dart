@@ -11,5 +11,5 @@ import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 // the payment is successfully paid.
 class InvoiceClosedEvent extends TelegramEvent {
   InvoiceClosedEvent(Function(String url, String status) eventHandler)
-      : super("invoiceClosed", eventHandler);
+      : super(TelegramEventType.invoiceClosed, eventHandler);
 }

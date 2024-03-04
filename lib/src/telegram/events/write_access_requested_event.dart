@@ -7,5 +7,5 @@ import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 // - cancelled – user declined this request.
 class WriteAccessRequestedEvent extends TelegramEvent {
   WriteAccessRequestedEvent(Function(String status) eventHandler)
-      : super("writeAccessRequested", eventHandler);
+      : super(TelegramEventType.writeAccessRequested, eventHandler);
 }

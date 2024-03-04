@@ -6,5 +6,5 @@ import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 // and color scheme can be received via this.themeParams and
 // this.colorScheme respectively.
 class ThemeChangedEvent extends TelegramEvent {
-  ThemeChangedEvent(Function() eventHandler) : super("themeChanged", eventHandler);
+  ThemeChangedEvent(Function() eventHandler) : super(TelegramEventType.themeChanged, eventHandler);
 }

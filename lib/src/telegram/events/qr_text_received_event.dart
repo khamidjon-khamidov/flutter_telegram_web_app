@@ -5,5 +5,5 @@ import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 // text data from the QR code.
 class QrTextReceivedEvent extends TelegramEvent {
   QrTextReceivedEvent(Function(String qrjText) eventHandler)
-      : super("qrTextReceived", eventHandler);
+      : super(TelegramEventType.qrTextReceived, eventHandler);
 }

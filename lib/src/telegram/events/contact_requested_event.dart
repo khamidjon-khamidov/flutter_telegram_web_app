@@ -7,5 +7,5 @@ import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 /// - cancelled – user declined this request.
 class ContactRequestedEvent extends TelegramEvent {
   ContactRequestedEvent(Function(String status) eventHandler)
-      : super("contactRequested", eventHandler);
+      : super(TelegramEventType.contactRequested, eventHandler);
 }

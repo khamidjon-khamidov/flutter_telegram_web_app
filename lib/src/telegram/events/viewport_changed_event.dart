@@ -8,5 +8,5 @@ import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 // value of the visible section’s height is available in this.viewportHeight.
 class ViewportChangedEvent extends TelegramEvent {
   ViewportChangedEvent(Function(bool isStateStable) eventHandler)
-      : super("viewportChanged", eventHandler);
+      : super(TelegramEventType.viewportChanged, eventHandler);
 }
