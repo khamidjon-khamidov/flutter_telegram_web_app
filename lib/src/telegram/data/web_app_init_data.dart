@@ -7,8 +7,6 @@ import 'package:telegram_web_app/src/telegram/data/web_app_user.dart';
 /// https://core.telegram.org/bots/webapps#webappinitdata
 @JS()
 class WebAppInitData {
-  WebAppInitData._();
-
   external String? get query_id;
   external WebAppUser? get user;
   external WebAppUser? get receiver;

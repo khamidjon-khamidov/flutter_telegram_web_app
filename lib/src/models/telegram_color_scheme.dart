@@ -1,6 +1,6 @@
 enum TelegramColorScheme {
-  Light('light'),
-  Dark('dark');
+  light('light'),
+  dark('dark');
 
   const TelegramColorScheme(this.value);
 

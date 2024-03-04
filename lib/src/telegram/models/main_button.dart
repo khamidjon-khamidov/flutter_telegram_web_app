@@ -5,8 +5,6 @@ import '../data/main_button_params.dart';
 ///https://core.telegram.org/bots/webapps#mainbutton
 @JS()
 class MainButton {
-  MainButton._();
-
   external String text;
   external String color;
   external String textColor;

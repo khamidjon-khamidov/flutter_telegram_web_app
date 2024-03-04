@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telegram_web_app/telegram_web_app.dart';
 
 /// initData
 /// initDataUnsafe
@@ -48,8 +49,25 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  final TelegramWebApp telegram = TelegramWebApp.instance;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: const Text('Telegram Web App')),
+      body: ListView(
+        children: [
+          ListTile(
+            title: Text('Init Data'),
+            subtitle: Text('Subtitle description'),
+          )
+        ],
+      ),
+    );
   }
 }

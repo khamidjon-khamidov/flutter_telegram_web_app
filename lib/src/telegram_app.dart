@@ -2,9 +2,9 @@ part of '../telegram_web_app.dart';
 
 /// All the apis provided at https://core.telegram.org/bots/webapps#initializing-mini-apps
 class TelegramWebApp {
-  TelegramWebApp? _instance;
+  static TelegramWebApp? _instance;
 
-  TelegramWebApp get instance => _instance ??= TelegramWebApp();
+  static TelegramWebApp get instance => _instance ??= TelegramWebApp();
 
   /// A string with raw data transferred to the Mini App, convenient for validating data.
   /// WARNING: Validate data from this field before using it on the bot's server.
@@ -23,7 +23,7 @@ class TelegramWebApp {
 
   /// The color scheme currently used in the Telegram app. Either “light” or “dark”.
   TelegramColorScheme get colorScheme =>
-      tg.colorScheme == 'dark' ? TelegramColorScheme.Dark : TelegramColorScheme.Light;
+      tg.colorScheme == 'dark' ? TelegramColorScheme.dark : TelegramColorScheme.light;
 
   /// An object containing the current theme settings
   /// used in the Telegram app.

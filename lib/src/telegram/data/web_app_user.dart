@@ -5,8 +5,6 @@ import 'package:js/js.dart';
 ///https://core.telegram.org/bots/webapps#webappuser
 @JS()
 class WebAppUser {
-  WebAppUser._();
-
   external int get id;
   external bool get is_bot;
   external bool get is_premium;

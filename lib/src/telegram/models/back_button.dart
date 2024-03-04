@@ -1,4 +1,4 @@
-import 'dart:js_interop';
+import 'package:js/js.dart';
 
 ///https://core.telegram.org/bots/webapps#backbutton
 @JS()
