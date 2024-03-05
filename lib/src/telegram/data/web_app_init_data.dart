@@ -18,3 +18,20 @@ class WebAppInitData {
   external int? get auth_date;
   external String? get hash;
 }
+
+extension WebAppInitDataExt on WebAppInitData {
+  String toReadableString() {
+    return """
+      query_id: $query_id, 
+      user: ${user?.toReadableString()}, 
+      receiver: ${receiver?.toReadableString()}, 
+      chat: ${chat?.toReadableString()}, 
+      chat_type: $chat_type,
+      chat_instance: $chat_instance,
+      start_param: $start_param,
+      can_send_after: $can_send_after,
+      auth_date: $auth_date,
+      hash: $hash
+    """;
+  }
+}

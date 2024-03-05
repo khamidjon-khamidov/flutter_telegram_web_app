@@ -11,3 +11,15 @@ class WebAppChat {
   external String get title;
   external String get username;
 }
+
+extension WebAppChatExt on WebAppChat {
+  String toReadableString() {
+    return """
+        id: $id,
+        photo_url: $photo_url,
+        type: $type,
+        title: $title,
+        username: $username
+      """;
+  }
+}

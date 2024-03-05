@@ -14,3 +14,19 @@ class WebAppUser {
   external String get photo_url;
   external String get language_code;
 }
+
+extension WebAppUserExt on WebAppUser {
+  String toReadableString() {
+    // return "nothing";
+    return """
+        id: ${id},
+        is_bot: ${is_bot},
+        is_premium: ${is_premium},
+        first_name: ${first_name},
+        last_name: ${last_name},
+        username: ${username},
+        photo_url: ${photo_url},
+        language_code: ${language_code}
+      """;
+  }
+}

@@ -61,11 +61,15 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Telegram Web App')),
       body: ListView(
-        children: const [
+        children: [
           ListTile(
-            title: Text('Init Data'),
-            subtitle: Text('Subtitle description'),
-          )
+            title: const Text('Init Data'),
+            subtitle: Text(telegram.initData),
+          ),
+          ListTile(
+            title: const Text('Init Data Unsafe'),
+            subtitle: Text(telegram.initDataUnsafe.toReadableString()),
+          ),
         ],
       ),
     );

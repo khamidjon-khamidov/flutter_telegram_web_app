@@ -35,3 +35,6 @@ example/pubspec.lock
 example/.dart_tool
 example/.idea
 example/build
+example/firebase.json
+example/.firebaserc
+example/.firebase
