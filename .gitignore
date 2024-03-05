@@ -38,3 +38,5 @@ example/build
 example/firebase.json
 example/.firebaserc
 example/.firebase
+example/.flutter-plugins
+example/.flutter-plugins-dependencies
