@@ -1,4 +1,5 @@
 import 'package:example/widgets/expandable_tile.dart';
+import 'package:example/widgets/one_color_widget.dart';
 import 'package:example/widgets/theme_params_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
@@ -34,19 +35,19 @@ class _MainScreenState extends State<MainScreen> {
           InfoExpandableTile('Platform', telegram.platform),
           InfoExpandableTile('Color Scheme', telegram.colorScheme.name),
           ThemeParamsWidget(telegram.themeParams),
+          InfoExpandableTile('isExpanded', telegram.isExpanded.toString()),
+          InfoExpandableTile('viewportHeight', telegram.viewportHeight.toString()),
+          InfoExpandableTile('viewportStableHeight', telegram.viewportStableHeight.toString()),
+          OneColorExpandableTile('headerColor', telegram.headerColor),
+          OneColorExpandableTile('backgroundColor', telegram.backgroundColor),
+          InfoExpandableTile(
+              'isClosingConfirmationEnabled', telegram.isClosingConfirmationEnabled.toString()),
         ],
       ),
     );
   }
 }
 
-/// themeParams
-/// isExpanded
-/// viewportHeight
-/// viewportStableHeight
-/// headerColor
-/// backgroundColor
-/// isClosingConfirmationEnabled
 /// BackButton
 /// MainButton
 /// SettingsButton
