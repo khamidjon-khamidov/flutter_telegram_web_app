@@ -1,11 +1,45 @@
+import 'package:example/widgets/expandable_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
-/// initData
-/// initDataUnsafe
-/// version
-/// platform
-/// colorScheme
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  final TelegramWebApp telegram = TelegramWebApp.instance;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Telegram Web App')),
+      body: ListView(
+        padding: const EdgeInsets.all(8),
+        children: [
+          InfoExpandableTile('Init Data', telegram.initData),
+          InfoExpandableTile(
+            'Init Data Unsafe',
+            telegram.initDataUnsafe.toReadableString(),
+          ),
+          InfoExpandableTile('Version', telegram.version),
+          InfoExpandableTile('Platform', telegram.platform),
+          InfoExpandableTile('Color Scheme', telegram.colorScheme.name),
+          InfoExpandableTile('Color Scheme', telegram.colorScheme.name),
+          // InfoExpandableTile('Theme Params', telegram.themeParams),
+        ],
+      ),
+    );
+  }
+}
+
 /// themeParams
 /// isExpanded
 /// viewportHeight
@@ -41,37 +75,3 @@ import 'package:telegram_web_app/telegram_web_app.dart';
 /// ready()
 /// expand()
 /// close()
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  final TelegramWebApp telegram = TelegramWebApp.instance;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Telegram Web App')),
-      body: ListView(
-        children: [
-          ListTile(
-            title: const Text('Init Data'),
-            subtitle: Text(telegram.initData),
-          ),
-          ListTile(
-            title: const Text('Init Data Unsafe'),
-            subtitle: Text(telegram.initDataUnsafe.toReadableString()),
-          ),
-        ],
-      ),
-    );
-  }
-}
