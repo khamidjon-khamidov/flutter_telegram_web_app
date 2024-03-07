@@ -1,4 +1,5 @@
 import 'package:example/widgets/expandable_tile.dart';
+import 'package:example/widgets/theme_params_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
@@ -32,8 +33,7 @@ class _MainScreenState extends State<MainScreen> {
           InfoExpandableTile('Version', telegram.version),
           InfoExpandableTile('Platform', telegram.platform),
           InfoExpandableTile('Color Scheme', telegram.colorScheme.name),
-          InfoExpandableTile('Color Scheme', telegram.colorScheme.name),
-          // InfoExpandableTile('Theme Params', telegram.themeParams),
+          ThemeParamsWidget(telegram.themeParams),
         ],
       ),
     );
