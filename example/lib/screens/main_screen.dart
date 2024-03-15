@@ -1,4 +1,6 @@
+import 'package:example/screens/buttons/main_button_screen.dart';
 import 'package:example/widgets/expandable_tile.dart';
+import 'package:example/widgets/list_button.dart';
 import 'package:example/widgets/one_color_widget.dart';
 import 'package:example/widgets/theme_params_widget.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +44,13 @@ class _MainScreenState extends State<MainScreen> {
           OneColorExpandableTile('backgroundColor', telegram.backgroundColor),
           InfoExpandableTile(
               'isClosingConfirmationEnabled', telegram.isClosingConfirmationEnabled.toString()),
+          ListButton(
+            'MainButton',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const MainButtonScreen()));
+            },
+          ),
         ],
       ),
     );

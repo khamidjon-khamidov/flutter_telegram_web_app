@@ -27,7 +27,7 @@ class TelegramWebApp {
 
   /// An object containing the current theme settings
   /// used in the Telegram app.
-  ThemeParams get themeParams => tg.themeParams;
+  ThemeParams get themeParams => ThemeParams.instance;
 
   /// True, if the Mini App is expanded to the maximum
   /// available height. False, if the Mini App occupies
@@ -42,9 +42,9 @@ class TelegramWebApp {
   /// in its last stable state
   double? get viewportStableHeight => tg.viewportStableHeight;
 
-  String get headerColor => tg.headerColor;
+  Color? get headerColor => tg.headerColor.toColor();
 
-  String get backgroundColor => tg.backgroundColor;
+  Color? get backgroundColor => tg.backgroundColor.toColor();
 
   /// True, if the confirmation dialog is enabled
   /// while the user is trying to close the Mini App.
@@ -54,12 +54,12 @@ class TelegramWebApp {
   /// An object for controlling the back button
   /// which can be displayed in the header of
   /// the Mini App in the Telegram interface.
-  BackButton get backButton => tg.BackButton;
+  BackButton get backButton => BackButton.instance;
 
   /// An object for controlling the main button,
   /// which is displayed at the bottom of the
   /// Mini App in the Telegram interface.
-  MainButton get mainButton => tg.MainButton;
+  MainButton get mainButton => MainButton.instance;
 
   /// An object for controlling the Settings item
   /// in the context menu of the Mini App in the

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:telegram_web_app/telegram_web_app.dart';
 
 class ColorWidget extends StatelessWidget {
   final String name;
-  final String color;
+  final Color? color;
   const ColorWidget(this.name, this.color, {super.key});
 
   @override
@@ -15,7 +14,7 @@ class ColorWidget extends StatelessWidget {
           height: 40,
           width: 40,
           decoration: BoxDecoration(
-            color: color.toColor() ?? Colors.tealAccent,
+            color: color ?? Colors.tealAccent,
             border: Border.all(color: Colors.black45, width: 4),
             borderRadius: BorderRadius.circular(8),
           ),
