@@ -76,13 +76,19 @@ class _MainScreenState extends State<MainScreen> {
                   .push(MaterialPageRoute(builder: (context) => const HapticFeedbackScreen()));
             },
           ),
+          ListButton(
+            'CloudStorage',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const HapticFeedbackScreen()));
+            },
+          )
         ],
       ),
     );
   }
 }
 
-/// HapticFeedback
 /// CloudStorage
 /// isVersionAtLeast(version)
 /// setHeaderColor(color)

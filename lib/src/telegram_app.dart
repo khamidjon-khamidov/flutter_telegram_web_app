@@ -73,7 +73,7 @@ class TelegramWebApp {
   HapticFeedback get hapticFeedback => HapticFeedback.instance;
 
   /// An object for controlling cloud storage.
-  CloudStorage get cloudStorage => tg.CloudStorage;
+  CloudStorage get cloudStorage => CloudStorage.instance;
 
   /// Returns true if the user's app supports a
   /// version of the Bot API that is equal to or

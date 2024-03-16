@@ -3,6 +3,7 @@ library telegram_web_app;
 import 'dart:ui';
 
 import 'package:telegram_web_app/src/models/back_button.dart';
+import 'package:telegram_web_app/src/models/cloud_storage.dart';
 import 'package:telegram_web_app/src/models/haptic_feedback.dart';
 import 'package:telegram_web_app/src/models/main_button.dart';
 import 'package:telegram_web_app/src/models/settings_button.dart';
@@ -14,10 +15,10 @@ import 'package:telegram_web_app/src/telegram/data/scan_qr_popup_params.dart';
 import 'package:telegram_web_app/src/telegram/data/web_app_init_data.dart';
 import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 import 'package:telegram_web_app/src/telegram/internal.dart' as tg;
-import 'package:telegram_web_app/src/telegram/models/cloud_storage.dart';
 import 'package:telegram_web_app/src/util/color_utils.dart';
 
 export 'src/models/back_button.dart';
+export 'src/models/cloud_storage.dart';
 export 'src/models/haptic_feedback.dart';
 export 'src/models/main_button.dart';
 export 'src/models/settings_button.dart';
@@ -41,7 +42,6 @@ export 'src/telegram/events/telegram_event.dart';
 export 'src/telegram/events/theme_changed_event.dart';
 export 'src/telegram/events/viewport_changed_event.dart';
 export 'src/telegram/events/write_access_requested_event.dart';
-export 'src/telegram/models/cloud_storage.dart';
 export 'src/telegram/models/popup_button.dart';
 export 'src/util/color_utils.dart';
 export 'src/util/theme_util.dart';
