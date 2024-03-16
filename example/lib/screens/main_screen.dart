@@ -19,12 +19,12 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
+    TelegramWebApp.instance.ready();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Telegram Web App')),
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: [

@@ -44,5 +44,6 @@ export 'src/telegram/models/haptic_feedback.dart';
 export 'src/telegram/models/popup_button.dart';
 export 'src/telegram/models/settings_button.dart';
 export 'src/util/color_utils.dart';
+export 'src/util/theme_util.dart';
 
 part 'src/telegram_app.dart';

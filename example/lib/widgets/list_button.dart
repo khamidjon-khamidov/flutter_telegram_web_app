@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:telegram_web_app/telegram_web_app.dart';
 
 class ListButton extends StatelessWidget {
   final String text;
@@ -16,7 +15,6 @@ class ListButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Card(
-        color: TelegramWebApp.instance.themeParams.buttonColor,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Row(

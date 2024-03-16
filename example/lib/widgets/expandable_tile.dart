@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:telegram_web_app/telegram_web_app.dart';
 
 class InfoExpandableTile extends StatelessWidget {
   final String title;
@@ -13,7 +12,6 @@ class InfoExpandableTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: TelegramWebApp.instance.themeParams.buttonColor,
       child: ExpansionTile(
         title: Text(
           title,

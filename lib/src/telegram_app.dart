@@ -6,6 +6,9 @@ class TelegramWebApp {
 
   static TelegramWebApp get instance => _instance ??= TelegramWebApp();
 
+  /// returns true if opened inside Telegram web
+  bool get isSupported => platform.toLowerCase() != "unknown";
+
   /// A string with raw data transferred to the Mini App, convenient for validating data.
   /// WARNING: Validate data from this field before using it on the bot's server.
   String get initData => tg.initData;

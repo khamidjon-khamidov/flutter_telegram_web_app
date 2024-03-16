@@ -9,7 +9,6 @@ class ThemeParamsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: TelegramWebApp.instance.themeParams.buttonColor,
       child: ExpansionTile(
         expandedCrossAxisAlignment: CrossAxisAlignment.start,
         title: const Text(

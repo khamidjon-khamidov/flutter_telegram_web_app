@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:telegram_web_app/telegram_web_app.dart';
 
 import 'color_widget.dart';
 
@@ -12,7 +11,6 @@ class OneColorExpandableTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: TelegramWebApp.instance.themeParams.buttonColor,
       child: ExpansionTile(
         expandedCrossAxisAlignment: CrossAxisAlignment.start,
         title: Text(
