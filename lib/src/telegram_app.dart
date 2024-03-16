@@ -70,7 +70,7 @@ class TelegramWebApp {
   SettingsButton get settingButton => SettingsButton.instance;
 
   /// An object for controlling haptic feedback.
-  HapticFeedback get hapticFeedback => tg.HapticFeedback;
+  HapticFeedback get hapticFeedback => HapticFeedback.instance;
 
   /// An object for controlling cloud storage.
   CloudStorage get cloudStorage => tg.CloudStorage;

@@ -28,9 +28,9 @@ external ThemeParams get themeParams;
 external bb.BackButton get BackButton;
 external mb.MainButton get MainButton;
 external sb.SettingsButton get SettingsButton;
+external hf.HapticFeedback get HapticFeedback;
 external cs.CloudStorage get CloudStorage;
 external WebAppInitData get initDataUnsafe;
-external hf.HapticFeedback get HapticFeedback;
 
 external Future<void> ready();
 external Future<void> expand();

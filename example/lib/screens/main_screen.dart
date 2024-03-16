@@ -8,6 +8,8 @@ import 'package:example/widgets/theme_params_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
+import 'other/haptic_feedback_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -67,15 +69,19 @@ class _MainScreenState extends State<MainScreen> {
                   .push(MaterialPageRoute(builder: (context) => const SettingsButtonScreen()));
             },
           ),
+          ListButton(
+            'HapticFeedback',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const HapticFeedbackScreen()));
+            },
+          ),
         ],
       ),
     );
   }
 }
 
-/// BackButton
-/// MainButton
-/// SettingsButton
 /// HapticFeedback
 /// CloudStorage
 /// isVersionAtLeast(version)
