@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:telegram_web_app/src/telegram/internal.dart' as tg;
 
 import '../../telegram_web_app.dart';
@@ -11,10 +13,10 @@ class MainButton {
   String get text => tg.MainButton.text;
 
   /// Current button color. Set to themeParams.button_color by default.
-  String get color => tg.MainButton.color;
+  Color? get color => tg.MainButton.color.toColor();
 
   /// Current button text color. Set to themeParams.button_text_color by default.
-  String get textColor => tg.MainButton.textColor;
+  Color? get textColor => tg.MainButton.textColor.toColor();
 
   /// Shows whether the button is visible. Set to false by default.
   bool get isVisible => tg.MainButton.isVisible;
