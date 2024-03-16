@@ -31,10 +31,10 @@ class MainButton {
   void setText(String text) => tg.MainButton.setText(text);
 
   /// A method that sets the button press event handler.
-  void onClick(Function() callback) => tg.MainButton.onClick(callback);
+  void onClick(Function() callback) => tg.MainButton.onClick(tg.JsDynamicCallback(callback));
 
   /// A method that removes the button press event handler.
-  void offClick(Function() callback) => tg.MainButton.offClick(callback);
+  void offClick(Function() callback) => tg.MainButton.offClick(tg.JsDynamicCallback(callback));
 
   /// A method to make the button visible.
   /// Note that opening the Mini App from the attachment menu hides the main
