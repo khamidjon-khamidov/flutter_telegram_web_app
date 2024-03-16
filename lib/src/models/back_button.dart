@@ -9,10 +9,10 @@ class BackButton {
   bool get isVisible => tg.BackButton.isVisible;
 
   /// A method that sets the button press event handler.
-  void onClick(Function() callback) => tg.BackButton.onClick(tg.JsDynamicCallback(callback));
+  void onClick(void Function() callback) => tg.BackButton.onClick(tg.JsDynamicCallback(callback));
 
   /// A method that removes the button press event handler.
-  void offClick(Function() callback) => tg.BackButton.offClick(tg.JsDynamicCallback(callback));
+  void offClick(void Function() callback) => tg.BackButton.offClick(tg.JsDynamicCallback(callback));
 
   /// A method to make the button active and visible.
   Future show() => tg.BackButton.show();

@@ -1,5 +1,6 @@
 import 'package:example/screens/buttons/back_button_screen.dart';
 import 'package:example/screens/buttons/main_button_screen.dart';
+import 'package:example/screens/buttons/settings_button_screen.dart';
 import 'package:example/widgets/expandable_tile.dart';
 import 'package:example/widgets/list_button.dart';
 import 'package:example/widgets/one_color_widget.dart';
@@ -46,6 +47,13 @@ class _MainScreenState extends State<MainScreen> {
           InfoExpandableTile(
               'isClosingConfirmationEnabled', telegram.isClosingConfirmationEnabled.toString()),
           ListButton(
+            'BackButton',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const BackButtonScreen()));
+            },
+          ),
+          ListButton(
             'MainButton',
             onPress: () {
               Navigator.of(context)
@@ -53,10 +61,10 @@ class _MainScreenState extends State<MainScreen> {
             },
           ),
           ListButton(
-            'BackButton',
+            'SettingsButton',
             onPress: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => const BackButtonScreen()));
+                  .push(MaterialPageRoute(builder: (context) => const SettingsButtonScreen()));
             },
           ),
         ],

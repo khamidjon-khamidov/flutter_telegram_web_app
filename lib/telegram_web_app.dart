@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:telegram_web_app/src/models/back_button.dart';
 import 'package:telegram_web_app/src/models/main_button.dart';
+import 'package:telegram_web_app/src/models/settings_button.dart';
 import 'package:telegram_web_app/src/models/telegram_color_scheme.dart';
 import 'package:telegram_web_app/src/models/theme_params.dart';
 import 'package:telegram_web_app/src/telegram/data/chat_types.dart';
@@ -14,11 +15,11 @@ import 'package:telegram_web_app/src/telegram/events/telegram_event.dart';
 import 'package:telegram_web_app/src/telegram/internal.dart' as tg;
 import 'package:telegram_web_app/src/telegram/models/cloud_storage.dart';
 import 'package:telegram_web_app/src/telegram/models/haptic_feedback.dart';
-import 'package:telegram_web_app/src/telegram/models/settings_button.dart';
 import 'package:telegram_web_app/src/util/color_utils.dart';
 
 export 'src/models/back_button.dart';
 export 'src/models/main_button.dart';
+export 'src/models/settings_button.dart';
 export 'src/models/theme_params.dart';
 export 'src/telegram/data/chat_types.dart';
 export 'src/telegram/data/main_button_params.dart';
@@ -42,7 +43,6 @@ export 'src/telegram/events/write_access_requested_event.dart';
 export 'src/telegram/models/cloud_storage.dart';
 export 'src/telegram/models/haptic_feedback.dart';
 export 'src/telegram/models/popup_button.dart';
-export 'src/telegram/models/settings_button.dart';
 export 'src/util/color_utils.dart';
 export 'src/util/theme_util.dart';
 

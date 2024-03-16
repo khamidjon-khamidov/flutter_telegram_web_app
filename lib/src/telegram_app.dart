@@ -67,7 +67,7 @@ class TelegramWebApp {
   /// An object for controlling the Settings item
   /// in the context menu of the Mini App in the
   /// Telegram interface.
-  SettingsButton get settingButton => tg.SettingsButton;
+  SettingsButton get settingButton => SettingsButton.instance;
 
   /// An object for controlling haptic feedback.
   HapticFeedback get hapticFeedback => tg.HapticFeedback;
