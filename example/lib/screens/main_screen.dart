@@ -1,6 +1,7 @@
 import 'package:example/screens/buttons/back_button_screen.dart';
 import 'package:example/screens/buttons/main_button_screen.dart';
 import 'package:example/screens/buttons/settings_button_screen.dart';
+import 'package:example/screens/other/cloud_storage_screen.dart';
 import 'package:example/widgets/expandable_tile.dart';
 import 'package:example/widgets/list_button.dart';
 import 'package:example/widgets/one_color_widget.dart';
@@ -80,7 +81,7 @@ class _MainScreenState extends State<MainScreen> {
             'CloudStorage',
             onPress: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => const HapticFeedbackScreen()));
+                  .push(MaterialPageRoute(builder: (context) => const CloudStorageScreen()));
             },
           )
         ],
