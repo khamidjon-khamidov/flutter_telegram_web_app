@@ -3,7 +3,7 @@ library internal;
 
 import 'package:js/js.dart';
 import 'package:telegram_web_app/src/telegram/data/popup_params.dart';
-import 'package:telegram_web_app/src/telegram/data/scan_qr_popu_params.dart';
+import 'package:telegram_web_app/src/telegram/data/scan_qr_popup_params.dart';
 import 'package:telegram_web_app/src/telegram/models/settings_button.dart' as sb;
 
 import 'data/theme_params.dart';

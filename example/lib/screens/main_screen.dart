@@ -1,3 +1,4 @@
+import 'package:example/screens/buttons/back_button_screen.dart';
 import 'package:example/screens/buttons/main_button_screen.dart';
 import 'package:example/widgets/expandable_tile.dart';
 import 'package:example/widgets/list_button.dart';
@@ -49,6 +50,13 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const MainButtonScreen()));
+            },
+          ),
+          ListButton(
+            'BackButton',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const BackButtonScreen()));
             },
           ),
         ],
