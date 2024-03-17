@@ -22,17 +22,17 @@ class CloudStorage {
   ///  In case of an [error], the callback function will be called and the first argument
   ///  will contain the error. In case of [success], the first argument will be null and
   ///  the value will be passed as the second argument.
-  Future<void> getItem(String key, [void Function(String? error, [String? result])? callback]) =>
-      tg.CloudStorage.getItem(key, callback != null ? tg.JsDynamicCallback(callback) : null);
+  Future<void> getItem(String key, void Function(String? error, [String? result]) callback) =>
+      tg.CloudStorage.getItem(key, tg.JsDynamicCallback(callback));
 
   /// A method that receives values from the cloud storage using the specified keys.
   /// [keys] should contain 1-128 characters, only A-Z, a-z, 0-9, _ and - are allowed.
   /// In case of an [error], the callback function will be called and the first argument
   /// will contain the error. In case of [success], the first argument will be null
   /// and the values will be passed as the second argument.
-  Future<void> getItems(List<String> keys,
-          [void Function(String? error, List<dynamic>? values)? callback]) =>
-      tg.CloudStorage.getItems(keys, callback != null ? tg.JsDynamicCallback(callback) : null);
+  Future<void> getItems(
+          List<String> keys, void Function(String? error, [List<String>? values]) callback) =>
+      tg.CloudStorage.getItems(keys, tg.JsDynamicCallback(callback));
 
   /// A method that removes a value from the cloud storage using the specified key.
   /// [key] should contain 1-128 characters, only A-Z, a-z, 0-9, _ and - are allowed.

@@ -1,6 +1,7 @@
-import 'package:example/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
+
+import '../../widgets/title_widget.dart';
 
 class CloudStorageScreen extends StatefulWidget {
   const CloudStorageScreen({super.key});
@@ -41,15 +42,21 @@ class _CloudStorageScreenState extends State<CloudStorageScreen> {
     }
   }
 
-  void onGetItemsCallback(String? error, List<dynamic>? values) {
+  void onGetKeysForRemoveItemsCallback(String? error, [List<String>? keys]) {
+    if (error == null && keys != null) {
+      cloudStorage.removeItems(keys, onRemoveItemsCallback);
+    } else {
+      showSnackbar("Error: $error\nkeys: ${keys.toString()}");
+    }
+  }
+
+  void onRemoveItemsCallback(String? error, [bool? removed]) {
+    showSnackbar("Error: $error\nremoved: $removed");
+  }
+
+  void onGetItemsCallback(String? error, [List<String>? values]) {
     try {
-      String res = '';
-      if (values != null) {
-        for (var cur in values) {
-          res += ", $cur";
-        }
-      }
-      showSnackbar("Error: $error\nValues: $res");
+      showSnackbar("Error: $error\nValues: ${values.toString()}");
     } catch (e) {
       showSnackbar("Error happened: $e");
     }
@@ -142,6 +149,15 @@ class _CloudStorageScreenState extends State<CloudStorageScreen> {
             ElevatedButton(
                 onPressed: () => cloudStorage.getKeys(onGetKeysForGetItemsCallback),
                 child: const Text('Get All Items')),
+            const SizedBox(height: 24),
+            const Divider(height: 12),
+
+            /// **************** Remove All Items method ***************
+            const TitleWidget('Remove all items'),
+            const SizedBox(height: 16),
+            ElevatedButton(
+                onPressed: () => cloudStorage.getKeys(onGetKeysForRemoveItemsCallback),
+                child: const Text('Remove All Items')),
             const SizedBox(height: 16),
           ],
         ),
