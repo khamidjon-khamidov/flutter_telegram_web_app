@@ -5,6 +5,7 @@ import 'package:example/screens/buttons/settings_button_screen.dart';
 import 'package:example/screens/other/cloud_storage_screen.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
 import 'package:example/widgets/expandable_tile.dart';
+import 'package:example/widgets/expandable_tile_with_widget.dart';
 import 'package:example/widgets/list_button.dart';
 import 'package:example/widgets/one_color_widget.dart';
 import 'package:flutter/material.dart';
@@ -61,8 +62,41 @@ class _MainScreenState extends State<MainScreen> {
           InfoExpandableTile('viewportStableHeight', telegram.viewportStableHeight.toString()),
           OneColorExpandableTile('headerColor', telegram.headerColor),
           OneColorExpandableTile('backgroundColor', telegram.backgroundColor),
-          InfoExpandableTile(
-              'isClosingConfirmationEnabled', telegram.isClosingConfirmationEnabled.toString()),
+          InfoExpandableTileWithWidget(
+            'Closing confirmation',
+            expanded: false,
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('isClosingConfirmationEnabled'),
+                  const SizedBox(height: 8),
+                  Text(telegram.isClosingConfirmationEnabled.toString(),
+                      style: const TextStyle(fontSize: 16)),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      ElevatedButton(
+                          onPressed: () async {
+                            await telegram.enableClosingConfirmation();
+                            setState(() {});
+                          },
+                          child: const Text('Enable')),
+                      const SizedBox(width: 16),
+                      ElevatedButton(
+                          onPressed: () async {
+                            await telegram.disableClosingConfirmation();
+                            setState(() {});
+                          },
+                          child: const Text('Disable')),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
           ListButton(
             'BackButton',
             onPress: () {
@@ -104,14 +138,9 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () async {
               Color? color = await selectColor(context);
               if (color != null) {
-                try {
-                  await telegram.setHeaderColor(color);
-                  'Setting color: ${color.hexString}'.showSnackbar(context);
-                  await Future.delayed(const Duration(seconds: 2));
-                } catch (ex) {
-                  'Error setting color: $ex'.showSnackbar(context);
-                }
-
+                await telegram.setHeaderColor(color);
+                'Setting color: ${color.hexString}'.showSnackbar(context);
+                await Future.delayed(const Duration(seconds: 2));
                 setState(() {});
               } else {
                 'Selected color is null'.showSnackbar(context);
@@ -123,14 +152,9 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () async {
               Color? color = await selectColor(context);
               if (color != null) {
-                try {
-                  await telegram.setBackgroundColor(color);
-                  'Setting color: ${color.hexString}'.showSnackbar(context);
-                  await Future.delayed(const Duration(seconds: 2));
-                } catch (ex) {
-                  'Error setting color: $ex'.showSnackbar(context);
-                }
-
+                await telegram.setBackgroundColor(color);
+                'Setting color: ${color.hexString}'.showSnackbar(context);
+                await Future.delayed(const Duration(seconds: 2));
                 setState(() {});
               } else {
                 'Selected color is null'.showSnackbar(context);
@@ -143,8 +167,6 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-/// setHeaderColor(color)
-/// setBackgroundColor(color)
 /// enableClosingConfirmation()
 /// disableClosingConfirmation()
 /// onEvent(eventType, eventHandler)
