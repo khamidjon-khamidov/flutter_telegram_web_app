@@ -44,11 +44,11 @@ external Future<void> setBackgroundColor(String color);
 external Future<void> switchInlineQuery(query, [choose_chat_types]);
 external Future<void> openLink(url, [options]);
 external Future<void> openTelegramLink(String url);
-external Future<void> openInvoice(String url, [JsCallback]);
-external Future<void> readTextFromClipboard([JsCallback]);
+external Future<void> openInvoice(String url, [callback]);
+external Future<void> readTextFromClipboard([callback]);
 
-external Future<void> requestWriteAccess([JsCallback]);
-external Future<void> requestContact([JsCallback]);
+external Future<void> requestWriteAccess([callback]);
+external Future<void> requestContact([callback]);
 
 /// use [TelegramPopup.show()] to show the popup, instead of this method directly
 external Future<void> showPopup(PopupParams param, [JsCallback]);

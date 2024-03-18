@@ -13,3 +13,8 @@ extension StringExtensions on String {
     }
   }
 }
+
+/// Extensions to convert [Color] to hex #rrggbb format
+extension ColorExtensions on Color {
+  String get hexString => '#${value.toRadixString(16).substring(2)}';
+}

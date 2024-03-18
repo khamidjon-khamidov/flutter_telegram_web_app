@@ -80,9 +80,9 @@ class TelegramWebApp {
   /// higher than the version passed as the parameter.
   Future<bool> isVersionAtLeast(String version) => tg.isVersionAtLeast(version);
 
-  Future<void> setHeaderColor(String color) => tg.setHeaderColor(color);
+  Future<void> setHeaderColor(Color color) => tg.setHeaderColor(color.hexString);
 
-  Future<void> setBackgroundColor(String color) => tg.setBackgroundColor(color);
+  Future<void> setBackgroundColor(Color color) => tg.setBackgroundColor(color.hexString);
 
   /// A method that enables a confirmation dialog while
   /// the user is trying to close the Mini App.

@@ -15,6 +15,8 @@ dependencies:
   telegram_web_app:
     path: ../
 
+  flutter_hsvcolor_picker: ^1.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
