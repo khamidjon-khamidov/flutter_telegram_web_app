@@ -1,3 +1,4 @@
+import 'package:example/screens/util/string_snackbar_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
@@ -122,7 +123,6 @@ class _MainButtonScreenState extends State<MainButtonScreen> {
   }
 
   void onButtonPress() {
-    const snackBar = SnackBar(content: Text('Button pressed'));
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    'Button pressed'.showSnackbar(context);
   }
 }

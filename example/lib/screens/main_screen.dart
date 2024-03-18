@@ -5,10 +5,10 @@ import 'package:example/screens/other/cloud_storage_screen.dart';
 import 'package:example/widgets/expandable_tile.dart';
 import 'package:example/widgets/list_button.dart';
 import 'package:example/widgets/one_color_widget.dart';
-import 'package:example/widgets/theme_params_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
+import '../widgets/theme_params_widget.dart';
 import 'other/haptic_feedback_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -21,10 +21,20 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final TelegramWebApp telegram = TelegramWebApp.instance;
 
+  bool? isDefinedVersion;
+
   @override
   void initState() {
     super.initState();
     TelegramWebApp.instance.ready();
+
+    check();
+  }
+
+  void check() async {
+    await Future.delayed(const Duration(seconds: 2));
+    isDefinedVersion = await telegram.isVersionAtLeast('Bot API 6.1');
+    setState(() {});
   }
 
   @override
@@ -83,14 +93,14 @@ class _MainScreenState extends State<MainScreen> {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const CloudStorageScreen()));
             },
-          )
+          ),
+          InfoExpandableTile('isVersionAtLeast(6.1)', isDefinedVersion.toString()),
         ],
       ),
     );
   }
 }
 
-/// CloudStorage
 /// isVersionAtLeast(version)
 /// setHeaderColor(color)
 /// setBackgroundColor(color)
