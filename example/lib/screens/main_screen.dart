@@ -167,8 +167,6 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-/// enableClosingConfirmation()
-/// disableClosingConfirmation()
 /// onEvent(eventType, eventHandler)
 /// offEvent(eventType, eventHandler)
 /// sendData(data)
