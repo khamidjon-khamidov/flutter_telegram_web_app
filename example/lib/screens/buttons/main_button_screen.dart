@@ -123,6 +123,10 @@ class _MainButtonScreenState extends State<MainButtonScreen> {
   }
 
   void onButtonPress() {
+    TelegramWebApp.instance.openLink(
+      'https://telegram.org/blog/new-saved-messages-and-9-more',
+      OpenLinkParams(tryInstantView: true),
+    );
     'Button pressed'.showSnackbar(context);
   }
 }

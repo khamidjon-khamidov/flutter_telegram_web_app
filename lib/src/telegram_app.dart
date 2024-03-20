@@ -124,7 +124,7 @@ class TelegramWebApp {
   /// try_instant_view=true, the link will be opened in Instant View mode if possible.
   /// Note that this method can be called only in response to user interaction with
   /// the Mini App interface (e.g. a click inside the Mini App or on the main button)
-  Future<void> openLink(String url, [dynamic options]) => tg.openLink(url, options);
+  Future<void> openLink(String url, OpenLinkParams options) => tg.openLink(url, options);
 
   /// A method that opens a telegram link inside the Telegram app. The Mini App will
   /// not be closed after this method is called.
@@ -143,9 +143,8 @@ class TelegramWebApp {
   /// popup is closed. If an optional [callback] parameter was passed, the callback
   /// function will be called and the field [id] of the pressed button will be passed
   /// as the first argument.
-  Future<void> showPopup(PopupParams params, [Function(String id)? callback]) => callback != null
-      ? tg.showPopup(params, tg.JsDynamicCallback(callback))
-      : tg.showPopup(params);
+  Future<void> showPopup(PopupParams params, Function(String id) callback) =>
+      tg.showPopup(params, tg.JsDynamicCallback(callback));
 
   /// A method that shows message in a simple alert with a 'Close' button. If an optional
   /// callback parameter was passed, the callback function will be called when the popup is closed.

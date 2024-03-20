@@ -161,6 +161,42 @@ class _MainScreenState extends State<MainScreen> {
               }
             },
           ),
+          ListButton(
+            'Open link',
+            onPress: () async {
+              telegram.openLink(
+                'https://telegram.org/blog/new-saved-messages-and-9-more',
+                OpenLinkParams(tryInstantView: true),
+              );
+            },
+          ),
+          ListButton(
+            'Open telegram link',
+            onPress: () async {
+              telegram.openTelegramLink('https://t.me/flutter_telegram');
+            },
+          ),
+          ListButton(
+            'Show pop1',
+            onPress: () async {
+              try {
+                'Trying to show'.showSnackbar(context);
+                telegram.showPopup(
+                    PopupParams(
+                      title: 'This is title',
+                      message: "This is a message of the app",
+                      // buttons: [
+                      //   PopupButton(1.toString(), PopupButtonType.defaultType, 'Yes'),
+                      //   PopupButton(2.toString(), PopupButtonType.cancel),
+                      // ],
+                    ), (String id) {
+                  'Button pressed. Id: $id'.showSnackbar(context);
+                });
+              } catch (ex) {
+                'error happened showing popup: $ex'.showSnackbar(context);
+              }
+            },
+          ),
         ],
       ),
     );
@@ -171,8 +207,6 @@ class _MainScreenState extends State<MainScreen> {
 /// offEvent(eventType, eventHandler)
 /// sendData(data)
 /// switchInlineQuery(query[, choose_chat_types])
-/// openLink(url[, options])
-/// openTelegramLink(url)
 /// openInvoice(url[, callback])
 /// showPopup(params[, callback])
 /// showAlert(message[, callback])

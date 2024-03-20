@@ -1,9 +1,14 @@
 class PopupButton {
   final String id;
-  final String type;
-  final String text;
 
-  PopupButton(this.id, PopupButtonType buttonType, this.text) : type = buttonType.name;
+  /// Optional. Type of the button. Set to default by default.
+  final String? type;
+
+  /// Optional. The text to be displayed on the button, 0-64 characters.
+  /// Required if type is default or destructive. Irrelevant for other types.
+  final String? text;
+
+  PopupButton(this.id, [PopupButtonType? buttonType, this.text]) : type = buttonType?.name;
 }
 
 enum PopupButtonType {

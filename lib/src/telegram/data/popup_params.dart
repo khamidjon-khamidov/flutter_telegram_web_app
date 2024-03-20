@@ -15,5 +15,8 @@ class PopupParams {
     this.title,
     required this.message,
     this.buttons,
-  });
+  }) : assert((title?.length ?? 0) <= 64 &&
+            message.isNotEmpty &&
+            message.length <= 256 &&
+            (buttons?.length ?? 1) <= 3);
 }

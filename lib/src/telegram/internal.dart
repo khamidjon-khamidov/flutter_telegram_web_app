@@ -51,10 +51,10 @@ external Future<void> requestWriteAccess([callback]);
 external Future<void> requestContact([callback]);
 
 /// use [TelegramPopup.show()] to show the popup, instead of this method directly
-external Future<void> showPopup(PopupParams param, [JsCallback]);
-external Future<void> showAlert(String message, [JsCallback]);
-external Future<void> showConfirm(String message, [JsCallback]);
-external Future<void> showScanQrPopup(ScanQrPopupParams params, [JsCallback]);
+external Future<void> showPopup(PopupParams param, [callback]);
+external Future<void> showAlert(String message, [callback]);
+external Future<void> showConfirm(String message, [callback]);
+external Future<void> showScanQrPopup(ScanQrPopupParams params, [callback]);
 external Future<void> closeScanQrPopup();
 
 ///Events
@@ -62,8 +62,8 @@ external Future<void> closeScanQrPopup();
 /// Available events: https://core.telegram.org/bots/webapps#events-available-for-web-apps
 /// use [TelegramWebEventType] to get the event names, and use [JsVoidCallback] for callbacks
 /// or if any callback requires a return value, use [JsCallback] with the return type
-external void onEvent(String eventType, JsCallback);
-external void offEvent(String eventType, JsCallback);
+external void onEvent(String eventType, callback);
+external void offEvent(String eventType, callback);
 
 ///Callbacks
 ///
