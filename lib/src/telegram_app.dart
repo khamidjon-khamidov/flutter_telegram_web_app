@@ -143,20 +143,31 @@ class TelegramWebApp {
   /// popup is closed. If an optional [callback] parameter was passed, the callback
   /// function will be called and the field [id] of the pressed button will be passed
   /// as the first argument.
-  Future<void> showPopup(PopupParams params, Function(String id) callback) =>
-      tg.showPopup(params, tg.JsDynamicCallback(callback));
+  Future<void> showPopup({
+    String? title,
+    required String message,
+    List<PopupButton>? buttons,
+    required Function(String id) callback,
+  }) =>
+      tg.showPopup(
+        PopupParams(title: title, message: message, buttons: buttons).asRecord,
+        // tg.JsDynamicCallback(callback),
+      );
 
   /// A method that shows message in a simple alert with a 'Close' button. If an optional
   /// callback parameter was passed, the callback function will be called when the popup is closed.
-  Future<void> showAlert(String message, [Function()? callback]) =>
-      callback != null ? tg.showAlert(message, tg.JsVoidCallback(callback)) : tg.showAlert(message);
+  Future<void> showAlert(String message, [Function()? callback]) => callback != null
+      ? tg.showAlert(message, tg.JsDynamicCallback(callback))
+      : tg.showAlert(message);
 
   /// A method that shows message in a simple confirmation window with 'OK' and 'Cancel' buttons.
   /// If an optional callback parameter was passed, the callback function will be called when
   /// the popup is closed and the first argument will be a boolean indicating whether the user
   /// pressed the 'OK' button.
   Future<void> showConfirm(String message, [Function(bool isOkPressed)? callback]) =>
-      callback != null ? tg.showConfirm(message, tg.JsCallback(callback)) : tg.showConfirm(message);
+      callback != null
+          ? tg.showConfirm(message, tg.JsDynamicCallback(callback))
+          : tg.showConfirm(message);
 
   /// A method that shows a native popup for scanning a QR code described by the params argument
   /// of the type [ScanQrPopupParams]. The Mini App will receive the event [qrTextReceived] every time
@@ -179,8 +190,9 @@ class TelegramWebApp {
   /// Note: this method can be called only for Mini Apps launched from the attachment menu and only in
   /// response to a user interaction with the Mini App interface (e.g. a click inside the Mini App
   /// or on the main button).
-  Future<void> readTextFromClipboard([Function(String clipboardText)? onRead]) =>
-      onRead != null ? tg.readTextFromClipboard(tg.JsCallback(onRead)) : tg.readTextFromClipboard();
+  Future<void> readTextFromClipboard([Function(String clipboardText)? onRead]) => onRead != null
+      ? tg.readTextFromClipboard(tg.JsDynamicCallback(onRead))
+      : tg.readTextFromClipboard();
 
   /// A method that shows a native popup requesting permission for the bot to send messages to the user.
   /// If an optional [callback] parameter was passed, the callback function will be called when the popup

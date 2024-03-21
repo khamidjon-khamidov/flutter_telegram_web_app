@@ -3,6 +3,7 @@ library telegram_web_app;
 import 'dart:ui';
 
 import 'package:telegram_web_app/src/models/telegram_color_scheme.dart';
+import 'package:telegram_web_app/src/telegram/data/popup_params.dart';
 import 'package:telegram_web_app/src/telegram/internal.dart' as tg;
 import 'package:telegram_web_app/telegram_web_app.dart';
 
@@ -15,7 +16,6 @@ export 'src/models/theme_params.dart';
 export 'src/telegram/data/chat_types.dart';
 export 'src/telegram/data/main_button_params.dart';
 export 'src/telegram/data/open_link_params.dart';
-export 'src/telegram/data/popup_params.dart';
 export 'src/telegram/data/scan_qr_popup_params.dart';
 export 'src/telegram/data/web_app_chat.dart';
 export 'src/telegram/data/web_app_init_data.dart';

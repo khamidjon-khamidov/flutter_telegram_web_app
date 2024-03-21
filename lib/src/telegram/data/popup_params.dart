@@ -18,5 +18,12 @@ class PopupParams {
   }) : assert((title?.length ?? 0) <= 64 &&
             message.isNotEmpty &&
             message.length <= 256 &&
-            (buttons?.length ?? 1) <= 3);
+            (buttons?.length ?? 0) <= 3);
+
+  Record get asRecord => (
+        title: title,
+        message: message,
+        buttons:
+            buttons?.map((e) => e.asRecord).toList() ?? [PopupButton.cancel('cancel').asRecord],
+      );
 }

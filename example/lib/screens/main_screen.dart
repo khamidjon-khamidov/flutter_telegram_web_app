@@ -177,21 +177,20 @@ class _MainScreenState extends State<MainScreen> {
             },
           ),
           ListButton(
-            'Show pop1',
+            'Show pop24',
             onPress: () async {
               try {
-                'Trying to show'.showSnackbar(context);
                 telegram.showPopup(
-                    PopupParams(
-                      title: 'This is title',
-                      message: "This is a message of the app",
-                      // buttons: [
-                      //   PopupButton(1.toString(), PopupButtonType.defaultType, 'Yes'),
-                      //   PopupButton(2.toString(), PopupButtonType.cancel),
-                      // ],
-                    ), (String id) {
-                  'Button pressed. Id: $id'.showSnackbar(context);
-                });
+                  title: 'Title',
+                  message: "Message",
+                  buttons: [
+                    PopupButton.defaultType('default', 'Yes'),
+                    // PopupButton.cancel('cancel'.toString()),
+                  ],
+                  callback: (String id) {
+                    'Button pressed. Id: $id'.showSnackbar(context);
+                  },
+                );
               } catch (ex) {
                 'error happened showing popup: $ex'.showSnackbar(context);
               }

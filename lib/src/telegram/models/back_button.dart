@@ -4,8 +4,8 @@ import 'package:js/js.dart';
 @JS()
 class BackButton {
   external bool isVisible;
-  external void onClick(jsVoidCallback);
-  external void offClick(jsVoidCallback);
+  external void onClick(callback);
+  external void offClick(callback);
   external Future show();
   external Future hide();
 }

@@ -12,8 +12,8 @@ class MainButton {
   external bool isActive;
   external bool get isProgressVisible;
   external void setText(String text);
-  external void onClick(jsVoidCallback);
-  external void offClick(jsVoidCallback);
+  external void onClick(callback);
+  external void offClick(callback);
   external Future<void> show();
   external Future<void> hide();
   external void enable();

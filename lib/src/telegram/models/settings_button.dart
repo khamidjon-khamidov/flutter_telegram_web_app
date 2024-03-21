@@ -4,8 +4,8 @@ import 'package:js/js.dart';
 @JS()
 class SettingsButton {
   external bool isVisible;
-  external void onClick(jsVoidCallback);
-  external void offClick(jsVoidCallback);
+  external void onClick(callback);
+  external void offClick(callback);
   external Future<void> show();
   external Future<void> hide();
 }

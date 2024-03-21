@@ -2,7 +2,6 @@
 library internal;
 
 import 'package:js/js.dart';
-import 'package:telegram_web_app/src/telegram/data/popup_params.dart';
 import 'package:telegram_web_app/src/telegram/data/scan_qr_popup_params.dart';
 import 'package:telegram_web_app/src/telegram/models/settings_button.dart' as sb;
 
@@ -50,25 +49,12 @@ external Future<void> readTextFromClipboard([callback]);
 external Future<void> requestWriteAccess([callback]);
 external Future<void> requestContact([callback]);
 
-/// use [TelegramPopup.show()] to show the popup, instead of this method directly
-external Future<void> showPopup(PopupParams param, [callback]);
+external Future<void> showPopup(Record param, [callback]);
 external Future<void> showAlert(String message, [callback]);
 external Future<void> showConfirm(String message, [callback]);
 external Future<void> showScanQrPopup(ScanQrPopupParams params, [callback]);
 external Future<void> closeScanQrPopup();
-
-///Events
-///
-/// Available events: https://core.telegram.org/bots/webapps#events-available-for-web-apps
-/// use [TelegramWebEventType] to get the event names, and use [JsVoidCallback] for callbacks
-/// or if any callback requires a return value, use [JsCallback] with the return type
 external void onEvent(String eventType, callback);
 external void offEvent(String eventType, callback);
-
-///Callbacks
-///
-/// Always use these method for callbacks
-JsCallback<T>(Function(T) callback) => allowInterop(callback);
-JsVoidCallback(Function() callback) => allowInterop(callback);
 
 JsDynamicCallback(Function callback) => allowInterop(callback);
