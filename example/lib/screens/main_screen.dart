@@ -222,6 +222,22 @@ class _MainScreenState extends State<MainScreen> {
               }
             },
           ),
+          ListButton(
+            'Show scan QR ',
+            onPress: () async {
+              try {
+                telegram.showScanQrPopup(
+                  'Sample Confirm',
+                  (result) {
+                    'Got QR: $result'.showSnackbar(context);
+                    return false;
+                  },
+                );
+              } catch (ex) {
+                'error happened showing alert: $ex'.showSnackbar(context);
+              }
+            },
+          ),
         ],
       ),
     );
@@ -234,8 +250,6 @@ class _MainScreenState extends State<MainScreen> {
 /// switchInlineQuery(query[, choose_chat_types])
 /// openInvoice(url[, callback])
 
-/// showConfirm(message[, callback])
-/// showScanQrPopup(params[, callback])
 /// closeScanQrPopup()
 /// readTextFromClipboard([callback])
 /// requestWriteAccess([callback])

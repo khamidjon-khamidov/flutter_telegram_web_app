@@ -1,7 +1,11 @@
-/// https://core.telegram.org/bots/webapps#scanqrpopupparams
-class ScanQrPopupParams {
-  /// Optional. The text to be displayed under the 'Scan QR' heading, 0-64 characters.
-  final String? text;
+import 'package:js/js.dart';
 
-  ScanQrPopupParams({this.text});
+/// https://core.telegram.org/bots/webapps#scanqrpopupparams
+@JS()
+@anonymous
+class ScanQrPopupParams {
+  external factory ScanQrPopupParams({String? text});
+
+  /// Optional. The text to be displayed under the 'Scan QR' heading, 0-64 characters.
+  external String? get text;
 }

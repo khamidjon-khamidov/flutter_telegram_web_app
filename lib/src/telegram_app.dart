@@ -183,11 +183,10 @@ class TelegramWebApp {
   /// the scanner catches a code with text data. If an optional callback parameter was passed,
   /// the callback function will be called and the text from the QR code will be passed as the
   /// [first argument]. Returning true inside this [callback] function causes the popup to be closed.
-  Future<void> showScanQrPopup(ScanQrPopupParams params,
-          [bool Function(String result)? callback]) =>
+  Future<void> showScanQrPopup(String? infoTitle, [bool Function(String result)? callback]) =>
       callback != null
-          ? tg.showScanQrPopup(params, tg.JsDynamicCallback(callback))
-          : tg.showScanQrPopup(params);
+          ? tg.showScanQrPopup(ScanQrPopupParams(text: infoTitle), tg.JsDynamicCallback(callback))
+          : tg.showScanQrPopup(ScanQrPopupParams(text: infoTitle));
 
   /// A method that closes the native popup for scanning a QR code opened with the showScanQrPopup method.
   /// Run it if you received valid data in the event qrTextReceived.
