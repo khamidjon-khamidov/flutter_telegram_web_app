@@ -185,7 +185,7 @@ class _MainScreenState extends State<MainScreen> {
                   message: "Message",
                   buttons: [
                     PopupButton.defaultType('default', 'Yes'),
-                    // PopupButton.cancel('cancel'.toString()),
+                    PopupButton.cancel('cancel'),
                   ],
                   callback: (String id) {
                     'Button pressed. Id: $id'.showSnackbar(context);
@@ -193,6 +193,19 @@ class _MainScreenState extends State<MainScreen> {
                 );
               } catch (ex) {
                 'error happened showing popup: $ex'.showSnackbar(context);
+              }
+            },
+          ),
+          ListButton(
+            'Show alert',
+            onPress: () async {
+              try {
+                telegram.showAlert(
+                  'Sample Alert',
+                  () => 'Alert closed'.showSnackbar(context),
+                );
+              } catch (ex) {
+                'error happened showing alert: $ex'.showSnackbar(context);
               }
             },
           ),
@@ -207,7 +220,7 @@ class _MainScreenState extends State<MainScreen> {
 /// sendData(data)
 /// switchInlineQuery(query[, choose_chat_types])
 /// openInvoice(url[, callback])
-/// showPopup(params[, callback])
+
 /// showAlert(message[, callback])
 /// showConfirm(message[, callback])
 /// showScanQrPopup(params[, callback])
