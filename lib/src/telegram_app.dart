@@ -148,11 +148,21 @@ class TelegramWebApp {
     required String message,
     List<PopupButton>? buttons,
     required Function(String id) callback,
-  }) =>
-      tg.showPopup(
-        PopupParams(title: title, message: message, buttons: buttons).asRecord,
-        // tg.JsDynamicCallback(callback),
-      );
+  }) {
+    List<PopupButtonInternal>? newButtons;
+    if (buttons != null) {
+      newButtons = [];
+      for (var b in buttons) {
+        newButtons.add(b.asInternalPopupButton);
+      }
+    }
+    return tg.showPopup(
+      PopupParams(title: title, message: message, buttons: newButtons),
+      tg.JsDynamicCallback(callback),
+    );
+  }
+
+  Future<void> showFun() => tg.showPopup(PopupParams(title: 'Hello', message: 'Message'));
 
   /// A method that shows message in a simple alert with a 'Close' button. If an optional
   /// callback parameter was passed, the callback function will be called when the popup is closed.

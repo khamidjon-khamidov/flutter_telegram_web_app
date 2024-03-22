@@ -1,3 +1,5 @@
+import 'package:js/js.dart';
+
 class PopupButton {
   final String id;
 
@@ -25,5 +27,24 @@ class PopupButton {
   /// button with the localized text “Cancel”
   factory PopupButton.cancel(String id) => PopupButton._(id, 'cancel');
 
-  Record get asRecord => text != null ? (id: id, type: type, text: text) : (id: id, type: type);
+  /// not intended for external use
+  PopupButtonInternal get asInternalPopupButton =>
+      PopupButtonInternal(id: id, type: type, text: text);
+}
+
+/// not intended for external use
+@JS()
+@anonymous
+class PopupButtonInternal {
+  external factory PopupButtonInternal({
+    required String id,
+    required String type,
+    required String? text,
+  });
+
+  external String get id;
+
+  external String get type;
+
+  external String? get text;
 }

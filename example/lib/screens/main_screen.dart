@@ -177,7 +177,7 @@ class _MainScreenState extends State<MainScreen> {
             },
           ),
           ListButton(
-            'Show pop24',
+            'Show pop30',
             onPress: () async {
               try {
                 telegram.showPopup(
@@ -196,6 +196,12 @@ class _MainScreenState extends State<MainScreen> {
               }
             },
           ),
+          ListButton(
+            'Show pop internal 3',
+            onPress: () async {
+              telegram.showFun();
+            },
+          )
         ],
       ),
     );

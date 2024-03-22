@@ -5,6 +5,7 @@ import 'package:js/js.dart';
 import 'package:telegram_web_app/src/telegram/data/scan_qr_popup_params.dart';
 import 'package:telegram_web_app/src/telegram/models/settings_button.dart' as sb;
 
+import 'data/popup_params.dart';
 import 'data/theme_params.dart';
 import 'data/web_app_init_data.dart';
 import 'models/back_button.dart' as bb;
@@ -49,7 +50,7 @@ external Future<void> readTextFromClipboard([callback]);
 external Future<void> requestWriteAccess([callback]);
 external Future<void> requestContact([callback]);
 
-external Future<void> showPopup(Record param, [callback]);
+external Future<void> showPopup(PopupParams params, [callback]);
 external Future<void> showAlert(String message, [callback]);
 external Future<void> showConfirm(String message, [callback]);
 external Future<void> showScanQrPopup(ScanQrPopupParams params, [callback]);
