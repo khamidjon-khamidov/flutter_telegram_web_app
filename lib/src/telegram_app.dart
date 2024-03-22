@@ -173,7 +173,7 @@ class TelegramWebApp {
   /// If an optional callback parameter was passed, the callback function will be called when
   /// the popup is closed and the first argument will be a boolean indicating whether the user
   /// pressed the 'OK' button.
-  Future<void> showConfirm(String message, [Function(bool isOkPressed)? callback]) =>
+  Future<void> showConfirm(String message, [void Function(bool isOkPressed)? callback]) =>
       callback != null
           ? tg.showConfirm(message, tg.JsDynamicCallback(callback))
           : tg.showConfirm(message);

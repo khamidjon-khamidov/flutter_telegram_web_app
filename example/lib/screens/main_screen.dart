@@ -209,6 +209,19 @@ class _MainScreenState extends State<MainScreen> {
               }
             },
           ),
+          ListButton(
+            'Show confirm',
+            onPress: () async {
+              try {
+                telegram.showConfirm(
+                  'Sample Confirm',
+                  (okPressed) => 'Confirm closed. Ok pressed: $okPressed'.showSnackbar(context),
+                );
+              } catch (ex) {
+                'error happened showing alert: $ex'.showSnackbar(context);
+              }
+            },
+          ),
         ],
       ),
     );
@@ -221,7 +234,6 @@ class _MainScreenState extends State<MainScreen> {
 /// switchInlineQuery(query[, choose_chat_types])
 /// openInvoice(url[, callback])
 
-/// showAlert(message[, callback])
 /// showConfirm(message[, callback])
 /// showScanQrPopup(params[, callback])
 /// closeScanQrPopup()
