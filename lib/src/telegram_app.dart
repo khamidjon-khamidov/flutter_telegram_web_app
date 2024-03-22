@@ -198,20 +198,22 @@ class TelegramWebApp {
   /// Note: this method can be called only for Mini Apps launched from the attachment menu and only in
   /// response to a user interaction with the Mini App interface (e.g. a click inside the Mini App
   /// or on the main button).
-  Future<void> readTextFromClipboard([Function(String clipboardText)? onRead]) => onRead != null
-      ? tg.readTextFromClipboard(tg.JsDynamicCallback(onRead))
-      : tg.readTextFromClipboard();
+  Future<void> readTextFromClipboard([void Function(String clipboardText)? onRead]) =>
+      onRead != null
+          ? tg.readTextFromClipboard(tg.JsDynamicCallback(onRead))
+          : tg.readTextFromClipboard();
 
   /// A method that shows a native popup requesting permission for the bot to send messages to the user.
   /// If an optional [callback] parameter was passed, the callback function will be called when the popup
   /// is closed and the first argument will be a boolean indicating whether the user granted this access.
-  Future<void> requestWriteAccess([Function(bool granted)? onResult]) =>
+  /// NOTE! callback is not called if write access is already granted
+  Future<void> requestWriteAccess([void Function(bool granted)? onResult]) =>
       onResult != null ? tg.requestWriteAccess(onResult) : tg.requestWriteAccess();
 
   /// A method that shows a native popup prompting the user for their phone number. If an optional
   /// [callback] parameter was passed, the callback function will be called when the popup is
   /// closed and the first argument will be a boolean indicating whether the user shared its phone number.
-  Future<void> requestContact([Function(bool granted)? onResult]) =>
+  Future<void> requestContact([void Function(bool granted)? onResult]) =>
       onResult != null ? tg.requestContact(onResult) : tg.requestContact();
 
   /// A method that informs the Telegram app that the Mini App is ready to be displayed.

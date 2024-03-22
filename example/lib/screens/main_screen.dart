@@ -26,6 +26,7 @@ class _MainScreenState extends State<MainScreen> {
   final TelegramWebApp telegram = TelegramWebApp.instance;
 
   bool? isDefinedVersion;
+  String? clipboardText;
 
   @override
   void initState() {
@@ -48,6 +49,7 @@ class _MainScreenState extends State<MainScreen> {
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: [
+          ListButton('Expand', onPress: telegram.expand),
           InfoExpandableTile('Init Data', telegram.initData),
           InfoExpandableTile(
             'Init Data Unsafe',
@@ -238,6 +240,35 @@ class _MainScreenState extends State<MainScreen> {
               }
             },
           ),
+          ListButton(
+            'Read clipboard',
+            onPress: () async {
+              telegram.readTextFromClipboard(
+                (result) {
+                  'Clipboard text: $result, You can call this method only by MainButton'
+                      .showSnackbar(context);
+                },
+              );
+            },
+          ),
+          ListButton(
+            'Request write access',
+            onPress: () async {
+              telegram.requestWriteAccess(
+                (result) => 'Write access granted: $result'.showSnackbar(context),
+              );
+            },
+          ),
+          ListButton(
+            'Request Contact',
+            onPress: () async {
+              telegram.requestContact(
+                (result) => 'Contact granted: $result'.showSnackbar(context),
+              );
+            },
+          ),
+          ListButton('Ready', onPress: telegram.ready),
+          ListButton('Close', onPress: telegram.close),
         ],
       ),
     );
@@ -250,10 +281,6 @@ class _MainScreenState extends State<MainScreen> {
 /// switchInlineQuery(query[, choose_chat_types])
 /// openInvoice(url[, callback])
 
-/// closeScanQrPopup()
-/// readTextFromClipboard([callback])
-/// requestWriteAccess([callback])
-/// requestContact([callback])
 /// ready()
 /// expand()
 /// close()
