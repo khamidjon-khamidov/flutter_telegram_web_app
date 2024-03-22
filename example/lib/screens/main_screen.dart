@@ -166,7 +166,7 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () async {
               telegram.openLink(
                 'https://telegram.org/blog/new-saved-messages-and-9-more',
-                OpenLinkParams(tryInstantView: true),
+                tryInstantView: true,
               );
             },
           ),
@@ -177,7 +177,7 @@ class _MainScreenState extends State<MainScreen> {
             },
           ),
           ListButton(
-            'Show pop30',
+            'Show pop',
             onPress: () async {
               try {
                 telegram.showPopup(
@@ -196,12 +196,6 @@ class _MainScreenState extends State<MainScreen> {
               }
             },
           ),
-          ListButton(
-            'Show pop internal 3',
-            onPress: () async {
-              telegram.showFun();
-            },
-          )
         ],
       ),
     );

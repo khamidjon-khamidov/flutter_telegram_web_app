@@ -1,7 +1,11 @@
-class OpenLinkParams {
-  final bool try_instant_view;
+import 'package:js/js.dart';
 
-  OpenLinkParams({
-    required bool tryInstantView,
-  }) : try_instant_view = tryInstantView;
+@JS()
+@anonymous
+class OpenLinkParams {
+  external factory OpenLinkParams({
+    required bool try_instant_view,
+  });
+
+  external bool get try_instant_view;
 }
