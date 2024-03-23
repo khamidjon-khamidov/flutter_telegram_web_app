@@ -37,7 +37,7 @@ external Future<void> expand();
 external Future<void> close();
 external Future<void> enableClosingConfirmation();
 external Future<void> disableClosingConfirmation();
-external Future<void> sendData(dynamic data);
+external Future<void> sendData(String data);
 external Future<bool> isVersionAtLeast(version);
 external Future<void> setHeaderColor(String color);
 external Future<void> setBackgroundColor(String color);

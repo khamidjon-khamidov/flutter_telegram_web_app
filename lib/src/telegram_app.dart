@@ -105,7 +105,7 @@ class TelegramWebApp {
   /// A method used to send data to the bot. When this method is called,
   /// a service message is sent to the bot containing the data data of
   /// the length up to 4096 bytes, and the Mini App is closed. See the field web_app_data in the class Message.
-  /// This method is only available for Mini Apps launched via a Keyboard button.
+  /// WARNING!!! This method is only available for Mini Apps launched via a KEYBOARD button.
   Future<void> sendData(String data) => tg.sendData(data);
 
   /// A method that inserts the bot's username and the specified inline

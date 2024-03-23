@@ -269,6 +269,9 @@ class _MainScreenState extends State<MainScreen> {
           ),
           ListButton('Switch inline query',
               onPress: () => telegram.switchInlineQuery("Hello Telegram")),
+          ListButton('sendData', onPress: () {
+            telegram.sendData('Hello this message is from mini app');
+          }),
           ListButton('Ready', onPress: telegram.ready),
           ListButton('Close', onPress: telegram.close),
         ],
@@ -280,5 +283,4 @@ class _MainScreenState extends State<MainScreen> {
 /// onEvent(eventType, eventHandler)
 /// offEvent(eventType, eventHandler)
 /// sendData(data)
-/// switchInlineQuery(query[, choose_chat_types])
 /// openInvoice(url[, callback])
