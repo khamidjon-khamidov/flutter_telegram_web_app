@@ -50,7 +50,10 @@ class _MainScreenState extends State<MainScreen> {
         padding: const EdgeInsets.all(8),
         children: [
           ListButton('Expand', onPress: telegram.expand),
-          InfoExpandableTile('Init Data', telegram.initData),
+          InfoExpandableTile(
+            'Init Data',
+            telegram.initData.toString(),
+          ),
           InfoExpandableTile(
             'Init Data Unsafe',
             telegram.initDataUnsafe.toReadableString(),
@@ -279,8 +282,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-/// onEvent(eventType, eventHandler)
-/// offEvent(eventType, eventHandler)
-/// sendData(data)
-/// openInvoice(url[, callback])

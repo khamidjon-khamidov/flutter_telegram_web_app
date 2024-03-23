@@ -23,7 +23,7 @@ class InfoExpandableTile extends StatelessWidget {
         ),
         children: <Widget>[
           ListTile(
-            title: Text(
+            title: SelectableText(
               description,
               style: const TextStyle(fontWeight: FontWeight.w500),
             ),

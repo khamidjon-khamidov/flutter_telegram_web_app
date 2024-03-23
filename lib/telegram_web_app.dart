@@ -3,6 +3,7 @@ library telegram_web_app;
 import 'dart:ui';
 
 import 'package:telegram_web_app/src/models/telegram_color_scheme.dart';
+import 'package:telegram_web_app/src/models/telegram_init_data.dart';
 import 'package:telegram_web_app/src/telegram/data/popup_params.dart';
 import 'package:telegram_web_app/src/telegram/internal.dart' as tg;
 import 'package:telegram_web_app/telegram_web_app.dart';

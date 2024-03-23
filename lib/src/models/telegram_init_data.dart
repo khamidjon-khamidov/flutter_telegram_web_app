@@ -1,0 +1,96 @@
+import 'dart:convert';
+
+class TelegramInitData {
+  final TelegramUser user;
+  final int chatInstance;
+  final String chatType;
+  final int authDate;
+  final String hash;
+
+  TelegramInitData._({
+    required this.user,
+    required this.chatInstance,
+    required this.chatType,
+    required this.authDate,
+    required this.hash,
+  });
+
+  factory TelegramInitData.fromRawString(String data) {
+    final String rawData = Uri.decodeFull(data);
+
+    int userStartIndex = rawData.indexOf('user=') + 'user='.length;
+    int userEndIndex = rawData.indexOf('&', userStartIndex);
+    String userJson = rawData.substring(userStartIndex, userEndIndex);
+
+    // Parse user JSON string into Dart Map
+    Map<String, dynamic> userData = jsonDecode(Uri.decodeFull(userJson));
+    TelegramUser user = TelegramUser(
+      id: userData['id'],
+      firstname: userData['first_name'],
+      lastname: userData['last_name'],
+      username: userData['username'],
+      languageCode: userData['language_code'],
+      allowsWriteToPm: userData['allows_write_to_pm'],
+    );
+
+    List<String> keyValuePairs = rawData.substring(userEndIndex + 1).split('&');
+    for (String pair in keyValuePairs) {
+      List<String> parts = pair.split('=');
+      userData[parts[0]] = parts[1];
+    }
+
+    int chatInstance = userData['chat_instance'];
+    String chatType = userData['chat_type'];
+    int authDate = userData['auth_date'];
+    String hash = userData['hash'];
+
+    return TelegramInitData._(
+      user: user,
+      chatInstance: chatInstance,
+      chatType: chatType,
+      authDate: authDate,
+      hash: hash,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'TelegramInitData{'
+        'user: $user, '
+        'chatInstance: $chatInstance, '
+        'chatType: $chatType, '
+        'authDate: $authDate, '
+        'hash: $hash'
+        '}';
+  }
+}
+
+class TelegramUser {
+  final int id;
+  final String firstname;
+  final String lastname;
+  final String username;
+  final String languageCode;
+  final String allowsWriteToPm;
+
+  TelegramUser({
+    required this.id,
+    required this.firstname,
+    required this.lastname,
+    required this.username,
+    required this.languageCode,
+    required this.allowsWriteToPm,
+  });
+
+  @override
+  String toString() {
+    return "TelegramUser{"
+        "id:$id, "
+        "firstname: $firstname, "
+        "lastname: $lastname, "
+        "username: $username, "
+        "languageCode: $languageCode, "
+        "allowsWriteToPm: $allowsWriteToPm"
+        "}";
+  }
+}

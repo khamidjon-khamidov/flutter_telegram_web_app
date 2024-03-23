@@ -11,7 +11,7 @@ class TelegramWebApp {
 
   /// A string with raw data transferred to the Mini App, convenient for validating data.
   /// WARNING: Validate data from this field before using it on the bot's server.
-  String get initData => tg.initData;
+  TelegramInitData get initData => TelegramInitData.fromRawString(tg.initData);
 
   /// An object with input data transferred to the Mini App.
   /// WARNING: Data from this field should not be trusted. You should only use data from
