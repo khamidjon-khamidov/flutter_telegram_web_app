@@ -116,8 +116,9 @@ class TelegramWebApp {
   /// username and the specified inline query in the input field. You can
   /// specify which types of chats the user will be able to choose from.
   /// It can be one or more of the following types: users, bots, groups, channels
+  /// WARNING!!! Enable inline query before using api
   Future<void> switchInlineQuery(String query, [ChatType? chatType]) =>
-      tg.switchInlineQuery(query, chatType);
+      tg.switchInlineQuery(query, chatType?.chatType);
 
   /// A method that opens a link in an external browser. The Mini App will not be closed.
   /// Bot API 6.4+ If the optional [options] parameter is passed with the field

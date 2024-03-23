@@ -267,6 +267,8 @@ class _MainScreenState extends State<MainScreen> {
               );
             },
           ),
+          ListButton('Switch inline query',
+              onPress: () => telegram.switchInlineQuery("Hello Telegram")),
           ListButton('Ready', onPress: telegram.ready),
           ListButton('Close', onPress: telegram.close),
         ],
@@ -280,7 +282,3 @@ class _MainScreenState extends State<MainScreen> {
 /// sendData(data)
 /// switchInlineQuery(query[, choose_chat_types])
 /// openInvoice(url[, callback])
-
-/// ready()
-/// expand()
-/// close()
