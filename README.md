@@ -44,7 +44,7 @@ Text(TelegramWebApp.instance.themeParams)
 Text(TelegramWebApp.instance.initData.toString())
 ```
 
-You can find full list of api examples in example folder. Please feel free to contribute for improvements and any updates.
+You can find full list of api examples in example folder. Please feel free to [contribute](https://github.com/khamidjon-khamidov/flutter_telegram_web_app) for improvements and any updates.
 
 #### Note
 All the apis are only available inside telegram web app. You can't use the apis outside the platform.
