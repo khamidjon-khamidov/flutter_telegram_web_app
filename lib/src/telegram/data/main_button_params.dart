@@ -1,15 +1,19 @@
-class MainButtonParams {
-  String text;
-  String color;
-  String textColor;
-  bool isVisible;
-  bool isActive;
+import 'package:js/js.dart';
 
-  MainButtonParams({
-    required this.text,
-    required this.color,
-    required this.textColor,
-    this.isVisible = true,
-    this.isActive = false,
+@JS()
+@anonymous
+class MainButtonParams {
+  external String get text;
+  external String get color;
+  external String get textColor;
+  external bool get is_visible;
+  external bool get is_active;
+
+  external factory MainButtonParams({
+    required String text,
+    required String color,
+    required String textColor,
+    bool isVisible = true,
+    bool isActive = false,
   });
 }

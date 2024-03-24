@@ -31,8 +31,9 @@ class CloudStorage {
   /// will contain the error. In case of [success], the first argument will be null
   /// and the values will be passed as the second argument.
   Future<void> getItems(
-          List<String> keys, void Function(String? error, [List<String>? values]) callback) =>
-      tg.CloudStorage.getItems(keys, tg.JsDynamicCallback(callback));
+      List<String> keys, void Function(String? error, [List<String>? values]) callback) {
+    return tg.CloudStorage.getItems(keys, tg.JsDynamicCallback(callback));
+  }
 
   /// A method that removes a value from the cloud storage using the specified key.
   /// [key] should contain 1-128 characters, only A-Z, a-z, 0-9, _ and - are allowed.

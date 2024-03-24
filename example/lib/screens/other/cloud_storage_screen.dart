@@ -1,3 +1,4 @@
+import 'package:example/screens/util/string_snackbar_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
@@ -54,9 +55,11 @@ class _CloudStorageScreenState extends State<CloudStorageScreen> {
     showSnackbar("Error: $error\nremoved: $removed");
   }
 
-  void onGetItemsCallback(String? error, [List<String>? values]) {
+  void onGetItemsCallback(String? error, [dynamic values]) {
     try {
-      showSnackbar("Error: $error\nValues: ${values.toString()}");
+      "I haven't yet figured out how to convert JS object to dart. Please feel free to PR;) "
+          .showSnackbar(context);
+      showSnackbar("Error: $error\nValues: ${JsUtil.toDartSimpleObject(values).toString()}");
     } catch (e) {
       showSnackbar("Error happened: $e");
     }
@@ -134,8 +137,6 @@ class _CloudStorageScreenState extends State<CloudStorageScreen> {
             const Divider(height: 12),
 
             /// **************** Get Keys method ***************
-            const TitleWidget('getKeys'),
-            const SizedBox(height: 16),
             ElevatedButton(
                 onPressed: () => cloudStorage.getKeys(onGetKeysCallback),
                 child: const Text('getKeys')),
@@ -144,8 +145,6 @@ class _CloudStorageScreenState extends State<CloudStorageScreen> {
             const Divider(height: 12),
 
             /// **************** Get All Items method ***************
-            const TitleWidget('Get all items'),
-            const SizedBox(height: 16),
             ElevatedButton(
                 onPressed: () => cloudStorage.getKeys(onGetKeysForGetItemsCallback),
                 child: const Text('Get All Items')),
@@ -153,8 +152,6 @@ class _CloudStorageScreenState extends State<CloudStorageScreen> {
             const Divider(height: 12),
 
             /// **************** Remove All Items method ***************
-            const TitleWidget('Remove all items'),
-            const SizedBox(height: 16),
             ElevatedButton(
                 onPressed: () => cloudStorage.getKeys(onGetKeysForRemoveItemsCallback),
                 child: const Text('Remove All Items')),

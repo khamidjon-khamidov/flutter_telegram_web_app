@@ -35,6 +35,7 @@ export 'src/telegram/events/viewport_changed_event.dart';
 export 'src/telegram/events/write_access_requested_event.dart';
 export 'src/telegram/models/popup_button.dart';
 export 'src/util/color_utils.dart';
+export 'src/util/js_util.dart';
 export 'src/util/theme_util.dart';
 
 part 'src/telegram_app.dart';
