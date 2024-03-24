@@ -57,9 +57,8 @@ class _CloudStorageScreenState extends State<CloudStorageScreen> {
 
   void onGetItemsCallback(String? error, [dynamic values]) {
     try {
-      "I haven't yet figured out how to convert JS object to dart. Please feel free to PR;) "
+      "I haven't yet figured out how to convert JS object to dart. Please feel free to PR;). Values: $values "
           .showSnackbar(context);
-      showSnackbar("Error: $error\nValues: ${JsUtil.toDartSimpleObject(values).toString()}");
     } catch (e) {
       showSnackbar("Error happened: $e");
     }
