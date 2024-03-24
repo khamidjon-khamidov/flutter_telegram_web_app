@@ -1,6 +1,6 @@
-## 0.0.2
+## 0.0.3
 
-* Update Readme.md
+* Update Readme.md, add repository link
 
 ## 0.0.1
 
