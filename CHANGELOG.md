@@ -1,6 +1,6 @@
-## 0.0.3
+## 0.0.4
 
-* Update Readme.md, add repository link
+* Update Readme.md, add repository link and add tutorial
 
 ## 0.0.1
 
