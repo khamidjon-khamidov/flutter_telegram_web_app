@@ -26,6 +26,7 @@ You can also find detailed examples in example project.
 5. Use the website url to load the webapp in telegram
 6. You can also inspect the app with Javascript logs via debugging as described [here](https://core.telegram.org/bots/webapps#testing-mini-apps)
 
+Here is an article on how to deploy web to Firebase and link to Telegram web app 👉 [Telegram Mini Apps](https://medium.com/@uz-dev/telegram-mini-apps-with-flutter-3656ae4b8b20)
 
 ## How to use
 
