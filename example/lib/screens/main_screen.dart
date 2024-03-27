@@ -56,7 +56,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           InfoExpandableTile(
             'Init Data Unsafe',
-            telegram.initDataUnsafe.toReadableString(),
+            telegram.initDataUnsafe?.toReadableString() ?? 'null',
           ),
           InfoExpandableTile('Version', telegram.version),
           InfoExpandableTile('Platform', telegram.platform),
