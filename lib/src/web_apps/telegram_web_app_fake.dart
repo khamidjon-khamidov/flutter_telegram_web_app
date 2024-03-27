@@ -5,10 +5,10 @@ class TelegramWebAppFake extends TelegramWebApp {
   bool get isSupported => true;
 
   @override
-  TelegramInitData get initData => TelegramInitData.fromRawString(tg.initData);
+  TelegramInitData get initData => TelegramInitData.fake();
 
   @override
-  WebAppInitData get initDataUnsafe => tg.initDataUnsafe;
+  WebAppInitData? get initDataUnsafe => null;
 
   @override
   String get version => '7.0';
@@ -19,7 +19,7 @@ class TelegramWebAppFake extends TelegramWebApp {
   @override
   TelegramColorScheme get colorScheme => TelegramColorScheme.dark;
   @override
-  ThemeParams get themeParams => ThemeParams.instance;
+  ThemeParams get themeParams => MockThemeParams();
 
   @override
   bool get isExpanded => true;
@@ -31,10 +31,10 @@ class TelegramWebAppFake extends TelegramWebApp {
   double? get viewportStableHeight => 548.0;
 
   @override
-  Color? get headerColor => const Color(0xffffaf94);
+  Color? get headerColor => const Color(0xff18222d);
 
   @override
-  Color? get backgroundColor => const Color(0xffffaf94);
+  Color? get backgroundColor => const Color(0xff18222d);
 
   @override
   bool get isClosingConfirmationEnabled => true;

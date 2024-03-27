@@ -2,6 +2,7 @@ library telegram_web_app;
 
 import 'dart:ui';
 
+import 'package:telegram_web_app/src/models/mock/mock_theme_params.dart';
 import 'package:telegram_web_app/src/models/telegram_color_scheme.dart';
 import 'package:telegram_web_app/src/models/telegram_init_data.dart';
 import 'package:telegram_web_app/src/telegram/data/popup_params.dart';

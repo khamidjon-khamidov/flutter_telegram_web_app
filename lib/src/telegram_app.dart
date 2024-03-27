@@ -16,7 +16,7 @@ abstract class TelegramWebApp {
   /// An object with input data transferred to the Mini App.
   /// WARNING: Data from this field should not be trusted. You should only use data from
   /// initData on the bot's server and only after it has been validated.
-  WebAppInitData get initDataUnsafe;
+  WebAppInitData? get initDataUnsafe;
 
   /// The version of the Bot API available in the user's Telegram app.
   String get version;

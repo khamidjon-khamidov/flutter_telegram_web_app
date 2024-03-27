@@ -10,7 +10,7 @@ class TelegramWebAppImpl extends TelegramWebApp {
   TelegramInitData get initData => TelegramInitData.fromRawString(tg.initData);
 
   @override
-  WebAppInitData get initDataUnsafe => tg.initDataUnsafe;
+  WebAppInitData? get initDataUnsafe => tg.initDataUnsafe;
 
   @override
   String get version => tg.version;

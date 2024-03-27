@@ -53,6 +53,25 @@ class TelegramInitData {
     );
   }
 
+  factory TelegramInitData.fake() {
+    TelegramUser user = TelegramUser(
+      id: 23424242,
+      firstname: 'Joh',
+      lastname: 'Kerry',
+      username: 'flutter_telegram',
+      languageCode: 'en',
+      allowsWriteToPm: true,
+    );
+
+    return TelegramInitData._(
+      user: user,
+      chatInstance: 23423423424243,
+      chatType: 'private',
+      authDate: 1711523754,
+      hash: '990cb639550445f1d6ac16cac04f793a570904fa89104fa9e854d51d6bd489a6',
+    );
+  }
+
   @override
   String toString() {
     return 'TelegramInitData{'
@@ -71,7 +90,7 @@ class TelegramUser {
   final String lastname;
   final String username;
   final String languageCode;
-  final String allowsWriteToPm;
+  final bool allowsWriteToPm;
 
   TelegramUser({
     required this.id,
