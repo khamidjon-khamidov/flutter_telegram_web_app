@@ -39,3 +39,4 @@ export 'src/util/js_util.dart';
 export 'src/util/theme_util.dart';
 
 part 'src/telegram_app.dart';
+part 'src/web_apps/telegram_web_app_impl.dart';
