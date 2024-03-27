@@ -31,7 +31,7 @@ Here is an article on how to deploy web to Firebase and link to Telegram web app
 ## How to use
 
 There is a class `TelegramWebApp` which contains all the telegram web apis. You can call the methods via `TelegramWebApp.instance`
-
+You can also mock TelegramWebApp by extending it if you are trying to test outside telegram platform. Alternatively, TelegramWebAppFake object can also be used for the same purpose.
 
 #### Example
 ```dart
