@@ -3,12 +3,12 @@ import 'package:telegram_web_app/src/models/telegram_color_scheme.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
 abstract class TelegramThemeUtil {
-  static TelegramWebApp get _tg => TelegramWebApp.instance;
+  static TelegramWebApp get _tg =>
+      TelegramWebApp.instance.isSupported ? TelegramWebApp.instance : TelegramWebAppFake();
 
   static ThemeData? get currentTheme => getTheme(_tg.colorScheme);
 
   static ThemeData? getTheme(TelegramColorScheme telegramTheme) {
-    if (!_tg.isSupported) return null;
     ThemeData theme =
         telegramTheme == TelegramColorScheme.dark ? ThemeData.dark() : ThemeData.light();
 
