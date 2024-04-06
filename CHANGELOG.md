@@ -1,3 +1,7 @@
+## 0.0.6
+
+* Add mocking for theme
+
 ## 0.0.5
 
 * Add TelegramWebAppFake for mocking
