@@ -109,7 +109,7 @@ class TelegramWebAppFake extends TelegramWebApp {
   Future<void> readTextFromClipboard([void Function(String clipboardText)? onRead]) async {}
 
   @override
-  Future<void> requestWriteAccess([void Function(bool granted)? onResult]) async {}
+  Future<void> requestWriteAccess({required Function(bool granted) onResult}) async {}
 
   @override
   Future<void> requestContact([void Function(bool granted)? onResult]) async {}

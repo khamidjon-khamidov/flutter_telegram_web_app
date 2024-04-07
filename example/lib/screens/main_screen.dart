@@ -258,7 +258,7 @@ class _MainScreenState extends State<MainScreen> {
             'Request write access',
             onPress: () async {
               telegram.requestWriteAccess(
-                (result) => 'Write access granted: $result'.showSnackbar(context),
+                onResult: (result) => 'Write access granted: $result'.showSnackbar(context),
               );
             },
           ),
