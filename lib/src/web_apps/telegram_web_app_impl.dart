@@ -75,11 +75,11 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   void onEvent(TelegramEvent event) =>
-      tg.onEvent(event.eventType.name, tg.JsDynamicCallback(event.eventHandler));
+      tg.onEvent(event.eventType.eventName, tg.JsDynamicCallback(event.eventHandler));
 
   @override
   void offEvent(TelegramEvent event) =>
-      tg.offEvent(event.eventType.name, tg.JsDynamicCallback(event.eventHandler));
+      tg.offEvent(event.eventType.eventName, tg.JsDynamicCallback(event.eventHandler));
 
   @override
   Future<void> sendData(String data) => tg.sendData(data);
@@ -140,18 +140,17 @@ class TelegramWebAppImpl extends TelegramWebApp {
   Future<void> closeScanQrPopup() => tg.closeScanQrPopup();
 
   @override
-  Future<void> readTextFromClipboard([void Function(String clipboardText)? onRead]) =>
-      onRead != null
-          ? tg.readTextFromClipboard(tg.JsDynamicCallback(onRead))
-          : tg.readTextFromClipboard();
+  Future<void> readTextFromClipboard([Function(String clipboardText)? onRead]) => onRead != null
+      ? tg.readTextFromClipboard(tg.JsDynamicCallback(onRead))
+      : tg.readTextFromClipboard();
 
   @override
-  Future<void> requestWriteAccess([void Function(bool granted)? onResult]) =>
-      onResult != null ? tg.requestWriteAccess(onResult) : tg.requestWriteAccess();
+  Future<void> requestWriteAccess({required Function(bool granted) onResult}) =>
+      tg.requestWriteAccess(tg.JsDynamicCallback(onResult));
 
   @override
-  Future<void> requestContact([void Function(bool granted)? onResult]) =>
-      onResult != null ? tg.requestContact(onResult) : tg.requestContact();
+  Future<void> requestContact([Function(bool granted)? onResult]) =>
+      onResult != null ? tg.requestContact(tg.JsDynamicCallback(onResult)) : tg.requestContact();
 
   @override
   Future<void> ready() => tg.ready();

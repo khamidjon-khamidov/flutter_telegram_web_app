@@ -178,8 +178,7 @@ abstract class TelegramWebApp {
   /// A method that shows a native popup requesting permission for the bot to send messages to the user.
   /// If an optional [callback] parameter was passed, the callback function will be called when the popup
   /// is closed and the first argument will be a boolean indicating whether the user granted this access.
-  /// NOTE! callback is not called if write access is already granted
-  Future<void> requestWriteAccess([void Function(bool granted)? onResult]);
+  Future<void> requestWriteAccess({required Function(bool granted) onResult});
 
   /// A method that shows a native popup prompting the user for their phone number. If an optional
   /// [callback] parameter was passed, the callback function will be called when the popup is
