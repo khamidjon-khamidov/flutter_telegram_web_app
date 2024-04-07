@@ -28,7 +28,6 @@ migrate_working_dir/
 .dart_tool/
 build/
 
-.fvm
 pubspec.lock
 
 example/pubspec.lock
@@ -40,3 +39,7 @@ example/.firebaserc
 example/.firebase
 example/.flutter-plugins
 example/.flutter-plugins-dependencies
+
+# FVM Version Cache
+.fvm/
+.fvmrc
