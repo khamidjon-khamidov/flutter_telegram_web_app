@@ -1,3 +1,7 @@
+## 0.1.0
+
+* Fix bug - requestWriteAccess callbacks not working
+
 ## 0.0.6
 
 * Add mocking for theme
