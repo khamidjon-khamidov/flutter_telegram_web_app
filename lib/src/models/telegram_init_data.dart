@@ -7,12 +7,14 @@ class TelegramInitData {
   final int authDate;
   final String hash;
 
+  final String raw;
   TelegramInitData._({
     required this.user,
     required this.chatInstance,
     required this.chatType,
     required this.authDate,
     required this.hash,
+    required this.raw,
   });
 
   factory TelegramInitData.fromRawString(String data) {
@@ -50,6 +52,7 @@ class TelegramInitData {
       chatType: chatType,
       authDate: authDate,
       hash: hash,
+      raw: data,
     );
   }
 
@@ -64,12 +67,12 @@ class TelegramInitData {
     );
 
     return TelegramInitData._(
-      user: user,
-      chatInstance: 23423423424243,
-      chatType: 'private',
-      authDate: 1711523754,
-      hash: '990cb639550445f1d6ac16cac04f793a570904fa89104fa9e854d51d6bd489a6',
-    );
+        user: user,
+        chatInstance: 23423423424243,
+        chatType: 'private',
+        authDate: 1711523754,
+        hash: '990cb639550445f1d6ac16cac04f793a570904fa89104fa9e854d51d6bd489a6',
+        raw: 'This is fake row data');
   }
 
   @override
@@ -79,7 +82,8 @@ class TelegramInitData {
         'chatInstance: $chatInstance, '
         'chatType: $chatType, '
         'authDate: $authDate, '
-        'hash: $hash'
+        'hash: $hash,'
+        'raw: $raw'
         '}';
   }
 }
