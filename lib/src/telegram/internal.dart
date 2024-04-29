@@ -23,6 +23,7 @@ external bool get isClosingConfirmationEnabled;
 external bool get isExpanded;
 external double? get viewportHeight;
 external double? get viewportStableHeight;
+external String? get tgWebAppStartParam;
 
 external ThemeParams get themeParams;
 external bb.BackButton get BackButton;
