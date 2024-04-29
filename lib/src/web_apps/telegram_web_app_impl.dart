@@ -35,6 +35,9 @@ class TelegramWebAppImpl extends TelegramWebApp {
   double? get viewportStableHeight => tg.viewportStableHeight;
 
   @override
+  String? get tgWebAppStartParam => tg.tgWebAppStartParam;
+
+  @override
   Color? get headerColor => tg.headerColor.toColor();
 
   @override
