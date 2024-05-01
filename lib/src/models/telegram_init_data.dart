@@ -8,7 +8,7 @@ class TelegramInitData {
   final String hash;
 
   final String raw;
-  TelegramInitData._({
+  TelegramInitData({
     required this.user,
     required this.chatInstance,
     required this.chatType,
@@ -41,12 +41,12 @@ class TelegramInitData {
       userData[parts[0]] = parts[1];
     }
 
-    int chatInstance = userData['chat_instance'];
+    int chatInstance = int.parse(userData['chat_instance']);
     String chatType = userData['chat_type'];
-    int authDate = userData['auth_date'];
+    int authDate = int.parse(userData['auth_date']);
     String hash = userData['hash'];
 
-    return TelegramInitData._(
+    return TelegramInitData(
       user: user,
       chatInstance: chatInstance,
       chatType: chatType,
@@ -66,7 +66,7 @@ class TelegramInitData {
       allowsWriteToPm: true,
     );
 
-    return TelegramInitData._(
+    return TelegramInitData(
         user: user,
         chatInstance: 23423423424243,
         chatType: 'private',
