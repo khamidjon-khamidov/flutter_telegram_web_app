@@ -10,6 +10,7 @@ abstract class TelegramThemeUtil {
     return theme.copyWith(
       primaryColor: telegram.themeParams.headerBgColor,
       scaffoldBackgroundColor: telegram.themeParams.sectionBgColor,
+      progressIndicatorTheme: ProgressIndicatorThemeData(color: telegram.themeParams.buttonColor),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: telegram.themeParams.sectionBgColor,
@@ -33,6 +34,7 @@ abstract class TelegramThemeUtil {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           backgroundColor: telegram.themeParams.buttonColor,
+          foregroundColor: telegram.themeParams.buttonTextColor,
           textStyle: TextStyle(
             color: telegram.themeParams.buttonTextColor,
           ),
