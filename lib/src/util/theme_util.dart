@@ -33,11 +33,8 @@ abstract class TelegramThemeUtil {
       cardColor: telegram.themeParams.sectionBgColor,
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          backgroundColor: telegram.themeParams.buttonColor,
-          foregroundColor: telegram.themeParams.buttonTextColor,
-          textStyle: TextStyle(
-            color: telegram.themeParams.buttonTextColor,
-          ),
+          foregroundColor: telegram.themeParams.buttonColor,
+          textStyle: TextStyle(color: telegram.themeParams.buttonTextColor),
         ),
       ),
       appBarTheme: theme.appBarTheme.copyWith(
