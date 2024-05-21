@@ -19,6 +19,25 @@ abstract class TelegramThemeUtil {
           ),
         ),
       ),
+      segmentedButtonTheme: theme.segmentedButtonTheme.copyWith(
+          style: ButtonStyle(
+        iconColor: MaterialStateProperty.resolveWith<Color>(
+          (Set<MaterialState> states) {
+            if (!states.contains(MaterialState.selected)) {
+              return telegram.themeParams.buttonColor ?? Colors.blue;
+            }
+            return telegram.themeParams.textColor ?? Colors.black;
+          },
+        ),
+        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+          (Set<MaterialState> states) {
+            if (states.contains(MaterialState.selected)) {
+              return telegram.themeParams.buttonColor?.withAlpha(80) ?? Colors.blue;
+            }
+            return Colors.transparent;
+          },
+        ),
+      )),
       iconTheme: theme.iconTheme.copyWith(color: telegram.themeParams.textColor),
       textTheme: theme.textTheme.apply(
         bodyColor: telegram.themeParams.textColor,
