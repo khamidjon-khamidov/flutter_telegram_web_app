@@ -11,6 +11,11 @@ abstract class TelegramThemeUtil {
       primaryColor: telegram.themeParams.headerBgColor,
       scaffoldBackgroundColor: telegram.themeParams.sectionBgColor,
       progressIndicatorTheme: ProgressIndicatorThemeData(color: telegram.themeParams.buttonColor),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: telegram.themeParams.accentTextColor,
+        selectionHandleColor: telegram.themeParams.accentTextColor,
+        selectionColor: telegram.themeParams.accentTextColor?.withAlpha(150),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: telegram.themeParams.sectionBgColor,
@@ -20,24 +25,30 @@ abstract class TelegramThemeUtil {
         ),
       ),
       segmentedButtonTheme: theme.segmentedButtonTheme.copyWith(
-          style: ButtonStyle(
-        iconColor: MaterialStateProperty.resolveWith<Color>(
-          (Set<MaterialState> states) {
-            if (!states.contains(MaterialState.selected)) {
-              return telegram.themeParams.buttonColor ?? Colors.blue;
-            }
-            return telegram.themeParams.textColor ?? Colors.black;
-          },
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+          iconColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              if (!states.contains(MaterialState.selected)) {
+                return telegram.themeParams.buttonColor ?? Colors.blue;
+              }
+              return telegram.themeParams.textColor ?? Colors.black;
+            },
+          ),
+          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              if (states.contains(MaterialState.selected)) {
+                return telegram.themeParams.buttonColor?.withAlpha(80) ?? Colors.blue;
+              }
+              return Colors.transparent;
+            },
+          ),
         ),
-        backgroundColor: MaterialStateProperty.resolveWith<Color>(
-          (Set<MaterialState> states) {
-            if (states.contains(MaterialState.selected)) {
-              return telegram.themeParams.buttonColor?.withAlpha(80) ?? Colors.blue;
-            }
-            return Colors.transparent;
-          },
-        ),
-      )),
+      ),
       iconTheme: theme.iconTheme.copyWith(color: telegram.themeParams.textColor),
       textTheme: theme.textTheme.apply(
         bodyColor: telegram.themeParams.textColor,
@@ -56,10 +67,18 @@ abstract class TelegramThemeUtil {
           textStyle: TextStyle(color: telegram.themeParams.buttonTextColor),
         ),
       ),
+      radioTheme: RadioThemeData(
+        fillColor: MaterialStateProperty.all(telegram.themeParams.accentTextColor),
+        overlayColor:
+            MaterialStateProperty.all(telegram.themeParams.accentTextColor?.withAlpha(20)),
+      ),
       appBarTheme: theme.appBarTheme.copyWith(
-          foregroundColor: telegram.themeParams.sectionHeaderTextColor,
-          backgroundColor: telegram.themeParams.headerBgColor,
-          iconTheme: theme.appBarTheme.iconTheme?.copyWith(color: telegram.themeParams.textColor)),
+        foregroundColor: telegram.themeParams.sectionHeaderTextColor,
+        backgroundColor: telegram.themeParams.headerBgColor,
+        iconTheme: theme.appBarTheme.iconTheme?.copyWith(
+          color: telegram.themeParams.textColor,
+        ),
+      ),
     );
   }
 }
