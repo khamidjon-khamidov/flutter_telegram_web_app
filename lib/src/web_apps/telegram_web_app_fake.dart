@@ -28,6 +28,9 @@ class TelegramWebAppFake extends TelegramWebApp {
   double? get viewportHeight => 548.0;
 
   @override
+  String? get tgWebAppStartParam => 'Fake init param';
+
+  @override
   double? get viewportStableHeight => 548.0;
 
   @override
@@ -79,7 +82,10 @@ class TelegramWebAppFake extends TelegramWebApp {
   @override
   Future<void> switchInlineQuery(String query, [ChatType? chatType]) async {}
   @override
-  Future<void> openLink(String url, {bool tryInstantView = true}) async {}
+  Future<void> openLink(String url, {bool tryInstantView = true}) async {
+    print("Mocked open link for $url, tryInstantView: $tryInstantView");
+  }
+
   @override
   Future<void> openTelegramLink(String url) async {}
 

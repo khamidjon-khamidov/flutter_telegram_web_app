@@ -1,9 +1,8 @@
 import 'package:telegram_web_app/src/telegram/internal.dart' as tg;
 
 class CloudStorage {
-  CloudStorage._();
   static CloudStorage? _instance;
-  static CloudStorage get instance => _instance ??= CloudStorage._();
+  static CloudStorage get instance => _instance ??= CloudStorage();
 
   /// A method that stores a value in the cloud storage using the specified key.
   /// You can store up to 1024 keys in the cloud storage
