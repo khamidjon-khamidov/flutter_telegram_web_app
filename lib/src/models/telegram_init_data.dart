@@ -18,8 +18,9 @@ class TelegramInitData {
   });
 
   factory TelegramInitData.fromRawString(String data) {
-    final String rawData = Uri.decodeFull(data);
-
+    List<int> bytes = data.codeUnits;
+    final String rawData = utf8.decode(bytes);
+    
     int userStartIndex = rawData.indexOf('user=') + 'user='.length;
     int userEndIndex = rawData.indexOf('&', userStartIndex);
     String userJson = rawData.substring(userStartIndex, userEndIndex);
