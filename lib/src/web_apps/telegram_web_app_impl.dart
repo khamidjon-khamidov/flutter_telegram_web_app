@@ -100,7 +100,7 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   Future<void> openInvoice(String url, [Function(dynamic)? onInvoiceStatus]) =>
-      onInvoiceStatus != null ? tg.openInvoice(url, onInvoiceStatus) : tg.openInvoice(url);
+      onInvoiceStatus != null ? tg.openInvoice(url, tg.JsDynamicCallback(onInvoiceStatus)) : tg.openInvoice(url);
 
   @override
   Future<void> showPopup({
