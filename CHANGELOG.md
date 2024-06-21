@@ -1,10 +1,15 @@
+## 0.1.3
+
+* Bug fix - `openInvoice` callback not working [OlegNovosad](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/5)
+* Bug fix - User name/surname `utf-8` support [bugrevealingbme](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/4)
+* Update `example` app index.html in accordance with latest flutter version
+
 ## 0.1.2
 
 * Add support for telegram theme colors for widgets in theme_util.dart
 * Make telegram objects mockable
 * Add start param value
 * Add telegram raw in init data
-
 
 ## 0.1.0
 
