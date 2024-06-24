@@ -49,4 +49,12 @@ Text(TelegramWebApp.instance.initData.toString())
 You can find full list of api examples in example folder. Please feel free to [contribute](https://github.com/khamidjon-khamidov/flutter_telegram_web_app) for improvements and any updates.
 
 #### Note
-All the apis are only available inside telegram web app. You can't use the apis outside the platform.
+1. All the apis are only available inside telegram web app. You can't use the apis outside the platform.
+
+2. In Android, Web App is sometimes not loading (only grey/white screen showing up). If this happens to you, add a half a second delay in main function:
+```dart
+void main() async {
+  await Future.delayed(const Duration(milliseconds: 500));
+  // other methods
+}
+```
