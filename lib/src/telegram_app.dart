@@ -53,12 +53,6 @@ abstract class TelegramWebApp {
   /// False, if the confirmation dialog is disabled.
   bool get isClosingConfirmationEnabled;
 
-  /// You can use direct links to open a Mini App directly
-  /// in the current chat. If a non-empty startapp parameter
-  /// is included in the link, it will be passed to the Mini
-  /// App in the start_param field and in the below GET parameter
-  String? get tgWebAppStartParam;
-
   /// An object for controlling the back button
   /// which can be displayed in the header of
   /// the Mini App in the Telegram interface.

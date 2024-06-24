@@ -28,9 +28,6 @@ class TelegramWebAppFake extends TelegramWebApp {
   double? get viewportHeight => 548.0;
 
   @override
-  String? get tgWebAppStartParam => 'Fake init param';
-
-  @override
   double? get viewportStableHeight => 548.0;
 
   @override

@@ -6,8 +6,8 @@ class TelegramInitData {
   final String chatType;
   final int authDate;
   final String hash;
-
   final String raw;
+
   TelegramInitData({
     required this.user,
     required this.chatInstance,
@@ -77,6 +77,27 @@ class TelegramInitData {
   }
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TelegramInitData &&
+          runtimeType == other.runtimeType &&
+          user == other.user &&
+          chatInstance == other.chatInstance &&
+          chatType == other.chatType &&
+          authDate == other.authDate &&
+          hash == other.hash &&
+          raw == other.raw;
+
+  @override
+  int get hashCode =>
+      user.hashCode ^
+      chatInstance.hashCode ^
+      chatType.hashCode ^
+      authDate.hashCode ^
+      hash.hashCode ^
+      raw.hashCode;
+
+  @override
   String toString() {
     return 'TelegramInitData{'
         'user: $user, '
@@ -117,4 +138,25 @@ class TelegramUser {
         "allowsWriteToPm: $allowsWriteToPm"
         "}";
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TelegramUser &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          firstname == other.firstname &&
+          lastname == other.lastname &&
+          username == other.username &&
+          languageCode == other.languageCode &&
+          allowsWriteToPm == other.allowsWriteToPm;
+
+  @override
+  int get hashCode =>
+      id.hashCode ^
+      firstname.hashCode ^
+      lastname.hashCode ^
+      username.hashCode ^
+      languageCode.hashCode ^
+      allowsWriteToPm.hashCode;
 }

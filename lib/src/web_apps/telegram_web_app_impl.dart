@@ -35,9 +35,6 @@ class TelegramWebAppImpl extends TelegramWebApp {
   double? get viewportStableHeight => tg.viewportStableHeight;
 
   @override
-  String? get tgWebAppStartParam => tg.tgWebAppStartParam;
-
-  @override
   Color? get headerColor => tg.headerColor.toColor();
 
   @override
@@ -100,7 +97,9 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   Future<void> openInvoice(String url, [Function(dynamic)? onInvoiceStatus]) =>
-      onInvoiceStatus != null ? tg.openInvoice(url, tg.JsDynamicCallback(onInvoiceStatus)) : tg.openInvoice(url);
+      onInvoiceStatus != null
+          ? tg.openInvoice(url, tg.JsDynamicCallback(onInvoiceStatus))
+          : tg.openInvoice(url);
 
   @override
   Future<void> showPopup({
