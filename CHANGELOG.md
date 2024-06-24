@@ -1,3 +1,7 @@
+## 0.1.4
+* Remove `tgWebAppStartParam` - doesn't exist in telegram scrip
+* Add test for parsing raw to TelegramInitData
+
 ## 0.1.3
 
 * Bug fix - `openInvoice` callback not working [OlegNovosad](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/5)
