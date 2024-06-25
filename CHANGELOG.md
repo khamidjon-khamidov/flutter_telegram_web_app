@@ -1,6 +1,8 @@
 ## 0.1.4
-* Remove `tgWebAppStartParam` - doesn't exist in telegram scrip
+* Remove `tgWebAppStartParam` - doesn't exist in telegram script
 * Add test for parsing raw to TelegramInitData
+* Handle null values for `chat_type`, `chat_instance`, `username`
+* Add `queryId` param for `TelegramInitData`
 
 ## 0.1.3
 
