@@ -1,9 +1,12 @@
 import 'dart:convert';
 
+import 'package:telegram_web_app/src/util/data_parser.dart';
+
 class TelegramInitData {
   final TelegramUser user;
-  final int chatInstance;
-  final String chatType;
+  final int? chatInstance;
+  final String? chatType;
+  final String? queryId;
   final int authDate;
   final String hash;
   final String raw;
@@ -12,44 +15,41 @@ class TelegramInitData {
     required this.user,
     required this.chatInstance,
     required this.chatType,
+    required this.queryId,
     required this.authDate,
     required this.hash,
     required this.raw,
   });
 
   factory TelegramInitData.fromRawString(String data) {
-    List<int> bytes = data.codeUnits;
-    final String rawData = utf8.decode(bytes);
+    Map<String, String?> validationData = DataParser.parseAmpersandSeparatedData(data);
 
-    int userStartIndex = rawData.indexOf('user=') + 'user='.length;
-    int userEndIndex = rawData.indexOf('&', userStartIndex);
-    String userJson = rawData.substring(userStartIndex, userEndIndex);
+    // Parse user URI json string into Dart Map
+    Map<String, dynamic> userData = jsonDecode(Uri.decodeFull(validationData['user']!));
 
-    // Parse user JSON string into Dart Map
-    Map<String, dynamic> userData = jsonDecode(Uri.decodeFull(userJson));
     TelegramUser user = TelegramUser(
       id: userData['id'],
       firstname: userData['first_name'],
-      lastname: userData['last_name'],
+      lastname:
+          ((userData['last_name'] as String?)?.isNotEmpty ?? false) ? userData['last_name'] : null,
       username: userData['username'],
       languageCode: userData['language_code'],
       allowsWriteToPm: userData['allows_write_to_pm'],
     );
 
-    List<String> keyValuePairs = rawData.substring(userEndIndex + 1).split('&');
-    for (String pair in keyValuePairs) {
-      List<String> parts = pair.split('=');
-      userData[parts[0]] = parts[1];
-    }
+    int? chatInstance = validationData['chat_instance']?.isNotEmpty ?? false
+        ? int.parse(validationData['chat_instance']!)
+        : null;
+    String? chatType = validationData['chat_type'];
+    String? queryId = validationData['query_id'];
 
-    int chatInstance = int.parse(userData['chat_instance']);
-    String chatType = userData['chat_type'];
-    int authDate = int.parse(userData['auth_date']);
-    String hash = userData['hash'];
+    int authDate = int.parse(validationData['auth_date']!);
+    String hash = validationData['hash']!;
 
     return TelegramInitData(
       user: user,
       chatInstance: chatInstance,
+      queryId: queryId,
       chatType: chatType,
       authDate: authDate,
       hash: hash,
@@ -68,12 +68,14 @@ class TelegramInitData {
     );
 
     return TelegramInitData(
-        user: user,
-        chatInstance: 23423423424243,
-        chatType: 'private',
-        authDate: 1711523754,
-        hash: '990cb639550445f1d6ac16cac04f793a570904fa89104fa9e854d51d6bd489a6',
-        raw: 'This is fake row data');
+      user: user,
+      chatInstance: 23423423424243,
+      queryId: null,
+      chatType: 'private',
+      authDate: 1711523754,
+      hash: '990cb639550445f1d6ac16cac04f793a570904fa89104fa9e854d51d6bd489a6',
+      raw: 'This is fake row data',
+    );
   }
 
   @override
@@ -84,6 +86,7 @@ class TelegramInitData {
           user == other.user &&
           chatInstance == other.chatInstance &&
           chatType == other.chatType &&
+          queryId == other.queryId &&
           authDate == other.authDate &&
           hash == other.hash &&
           raw == other.raw;
@@ -93,6 +96,7 @@ class TelegramInitData {
       user.hashCode ^
       chatInstance.hashCode ^
       chatType.hashCode ^
+      queryId.hashCode ^
       authDate.hashCode ^
       hash.hashCode ^
       raw.hashCode;
@@ -103,20 +107,20 @@ class TelegramInitData {
         'user: $user, '
         'chatInstance: $chatInstance, '
         'chatType: $chatType, '
+        'queryId: $queryId, '
         'authDate: $authDate, '
-        'hash: $hash,'
-        'raw: $raw'
-        '}';
+        'hash: $hash, '
+        'raw: $raw}';
   }
 }
 
 class TelegramUser {
   final int id;
-  final String firstname;
-  final String lastname;
-  final String username;
-  final String languageCode;
-  final bool allowsWriteToPm;
+  final String? firstname;
+  final String? lastname;
+  final String? username;
+  final String? languageCode;
+  final bool? allowsWriteToPm;
 
   TelegramUser({
     required this.id,
