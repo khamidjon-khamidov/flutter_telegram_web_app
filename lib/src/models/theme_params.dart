@@ -26,41 +26,41 @@ class _ThemeParamsImpl extends ThemeParams {
   _ThemeParamsImpl._();
 
   @override
-  Color? get bgColor => tg.themeParams.button_color.toColor();
+  Color? get bgColor => tg.themeParams.buttonColor.toColor();
 
   @override
-  Color? get textColor => tg.themeParams.text_color.toColor();
+  Color? get textColor => tg.themeParams.textColor.toColor();
 
   @override
-  Color? get hintColor => tg.themeParams.hint_color.toColor();
+  Color? get hintColor => tg.themeParams.hintColor.toColor();
 
   @override
-  Color? get linkColor => tg.themeParams.link_color.toColor();
+  Color? get linkColor => tg.themeParams.linkColor.toColor();
 
   @override
-  Color? get buttonColor => tg.themeParams.button_color.toColor();
+  Color? get buttonColor => tg.themeParams.buttonColor.toColor();
 
   @override
-  Color? get buttonTextColor => tg.themeParams.button_text_color.toColor();
+  Color? get buttonTextColor => tg.themeParams.buttonTextColor.toColor();
 
   @override
-  Color? get secondaryBgColor => tg.themeParams.secondary_bg_color.toColor();
+  Color? get secondaryBgColor => tg.themeParams.secondaryBgColor.toColor();
 
   @override
-  Color? get headerBgColor => tg.themeParams.header_bg_color.toColor();
+  Color? get headerBgColor => tg.themeParams.headerBgColor.toColor();
 
   @override
-  Color? get accentTextColor => tg.themeParams.accent_text_color.toColor();
+  Color? get accentTextColor => tg.themeParams.accentTextColor.toColor();
 
   @override
-  Color? get sectionBgColor => tg.themeParams.section_bg_color.toColor();
+  Color? get sectionBgColor => tg.themeParams.secondaryBgColor.toColor();
 
   @override
-  Color? get sectionHeaderTextColor => tg.themeParams.section_header_text_color.toColor();
+  Color? get sectionHeaderTextColor => tg.themeParams.sectionHeaderTextColor.toColor();
 
   @override
-  Color? get subtitleTextColor => tg.themeParams.subtitle_text_color.toColor();
+  Color? get subtitleTextColor => tg.themeParams.subtitleTextColor.toColor();
 
   @override
-  Color? get destructiveTextColor => tg.themeParams.destructive_text_color.toColor();
+  Color? get destructiveTextColor => tg.themeParams.destructiveTextColor.toColor();
 }

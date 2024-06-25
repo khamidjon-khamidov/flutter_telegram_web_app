@@ -90,7 +90,7 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   Future<void> openLink(String url, {bool tryInstantView = true}) =>
-      tg.openLink(url, OpenLinkParams(try_instant_view: tryInstantView));
+      tg.openLink(url, OpenLinkParams(tryInstantView: tryInstantView));
 
   @override
   Future<void> openTelegramLink(String url) => tg.openTelegramLink(url);
