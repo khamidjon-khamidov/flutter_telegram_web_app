@@ -25,13 +25,13 @@ class ThemeParams {
   @JS("button_text_color")
   external String get buttonTextColor;
 
-  @JS("primary_bg_color")
+  @JS("secondary_bg_color")
   external String get secondaryBgColor;
 
   @JS("header_bg_color")
   external String get headerBgColor;
 
-  @JS("header_text_color")
+  @JS("accent_text_color")
   external String get accentTextColor;
 
   @JS("section_bg_color")
@@ -40,7 +40,7 @@ class ThemeParams {
   @JS("section_header_text_color")
   external String get sectionHeaderTextColor;
 
-  @JS("section_text_color")
+  @JS("subtitle_text_color")
   external String get subtitleTextColor;
 
   /// Text color for destructive actions
