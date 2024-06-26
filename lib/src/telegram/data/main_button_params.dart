@@ -12,15 +12,20 @@ class MainButtonParams {
   external String get color;
 
   /// Button text color
-  @JS("text_color")
+  @JS("textColor")
   external String get textColor;
 
   /// Show the button
-  @JS("is_visible")
+  @JS("isVisible")
   external bool get isVisible;
 
+  /// Shows whether the button is displaying a loading indicator.
+  /// Readonly.
+  @JS("isProgressVisible")
+  external bool get isProgressVisible;
+
   /// Enable the button
-  @JS("is_active")
+  @JS("isActive")
   external bool get isActive;
 
   external factory MainButtonParams({
@@ -28,6 +33,6 @@ class MainButtonParams {
     required String color,
     required String textColor,
     bool isVisible = true,
-    bool isActive = false,
+    bool isActive = false
   });
 }
