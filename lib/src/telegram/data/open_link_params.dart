@@ -4,8 +4,9 @@ import 'package:js/js.dart';
 @anonymous
 class OpenLinkParams {
   external factory OpenLinkParams({
-    required bool try_instant_view,
+    @JS("try_instant_view") required bool tryInstantView,
   });
 
-  external bool get try_instant_view;
+  @JS("try_instant_view")
+  external bool get tryInstantView;
 }
