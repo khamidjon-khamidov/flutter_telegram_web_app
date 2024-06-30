@@ -10,7 +10,7 @@ class PopupParams {
   external factory PopupParams({
     String? title,
     required String message,
-    List<PopupButtonInternal>? buttons,
+    List<PopupButton>? buttons,
   });
 
   /// The text to be displayed in the popup title, 0-64 characters.

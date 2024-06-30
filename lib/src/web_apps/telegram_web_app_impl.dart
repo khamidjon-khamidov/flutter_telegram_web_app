@@ -108,11 +108,11 @@ class TelegramWebAppImpl extends TelegramWebApp {
     List<PopupButton>? buttons,
     required Function(String id) callback,
   }) {
-    List<PopupButtonInternal>? newButtons;
+    List<pb.PopupButton>? newButtons;
     if (buttons != null) {
       newButtons = [];
       for (var b in buttons) {
-        newButtons.add(b.asInternalPopupButton);
+        newButtons.add(pb.PopupButton(id: b.id, type: b.type, text: b.text));
       }
     }
     return tg.showPopup(

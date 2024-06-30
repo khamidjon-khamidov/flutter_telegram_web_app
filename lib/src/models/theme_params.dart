@@ -53,7 +53,7 @@ class _ThemeParamsImpl extends ThemeParams {
   Color? get accentTextColor => tg.themeParams.accentTextColor.toColor();
 
   @override
-  Color? get sectionBgColor => tg.themeParams.secondaryBgColor.toColor();
+  Color? get sectionBgColor => tg.themeParams.sectionBgColor.toColor();
 
   @override
   Color? get sectionHeaderTextColor => tg.themeParams.sectionHeaderTextColor.toColor();
