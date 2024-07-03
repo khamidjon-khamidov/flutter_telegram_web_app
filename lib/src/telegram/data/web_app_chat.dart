@@ -1,7 +1,7 @@
 import 'package:js/js.dart';
 
 /// This object represents a chat.
-/// 
+///
 /// More details at [Telegram API](https://core.telegram.org/bots/webapps#webappchat)
 @JS("WebAppChat")
 class WebAppChat {
@@ -27,7 +27,7 @@ class WebAppChat {
 
   /// Optional. Username of the chat
   @JS("username")
-  external String get username;
+  external String? get username;
 }
 
 extension WebAppChatExt on WebAppChat {
