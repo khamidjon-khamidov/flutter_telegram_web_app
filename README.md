@@ -51,10 +51,26 @@ You can find full list of api examples in example folder. Please feel free to [c
 #### Note
 1. All the apis are only available inside telegram web app. You can't use the apis outside the platform.
 
-2. In Android, Web App is sometimes not loading (only grey/white screen showing up). If this happens to you, add a half a second delay in main function:
+2. In Android, Web App is sometimes not loading (only grey/white screen showing up). If this happens to you, there is a 'hacky' workaround. You can also find it in [example app](https://t.me/bozorbop_bot/bozorchi?startapp=hello):
 ```dart
 void main() async {
-  await Future.delayed(const Duration(milliseconds: 500));
-  // other methods
+  try {
+    if (TelegramWebApp.instance.isSupported) {
+      await TelegramWebApp.instance.ready();
+      Future.delayed(const Duration(seconds: 1), TelegramWebApp.instance.expand);
+    }
+  } catch (e) {
+    print("Error happened in Flutter while loading Telegram $e");
+    // add delay for 'Telegram seldom not loading' bug
+    await Future.delayed(const Duration(milliseconds: 200));
+    main();
+    return;
+  }
+
+  FlutterError.onError = (details) {
+    print("Flutter error happened: $details");
+  };
+
+  runApp(const MyApp());
 }
 ```
