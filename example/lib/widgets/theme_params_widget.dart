@@ -42,6 +42,8 @@ class ThemeParamsWidget extends StatelessWidget {
           const SizedBox(height: 8),
           ColorWidget('destructive_text_color', themeParams.destructiveTextColor),
           const SizedBox(height: 8),
+          ColorWidget('section_separator_color', themeParams.sectionSeparatorColor),
+          const SizedBox(height: 8),
         ],
       ),
     );

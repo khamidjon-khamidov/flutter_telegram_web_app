@@ -31,6 +31,7 @@ class ThemeParams {
 
   external String get subtitle_text_color;
 
-  /// Text color for destructive actions
   external String get destructive_text_color;
+
+  external String get section_separator_color;
 }
