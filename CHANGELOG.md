@@ -2,7 +2,7 @@
 * Update example app for [#21](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/issues/21)
 * username is not optional in WebAppChat [#14](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/issues/14)
 * Bug fixes for popup button and section bg color. `OlegNovosad` [#15](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/issues/15)
-* Add js annotation. `OlegNovosad` [#6](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/10)
+* Make WebAppInitData mockable [#24](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/24)
 
 ## 0.1.4
 * Remove `tgWebAppStartParam` - doesn't exist in telegram script
