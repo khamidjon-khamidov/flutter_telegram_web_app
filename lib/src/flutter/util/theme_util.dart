@@ -105,7 +105,7 @@ abstract class TelegramThemeUtil {
       ),
       appBarTheme: theme.appBarTheme.copyWith(
         foregroundColor: telegram.themeParams.sectionHeaderTextColor,
-        backgroundColor: telegram.themeParams.headerBgColor,
+        backgroundColor: telegram.themeParams.sectionBgColor,
         iconTheme: theme.appBarTheme.iconTheme?.copyWith(color: telegram.themeParams.textColor),
       ),
     );

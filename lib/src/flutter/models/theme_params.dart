@@ -4,7 +4,7 @@ class ThemeParams {
   static ThemeParams? _instance;
   static ThemeParams get instance => _instance ??= ThemeParams();
 
-  Color? get bgColor => telegram_js.themeParams.button_color.toColor();
+  Color? get bgColor => telegram_js.themeParams.bg_color.toColor();
 
   Color? get textColor => telegram_js.themeParams.text_color.toColor();
 
