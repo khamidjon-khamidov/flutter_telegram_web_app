@@ -2,33 +2,23 @@ part of '../../telegram_js_models.dart';
 
 @JS("WebAppUser")
 class WebAppUser {
-  @JS("id")
   external int get id;
 
-  @JS("is_bot")
-  external bool? get isBot;
+  external bool? get is_bot;
 
-  @JS("is_premium")
-  external bool? get isPremium;
+  external String get first_name;
 
-  @JS("first_name")
-  external String get firstName;
+  external String? get last_name;
 
-  @JS("last_name")
-  external String? get lastName;
-
-  @JS("username")
   external String? get username;
 
-  @JS("photo_url")
-  external String? get photoUrl;
+  external String? get language_code;
 
-  @JS("language_code")
-  external String? get languageCode;
+  external bool? get is_premium;
 
-  @JS("added_to_attachment_menu")
-  external bool? get addedToAttachmentMenu;
+  external bool? get added_to_attachment_menu;
 
-  @JS("allows_write_to_pm")
-  external bool? get allowedToWritePm;
+  external bool? get allows_write_to_pm;
+
+  external String? get photo_url;
 }

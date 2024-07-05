@@ -6,44 +6,31 @@ part of '../../telegram_js_models.dart';
 /// More details at [Telegram API](https://core.telegram.org/bots/webapps#themeparams)
 @JS("ThemeParams")
 class ThemeParams {
-  @JS("bg_color")
-  external String get bgColor;
+  external String get bg_color;
 
   /// Main text color
-  @JS("text_color")
-  external String get textColor;
+  external String get text_color;
 
-  @JS("hint_color")
-  external String get hintColor;
+  external String get hint_color;
 
-  @JS("link_color")
-  external String get linkColor;
+  external String get link_color;
 
-  @JS("button_color")
-  external String get buttonColor;
+  external String get button_color;
 
-  @JS("button_text_color")
-  external String get buttonTextColor;
+  external String get button_text_color;
 
-  @JS("secondary_bg_color")
-  external String get secondaryBgColor;
+  external String get secondary_bg_color;
 
-  @JS("header_bg_color")
-  external String get headerBgColor;
+  external String get header_bg_color;
 
-  @JS("accent_text_color")
-  external String get accentTextColor;
+  external String get accent_text_color;
 
-  @JS("section_bg_color")
-  external String get sectionBgColor;
+  external String get section_bg_color;
 
-  @JS("section_header_text_color")
-  external String get sectionHeaderTextColor;
+  external String get section_header_text_color;
 
-  @JS("subtitle_text_color")
-  external String get subtitleTextColor;
+  external String get subtitle_text_color;
 
   /// Text color for destructive actions
-  @JS("destructive_text_color")
-  external String get destructiveTextColor;
+  external String get destructive_text_color;
 }

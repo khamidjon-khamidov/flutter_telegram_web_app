@@ -15,16 +15,16 @@ class WebAppUser {
 
   /// True, if this user is a bot.
   /// Returns in the receiver field only.
-  bool? get isBot => _webAppUser.isBot;
+  bool? get isBot => _webAppUser.is_bot;
 
   /// True, if this user is a Telegram Premium user.
-  bool? get isPremium => _webAppUser.isPremium;
+  bool? get isPremium => _webAppUser.is_premium;
 
   /// First name of the user or bot.
-  String get firstName => _webAppUser.firstName;
+  String get firstName => _webAppUser.first_name;
 
   /// Last name of the user or bot.
-  String? get lastName => _webAppUser.lastName;
+  String? get lastName => _webAppUser.last_name;
 
   /// Username of the user or bot.
   String? get username => _webAppUser.username;
@@ -32,17 +32,17 @@ class WebAppUser {
   /// URL of the user’s profile photo.
   /// The photo can be in .jpeg or .svg formats.
   /// Only returned for Mini Apps launched from the attachment menu.
-  String? get photoUrl => _webAppUser.photoUrl;
+  String? get photoUrl => _webAppUser.photo_url;
 
   /// IETF language tag of the user's language.
   /// Returns in user field only.
-  String? get languageCode => _webAppUser.languageCode;
+  String? get languageCode => _webAppUser.language_code;
 
   /// True, if this user added the bot to the attachment menu.
-  bool? get addedToAttachmentMenu => _webAppUser.addedToAttachmentMenu;
+  bool? get addedToAttachmentMenu => _webAppUser.added_to_attachment_menu;
 
   /// True, if this user allowed the bot to message them.
-  bool? get allowedToWritePm => _webAppUser.allowedToWritePm;
+  bool? get allowedToWritePm => _webAppUser.allows_write_to_pm;
 
   String toReadableString() {
     // return "nothing";

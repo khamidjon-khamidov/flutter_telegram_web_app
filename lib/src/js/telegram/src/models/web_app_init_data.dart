@@ -2,33 +2,23 @@ part of '../../telegram_js_models.dart';
 
 @JS("WebAppInitData")
 class WebAppInitData {
-  @JS("query_id")
-  external String? get queryId;
+  external String? get query_id;
 
-  @JS("user")
   external WebAppUser? get user;
 
-  @JS("receiver")
   external WebAppUser? get receiver;
 
-  @JS("chat")
   external WebAppChat? get chat;
 
-  @JS("chat_type")
-  external String? get chatType;
+  external String? get chat_type;
 
-  @JS("chat_instance")
-  external String? get chatInstance;
+  external String? get chat_instance;
 
-  @JS("start_param")
-  external String? get startParam;
+  external String? get start_param;
 
-  @JS("can_send_after")
-  external int? get canSendAfter;
+  external int? get can_send_after;
 
-  @JS("auth_date")
-  external int? get authDate;
+  external int? get auth_date;
 
-  @JS("hash")
   external String? get hash;
 }

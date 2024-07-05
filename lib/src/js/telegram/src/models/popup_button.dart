@@ -7,12 +7,9 @@ part of '../../telegram_js_models.dart';
 class PopupButton {
   external factory PopupButton({String? id, String? type, String? text});
 
-  @JS("id")
   external String? id;
 
-  @JS("type")
   external String? type;
 
-  @JS("text")
   external String? get text;
 }

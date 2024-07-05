@@ -4,9 +4,8 @@ part of '../../telegram_js_models.dart';
 @anonymous
 class OpenLinkParams {
   external factory OpenLinkParams({
-    @JS("try_instant_view") required bool tryInstantView,
+    required bool try_instant_view,
   });
 
-  @JS("try_instant_view")
-  external bool get tryInstantView;
+  external bool get try_instant_view;
 }

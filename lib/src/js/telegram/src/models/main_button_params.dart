@@ -4,23 +4,18 @@ part of '../../telegram_js_models.dart';
 @anonymous
 class MainButtonParams {
   /// Button text
-  @JS("text")
   external String get text;
 
   /// Button color
-  @JS("color")
   external String get color;
 
   /// Button text color
-  @JS("textColor")
   external String get textColor;
 
   /// Show the button
-  @JS("isVisible")
   external bool get isVisible;
 
   /// Enable the button
-  @JS("isActive")
   external bool get isActive;
 
   external factory MainButtonParams({

@@ -13,15 +13,12 @@ class PopupParams {
   });
 
   /// The text to be displayed in the popup title, 0-64 characters.
-  @JS("title")
   external String? get title;
 
   /// The message to be displayed in the body of the popup, 1-256 characters.
-  @JS("message")
   external String get message;
 
   /// List of buttons to be displayed in the popup, 1-3 buttons.
   /// Set to [{“type”:“close”}] by default.
-  @JS("buttons")
   external List<PopupButton>? get buttons;
 }

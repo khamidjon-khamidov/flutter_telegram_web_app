@@ -22,7 +22,7 @@ class WebAppChat {
   /// Optional. URL of the chat’s photo.
   /// The photo can be in .jpeg or .svg formats.
   /// Only returned for Mini Apps launched from the attachment menu.
-  String? get photoUrl => _webAppChat.photoUrl;
+  String? get photoUrl => _webAppChat.photo_url;
 
   String toReadableString() {
     return """

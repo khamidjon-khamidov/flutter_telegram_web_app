@@ -10,7 +10,7 @@ class WebAppInitData {
 
   /// Optional. A unique identifier for the Mini App session,
   /// required for sending messages via the answerWebAppQuery method.
-  String? get queryId => _jsInitData.queryId;
+  String? get queryId => _jsInitData.query_id;
 
   /// Optional. An object containing data about the current user.
   WebAppUser? get user => _jsInitData.user != null ? WebAppUser(_jsInitData.user!) : null;
@@ -32,12 +32,12 @@ class WebAppInitData {
   /// Can be either “sender” for a private chat with the user opening
   /// the link, “private”, “group”, “supergroup”, or “channel”. Returned
   /// only for Mini Apps launched from direct links.
-  String? get chatType => _jsInitData.chatType;
+  String? get chatType => _jsInitData.chat_type;
 
   /// Optional. Global identifier, uniquely corresponding to the chat from
   /// which the Mini App was opened. Returned only for Mini Apps launched
   /// from a direct link
-  String? get chatInstance => _jsInitData.chatInstance;
+  String? get chatInstance => _jsInitData.chat_instance;
 
   /// Optional. The value of the startattach parameter, passed via link.
   /// Only returned for Mini Apps when launched from the attachment menu via link.
@@ -45,14 +45,14 @@ class WebAppInitData {
   // The value of the start_param parameter will also be passed in the
   // GET-parameter tgWebAppStartParam, so the Mini App can load the correct
   // interface right away.
-  String? get startParam => _jsInitData.startParam;
+  String? get startParam => _jsInitData.start_param;
 
   /// Optional. Time in seconds, after which a message can be sent via
   /// the answerWebAppQuery method.
-  int? get canSendAfter => _jsInitData.canSendAfter;
+  int? get canSendAfter => _jsInitData.can_send_after;
 
   /// Unix time when the form was opened.
-  int? get authDate => _jsInitData.authDate;
+  int? get authDate => _jsInitData.auth_date;
 
   /// A hash of all passed parameters, which the bot server can use
   /// to check their validity.

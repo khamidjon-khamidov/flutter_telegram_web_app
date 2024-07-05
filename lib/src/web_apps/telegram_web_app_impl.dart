@@ -89,8 +89,8 @@ class TelegramWebAppImpl extends TelegramWebApp {
       telegram_js.switchInlineQuery(query, chatType?.chatType);
 
   @override
-  Future<void> openLink(String url, {bool tryInstantView = true}) =>
-      telegram_js.openLink(url, telegram_js_models.OpenLinkParams(tryInstantView: tryInstantView));
+  Future<void> openLink(String url, {bool tryInstantView = true}) => telegram_js.openLink(
+      url, telegram_js_models.OpenLinkParams(try_instant_view: tryInstantView));
 
   @override
   Future<void> openTelegramLink(String url) => telegram_js.openTelegramLink(url);
