@@ -1,3 +1,5 @@
+part of '../../../telegram_web_app.dart';
+
 enum TelegramColorScheme {
   light('light'),
   dark('dark');

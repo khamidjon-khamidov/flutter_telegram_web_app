@@ -1,3 +1,5 @@
+part of '../../../telegram_web_app.dart';
+
 class PopupButton {
   /// Identifier of the button, 0-64 characters. Set to empty string by default.
   /// If the button is pressed, its id is returned in the callback and the popupClosed event.

@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-import 'package:telegram_web_app/src/util/data_parser.dart';
+part of '../../../telegram_web_app.dart';
 
 class TelegramInitData {
   final TelegramUser user;
