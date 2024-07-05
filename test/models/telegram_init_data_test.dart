@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:telegram_web_app/src/models/telegram_init_data.dart';
+import 'package:telegram_web_app/telegram_web_app.dart' show TelegramInitData, TelegramUser;
 
 void main() {
   test('given raw with utf8 character ğ -> parses correctly to TelegramInitData', () {
