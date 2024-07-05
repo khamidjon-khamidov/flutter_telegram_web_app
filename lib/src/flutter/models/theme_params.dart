@@ -29,4 +29,5 @@ class ThemeParams {
   Color? get subtitleTextColor => telegram_js.themeParams.subtitle_text_color.toColor();
 
   Color? get destructiveTextColor => telegram_js.themeParams.destructive_text_color.toColor();
+  Color? get sectionSeparatorColor => telegram_js.themeParams.section_separator_color.toColor();
 }

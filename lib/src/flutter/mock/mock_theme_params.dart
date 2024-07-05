@@ -39,4 +39,7 @@ class MockThemeParams implements ThemeParams {
 
   @override
   Color? get destructiveTextColor => const Color(0xffef5b5b);
+
+  @override
+  Color? get sectionSeparatorColor => const Color(0xffd9d9d9);
 }
