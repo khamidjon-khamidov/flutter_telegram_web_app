@@ -5,8 +5,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/src/bridge/flutter_js_bridge.dart';
 import 'package:telegram_web_app/src/flutter/util/data_parser.dart';
-import 'package:telegram_web_app/src/js/telegram/src/events/write_access_requested_event_result.dart';
 import 'package:telegram_web_app/src/js/telegram/telegram_js_models.dart' as telegram_js_models;
+import 'package:telegram_web_app/src/js/telegram/telegram_js_models.dart';
 import 'package:telegram_web_app/src/js/telegram_js.dart' as telegram_js;
 import 'package:telegram_web_app/telegram_web_app.dart';
 
