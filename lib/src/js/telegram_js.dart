@@ -17,6 +17,7 @@ external bool get isExpanded;
 external double? get viewportHeight;
 external double? get viewportStableHeight;
 external String? get tgWebAppStartParam;
+external bool get isVerticalSwipesEnabled;
 
 external telegram_js_models.ThemeParams get themeParams;
 external telegram_js_models.BackButton get BackButton;
@@ -52,3 +53,5 @@ external Future<void> showScanQrPopup(telegram_js_models.ScanQrPopupParams param
 external Future<void> closeScanQrPopup();
 external void onEvent(String eventType, callback);
 external void offEvent(String eventType, callback);
+external Future<void> enableVerticalSwipes();
+external Future<void> disableVerticalSwipes();

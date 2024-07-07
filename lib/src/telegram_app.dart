@@ -200,4 +200,17 @@ abstract class TelegramWebApp {
 
   /// A method that closes the Mini App.
   Future<void> close();
+
+  /// True, if vertical swipes to close or minimize the Mini App are enabled. False, if vertical swipes to close
+  /// or minimize the Mini App are disabled. In any case, the user will still be able to minimize and close the
+  /// Mini App by swiping the Mini App's header.
+  bool get isVerticalSwipesEnabled;
+
+  /// Bot API 7.7+ A method that enables vertical swipes to close or minimize the Mini App. For user convenience,
+  /// it is recommended to always enable swipes unless they conflict with the Mini App's own gestures.
+  Future<void> enableVerticalSwipes();
+
+  /// Bot API 7.7+ A method that disables vertical swipes to close or minimize the Mini App. This method is useful
+  /// if your Mini App uses swipe gestures that may conflict with the gestures for minimizing and closing the app.
+  Future<void> disableVerticalSwipes();
 }
