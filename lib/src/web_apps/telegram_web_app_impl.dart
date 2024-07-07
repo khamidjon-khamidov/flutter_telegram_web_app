@@ -167,4 +167,13 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   Future<void> close() => telegram_js.close();
+
+  @override
+  bool get isVerticalSwipesEnabled => telegram_js.isVerticalSwipesEnabled;
+
+  @override
+  Future<void> enableVerticalSwipes() => telegram_js.enableVerticalSwipes();
+
+  @override
+  Future<void> disableVerticalSwipes() => telegram_js.disableVerticalSwipes();
 }

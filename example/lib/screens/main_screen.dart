@@ -64,6 +64,12 @@ class _MainScreenState extends State<MainScreen> {
             'Init Data Unsafe',
             telegram.initDataUnsafe?.toReadableString() ?? 'null',
           ),
+          InfoExpandableTile(
+            'isVerticalSwipesEnabled',
+            telegram.isVerticalSwipesEnabled.toString(),
+          ),
+          ListButton('enableVerticalSwipes', onPress: telegram.enableVerticalSwipes),
+          ListButton('disableVerticalSwipes', onPress: telegram.disableVerticalSwipes),
           InfoExpandableTile('Version', telegram.version),
           InfoExpandableTile('Platform', telegram.platform),
           InfoExpandableTile('Color Scheme', telegram.colorScheme.name),
