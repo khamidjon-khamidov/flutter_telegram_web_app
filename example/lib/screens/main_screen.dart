@@ -2,6 +2,7 @@ import 'package:example/components/color_picker_dialog.dart';
 import 'package:example/screens/buttons/back_button_screen.dart';
 import 'package:example/screens/buttons/main_button_screen.dart';
 import 'package:example/screens/buttons/settings_button_screen.dart';
+import 'package:example/screens/other/biometric_manager_screen.dart';
 import 'package:example/screens/other/cloud_storage_screen.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
 import 'package:example/widgets/expandable_tile.dart';
@@ -31,6 +32,11 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
+    FlutterError.onError = (details) {
+      showSnackbar("Flutter error: $details");
+      print("Flutter error happened: $details");
+    };
+
     TelegramWebApp.instance.ready();
 
     check();
@@ -135,6 +141,13 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const CloudStorageScreen()));
+            },
+          ),
+          ListButton(
+            'BiometricsManager',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const BiometricManagerScreen()));
             },
           ),
           InfoExpandableTile('isVersionAtLeast(6.1)', isDefinedVersion.toString()),
@@ -280,5 +293,10 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
     );
+  }
+
+  void showSnackbar(String value) {
+    var snackBar = SnackBar(content: Text(value));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

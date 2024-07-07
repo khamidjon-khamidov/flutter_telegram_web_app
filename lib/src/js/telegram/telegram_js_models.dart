@@ -5,7 +5,13 @@ library telegram_js_internal;
 
 import 'package:js/js.dart';
 
+import '../telegram_js.dart';
+
+part 'src/events/write_access_requested_event_result.dart';
 part 'src/models/back_button.dart';
+part 'src/models/biometric/biometric_authenticate_params.dart';
+part 'src/models/biometric/biometric_manager.dart';
+part 'src/models/biometric/biometric_request_access_params.dart';
 part 'src/models/cloud_storage.dart';
 part 'src/models/haptic_feedback.dart';
 part 'src/models/main_button.dart';

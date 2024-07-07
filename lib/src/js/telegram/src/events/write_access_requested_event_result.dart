@@ -1,4 +1,4 @@
-import 'package:js/js.dart';
+part of '../../telegram_js_models.dart';
 
 @JS()
 class WriteAccessRequestedEventResult {

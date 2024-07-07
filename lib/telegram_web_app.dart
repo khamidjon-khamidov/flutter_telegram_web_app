@@ -4,9 +4,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/src/bridge/flutter_js_bridge.dart';
+import 'package:telegram_web_app/src/bridge/js_callback.dart';
 import 'package:telegram_web_app/src/flutter/util/data_parser.dart';
-import 'package:telegram_web_app/src/js/telegram/src/events/write_access_requested_event_result.dart';
 import 'package:telegram_web_app/src/js/telegram/telegram_js_models.dart' as telegram_js_models;
+import 'package:telegram_web_app/src/js/telegram/telegram_js_models.dart';
 import 'package:telegram_web_app/src/js/telegram_js.dart' as telegram_js;
 import 'package:telegram_web_app/telegram_web_app.dart';
 
@@ -26,6 +27,9 @@ part 'src/flutter/events/viewport_changed_event.dart';
 part 'src/flutter/events/write_access_requested_event.dart';
 part 'src/flutter/mock/mock_theme_params.dart';
 part 'src/flutter/models/back_button.dart';
+part 'src/flutter/models/biometric/biometric_authenticate_params.dart';
+part 'src/flutter/models/biometric/biometric_manager.dart';
+part 'src/flutter/models/biometric/biometric_request_access_params.dart';
 part 'src/flutter/models/chat_types.dart';
 part 'src/flutter/models/cloud_storage.dart';
 part 'src/flutter/models/haptic_feedback.dart';
