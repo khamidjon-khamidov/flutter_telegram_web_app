@@ -4,6 +4,7 @@
 * Bug fixes for popup button and section bg color. `OlegNovosad` [#15](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/issues/15)
 * Make WebAppInitData mockable [#24](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/24)
 * Added BiometricManager support
+* Added section_separator_color
 
 ## 0.1.4
 * Remove `tgWebAppStartParam` - doesn't exist in telegram script
