@@ -55,6 +55,9 @@ class TelegramWebAppFake extends TelegramWebApp {
   CloudStorage get cloudStorage => CloudStorage.instance;
 
   @override
+  BiometricManager get biometricManager => throw UnimplementedError();
+
+  @override
   Future<bool> isVersionAtLeast(String version) async => true;
 
   @override

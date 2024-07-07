@@ -16,10 +16,6 @@ void main() async {
     return;
   }
 
-  FlutterError.onError = (details) {
-    print("Flutter error happened: $details");
-  };
-
   runApp(const MyApp());
 }
 

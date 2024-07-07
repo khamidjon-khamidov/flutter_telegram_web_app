@@ -24,7 +24,9 @@ external telegram_js_models.MainButton get MainButton;
 external telegram_js_models.SettingsButton get SettingsButton;
 external telegram_js_models.HapticFeedback get HapticFeedback;
 external telegram_js_models.CloudStorage get CloudStorage;
+external telegram_js_models.BiometricManager get BiometricManager;
 external telegram_js_models.WebAppInitData get initDataUnsafe;
+
 external Future<void> ready();
 external Future<void> expand();
 external Future<void> close();
@@ -50,5 +52,3 @@ external Future<void> showScanQrPopup(telegram_js_models.ScanQrPopupParams param
 external Future<void> closeScanQrPopup();
 external void onEvent(String eventType, callback);
 external void offEvent(String eventType, callback);
-
-JsDynamicCallback(Function callback) => allowInterop(callback);

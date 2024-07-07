@@ -27,11 +27,11 @@ class MainButton {
 
   /// A method that sets the button press event handler.
   void onClick(void Function() callback) =>
-      telegram_js.MainButton.onClick(telegram_js.JsDynamicCallback(callback));
+      telegram_js.MainButton.onClick(JsDynamicCallback(callback));
 
   /// A method that removes the button press event handler.
   void offClick(void Function() callback) =>
-      telegram_js.MainButton.offClick(telegram_js.JsDynamicCallback(callback));
+      telegram_js.MainButton.offClick(JsDynamicCallback(callback));
 
   /// A method to make the button visible.
   /// Note that opening the Mini App from the attachment menu hides the main

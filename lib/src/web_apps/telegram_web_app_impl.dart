@@ -59,6 +59,9 @@ class TelegramWebAppImpl extends TelegramWebApp {
   CloudStorage get cloudStorage => CloudStorage.instance;
 
   @override
+  BiometricManager get biometricManager => BiometricManager(telegram_js.BiometricManager);
+
+  @override
   Future<bool> isVersionAtLeast(String version) => telegram_js.isVersionAtLeast(version);
 
   @override
@@ -74,12 +77,12 @@ class TelegramWebAppImpl extends TelegramWebApp {
   Future<void> disableClosingConfirmation() => telegram_js.disableClosingConfirmation();
 
   @override
-  void onEvent(TelegramEvent event) => telegram_js.onEvent(
-      event.eventType.eventName, telegram_js.JsDynamicCallback(event.eventHandler));
+  void onEvent(TelegramEvent event) =>
+      telegram_js.onEvent(event.eventType.eventName, JsDynamicCallback(event.eventHandler));
 
   @override
-  void offEvent(TelegramEvent event) => telegram_js.offEvent(
-      event.eventType.eventName, telegram_js.JsDynamicCallback(event.eventHandler));
+  void offEvent(TelegramEvent event) =>
+      telegram_js.offEvent(event.eventType.eventName, JsDynamicCallback(event.eventHandler));
 
   @override
   Future<void> sendData(String data) => telegram_js.sendData(data);
@@ -98,7 +101,7 @@ class TelegramWebAppImpl extends TelegramWebApp {
   @override
   Future<void> openInvoice(String url, [Function(dynamic)? onInvoiceStatus]) =>
       onInvoiceStatus != null
-          ? telegram_js.openInvoice(url, telegram_js.JsDynamicCallback(onInvoiceStatus))
+          ? telegram_js.openInvoice(url, JsDynamicCallback(onInvoiceStatus))
           : telegram_js.openInvoice(url);
 
   @override
@@ -117,26 +120,26 @@ class TelegramWebAppImpl extends TelegramWebApp {
     }
     return telegram_js.showPopup(
       telegram_js_models.PopupParams(title: title, message: message, buttons: newButtons),
-      telegram_js.JsDynamicCallback(callback),
+      JsDynamicCallback(callback),
     );
   }
 
   @override
   Future<void> showAlert(String message, [Function()? callback]) => callback != null
-      ? telegram_js.showAlert(message, telegram_js.JsDynamicCallback(callback))
+      ? telegram_js.showAlert(message, JsDynamicCallback(callback))
       : telegram_js.showAlert(message);
 
   @override
   Future<void> showConfirm(String message, [void Function(bool isOkPressed)? callback]) =>
       callback != null
-          ? telegram_js.showConfirm(message, telegram_js.JsDynamicCallback(callback))
+          ? telegram_js.showConfirm(message, JsDynamicCallback(callback))
           : telegram_js.showConfirm(message);
 
   @override
   Future<void> showScanQrPopup(String? infoTitle, [bool Function(String result)? callback]) =>
       callback != null
-          ? telegram_js.showScanQrPopup(telegram_js_models.ScanQrPopupParams(text: infoTitle),
-              telegram_js.JsDynamicCallback(callback))
+          ? telegram_js.showScanQrPopup(
+              telegram_js_models.ScanQrPopupParams(text: infoTitle), JsDynamicCallback(callback))
           : telegram_js.showScanQrPopup(telegram_js_models.ScanQrPopupParams(text: infoTitle));
 
   @override
@@ -144,16 +147,16 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   Future<void> readTextFromClipboard([Function(String clipboardText)? onRead]) => onRead != null
-      ? telegram_js.readTextFromClipboard(telegram_js.JsDynamicCallback(onRead))
+      ? telegram_js.readTextFromClipboard(JsDynamicCallback(onRead))
       : telegram_js.readTextFromClipboard();
 
   @override
   Future<void> requestWriteAccess({required Function(bool granted) onResult}) =>
-      telegram_js.requestWriteAccess(telegram_js.JsDynamicCallback(onResult));
+      telegram_js.requestWriteAccess(JsDynamicCallback(onResult));
 
   @override
   Future<void> requestContact([Function(bool granted)? onResult]) => onResult != null
-      ? telegram_js.requestContact(telegram_js.JsDynamicCallback(onResult))
+      ? telegram_js.requestContact(JsDynamicCallback(onResult))
       : telegram_js.requestContact();
 
   @override
