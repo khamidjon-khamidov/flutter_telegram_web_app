@@ -1,4 +1,5 @@
 import 'package:example/screens/main_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
@@ -15,6 +16,16 @@ void main() async {
     main();
     return;
   }
+
+  FlutterError.onError = (details) {
+    FlutterError.presentError(details);
+    print("Flutter error happened: $details");
+  };
+
+  PlatformDispatcher.instance.onError = (error, stack) {
+    print("error happened: $error, $stack");
+    return false;
+  };
 
   runApp(const MyApp());
 }

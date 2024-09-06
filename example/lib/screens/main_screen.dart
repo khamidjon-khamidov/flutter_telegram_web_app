@@ -33,10 +33,6 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    FlutterError.onError = (details) {
-      showSnackbar("Flutter error: $details");
-      print("Flutter error happened: $details");
-    };
 
     TelegramWebApp.instance.ready();
 
@@ -124,10 +120,10 @@ class _MainScreenState extends State<MainScreen> {
             },
           ),
           ListButton(
-            'MainButton',
+            'Bottom Buttons 2',
             onPress: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => const MainButtonScreen()));
+                  .push(MaterialPageRoute(builder: (context) => const BottomButtonsScreen()));
             },
           ),
           ListButton(

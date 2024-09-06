@@ -1,33 +1,39 @@
+import 'package:example/screens/buttons/widgets/bottom_button_widget.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
+import 'package:example/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
-import '../../widgets/expandable_tile.dart';
-import '../../widgets/one_color_widget.dart';
-
-class MainButtonScreen extends StatefulWidget {
-  const MainButtonScreen({super.key});
+class BottomButtonsScreen extends StatefulWidget {
+  const BottomButtonsScreen({super.key});
 
   @override
-  State<MainButtonScreen> createState() => _MainButtonScreenState();
+  State<BottomButtonsScreen> createState() => _BottomButtonsScreenState();
 }
 
-class _MainButtonScreenState extends State<MainButtonScreen> {
+class _BottomButtonsScreenState extends State<BottomButtonsScreen> {
   BottomButton get mainButton => TelegramWebApp.instance.mainButton;
+  BottomButton get secondaryButton => TelegramWebApp.instance.secondaryButton;
 
-  TextEditingController controller = TextEditingController();
+  TextEditingController mainButtonController = TextEditingController();
+  TextEditingController secondaryButtonController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    controller.text = mainButton.text;
+    mainButtonController.text = mainButton.text;
+    secondaryButtonController.text = mainButton.text;
     mainButton.onClick(onButtonPress);
+    secondaryButton.onClick(onButtonPress);
   }
 
   @override
   void dispose() {
     super.dispose();
+    mainButtonController.dispose();
+    secondaryButtonController.dispose();
     mainButton.offClick(onButtonPress);
+    secondaryButton.offClick(onButtonPress);
   }
 
   @override
@@ -38,84 +44,19 @@ class _MainButtonScreenState extends State<MainButtonScreen> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            InfoExpandableTile('text', mainButton.text, expanded: true),
-            const SizedBox(height: 12),
-            OneColorExpandableTile('color', mainButton.color, expanded: true),
-            const SizedBox(height: 12),
-            OneColorExpandableTile('textColor', mainButton.textColor, expanded: true),
-            const SizedBox(height: 12),
-            InfoExpandableTile('isVisible', mainButton.isVisible.toString(), expanded: true),
-            const SizedBox(height: 12),
-            InfoExpandableTile('isActive', mainButton.isActive.toString(), expanded: true),
-            const SizedBox(height: 12),
-            InfoExpandableTile(
-              'isProgressVisible',
-              mainButton.isProgressVisible.toString(),
-              expanded: true,
+            const TitleWidget('Main Button'),
+            BottomButtonWidget(
+              mainButton,
+              mainButtonController,
+              onStateChange: () => setState(() {}),
             ),
-            const SizedBox(height: 12),
-            // Show/Hide button
-            Row(
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      mainButton.show();
-                      setState(() {});
-                    },
-                    child: const Text("Show button")),
-                const SizedBox(width: 16),
-                ElevatedButton(
-                    onPressed: () {
-                      mainButton.hide();
-                      setState(() {});
-                    },
-                    child: const Text("Hide button")),
-              ],
+            const SizedBox(height: 24),
+            const TitleWidget('Secondary Button'),
+            BottomButtonWidget(
+              secondaryButton,
+              secondaryButtonController,
+              onStateChange: () => setState(() {}),
             ),
-            const SizedBox(height: 12),
-            // Enable/Disable
-            Row(
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      mainButton.enable();
-                      setState(() {});
-                    },
-                    child: const Text("Enable")),
-                const SizedBox(width: 16),
-                ElevatedButton(
-                    onPressed: () {
-                      mainButton.disable();
-                      setState(() {});
-                    },
-                    child: const Text("Disable")),
-              ],
-            ),
-            const SizedBox(height: 12),
-            // Show/Hide progress
-            Row(
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      mainButton.showProgress(false);
-                      setState(() {});
-                    },
-                    child: const Text("Show progress")),
-                const SizedBox(width: 16),
-                ElevatedButton(
-                    onPressed: () {
-                      mainButton.hideProgress();
-                      setState(() {});
-                    },
-                    child: const Text("Hide progress")),
-              ],
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              controller: controller,
-              onChanged: mainButton.setText,
-            ),
-            const SizedBox(height: 16),
           ],
         ),
       ),
