@@ -120,7 +120,7 @@ class _MainScreenState extends State<MainScreen> {
             },
           ),
           ListButton(
-            'Bottom Buttons 2',
+            'Bottom Buttons',
             onPress: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const BottomButtonsScreen()));

@@ -14,7 +14,10 @@ enum BottomButtonPosition {
   top,
 
   /// displayed below the main button
-  bottom;
+  bottom,
+
+  /// this position cannot be set as value
+  unknown;
 
   static BottomButtonPosition fromString(String position) {
     switch (position) {
@@ -28,83 +31,99 @@ enum BottomButtonPosition {
         return BottomButtonPosition.bottom;
     }
 
-    throw UnsupportedError("BottomButtonPosition: $position is not supported");
+    return BottomButtonPosition.unknown;
   }
 }
 
+enum BottomButtonType {
+  /// main button
+  main,
+
+  /// secondary button
+  secondary,
+}
+
 class BottomButton {
-  static BottomButton? _mainButtoninstance;
+  static BottomButton? _mainButtonInstance;
   static BottomButton? _secondaryButtonInstance;
 
   static BottomButton get mainButtonInstance =>
-      _mainButtoninstance ??= BottomButton(() => telegram_js.MainButton);
-
+      _mainButtonInstance ??= BottomButton(BottomButtonType.main);
   static BottomButton get secondaryButtonInstance =>
-      _secondaryButtonInstance ??= BottomButton(() => telegram_js.SecondaryButton);
+      _secondaryButtonInstance ??= BottomButton(BottomButtonType.secondary);
 
-  final telegram_js_models.BottomButton Function() bottomButton;
+  final BottomButtonType _type;
 
-  BottomButton(this.bottomButton);
+  BottomButton(this._type);
+
+  telegram_js_models.BottomButton _bottomButton() {
+    switch (_type) {
+      case BottomButtonType.main:
+        return telegram_js.MainButton;
+      case BottomButtonType.secondary:
+        return telegram_js.SecondaryButton;
+    }
+  }
 
   /// Current button text. Set to CONTINUE by default.
-  String get text => bottomButton().text;
+  String get text => _bottomButton().text;
 
   /// Current button color. Set to themeParams.button_color by default.
-  Color? get color => bottomButton().color.toColor();
+  Color? get color => _bottomButton().color.toColor();
 
   /// Current button text color. Set to themeParams.button_text_color by default.
-  Color? get textColor => bottomButton().textColor.toColor();
+  Color? get textColor => _bottomButton().textColor.toColor();
 
   /// Shows whether the button is visible. Set to false by default.
-  bool get isVisible => bottomButton().isVisible;
+  bool get isVisible => _bottomButton().isVisible;
 
   /// Shows whether the button is active. Set to true by default.
-  bool get isActive => bottomButton().isActive;
+  bool get isActive => _bottomButton().isActive;
 
   /// Bot API 7.10+ Shows whether the button has a shine effect. Set to false by default.
   bool get hasShineEffect =>
-      telegram_js.isVersionAtLeast("Bot API 7.10") ? bottomButton().hasShineEffect : false;
+      telegram_js.isVersionAtLeast("Bot API 7.10") ? _bottomButton().hasShineEffect : false;
 
   /// Bot API 7.10+ Position of the secondary button. Not defined for the main button.
   /// It applies only if both the main and secondary buttons are visible. Set to left by default.
   BottomButtonPosition? get position => telegram_js.isVersionAtLeast("Bot API 7.10")
-      ? BottomButtonPosition.fromString(bottomButton().position)
+      ? BottomButtonPosition.fromString(_bottomButton().position)
       : null;
 
   /// Readonly. Shows whether the button is displaying a loading indicator.
-  bool get isProgressVisible => bottomButton().isProgressVisible;
+  bool get isProgressVisible => _bottomButton().isProgressVisible;
 
   /// A method to set the button text.
-  void setText(String text) => bottomButton().setText(text);
+  void setText(String text) => _bottomButton().setText(text);
 
   /// A method that sets the button press event handler.
-  void onClick(void Function() callback) => bottomButton().onClick(JsDynamicCallback(callback));
+  void onClick(void Function() callback) => _bottomButton().onClick(JsDynamicCallback(callback));
 
   /// A method that removes the button press event handler.
-  void offClick(void Function() callback) => bottomButton().offClick(JsDynamicCallback(callback));
+  void offClick(void Function() callback) => _bottomButton().offClick(JsDynamicCallback(callback));
 
   /// A method to make the button visible.
   /// Note that opening the Mini App from the attachment menu hides the main
   /// button until the user interacts with the Mini App interface.
-  Future<void> show() => bottomButton().show();
+  Future<void> show() => _bottomButton().show();
 
   /// A method to hide the button.
-  Future<void> hide() => bottomButton().hide();
+  Future<void> hide() => _bottomButton().hide();
 
   /// A method to enable the button.
-  void enable() => bottomButton()..enable();
+  void enable() => _bottomButton()..enable();
 
   /// A method to disable the button.
-  void disable() => bottomButton().disable();
+  void disable() => _bottomButton().disable();
 
   /// A method to show a loading indicator on the button.
   /// It is recommended to display loading progress if the action tied to the button may
   /// take a long time. By default, the button is disabled while the action is in progress.
   /// If the parameter leaveActive=true is passed, the button remains enabled.
-  void showProgress(bool leaveActive) => bottomButton().showProgress(leaveActive);
+  void showProgress(bool leaveActive) => _bottomButton().showProgress(leaveActive);
 
   /// A method to hide the loading indicator
-  void hideProgress() => bottomButton().hideProgress();
+  void hideProgress() => _bottomButton().hideProgress();
 
   /// A method to set the button parameters. The params parameter is an object containing
   /// one or several fields that need to be changed:
@@ -114,5 +133,5 @@ class BottomButton {
   /// is_active - enable the button;
   /// is_visible - show the button.
   void setParams(BottomButtonParams bottomButtonParams) =>
-      bottomButton().setParams(FlutterJSBridge.convertToJS(bottomButtonParams));
+      _bottomButton().setParams(FlutterJSBridge.convertToJS(bottomButtonParams));
 }

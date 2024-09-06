@@ -19,11 +19,12 @@ void main() async {
 
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
-    print("Flutter error happened: $details");
+    print(
+        "Flutter error happened. Ex: ${details.exception}, Context: ${details.context.toString()}, St: ${details.stack}");
   };
 
   PlatformDispatcher.instance.onError = (error, stack) {
-    print("error happened: $error, $stack");
+    print("PlatformDispatcher error happened: $error, $stack");
     return false;
   };
 
