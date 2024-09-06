@@ -1,3 +1,6 @@
+## 0.1.6
+* Support for Bot Api 7.8 - shareToStory
+
 ## 0.1.5
 * Update example app for [#21](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/issues/21)
 * username is not optional in WebAppChat [#14](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/issues/14)
