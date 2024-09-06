@@ -1,6 +1,6 @@
 import 'package:example/components/color_picker_dialog.dart';
 import 'package:example/screens/buttons/back_button_screen.dart';
-import 'package:example/screens/buttons/main_button_screen.dart';
+import 'package:example/screens/buttons/bottom_button_screen.dart';
 import 'package:example/screens/buttons/settings_button_screen.dart';
 import 'package:example/screens/other/biometric_manager_screen.dart';
 import 'package:example/screens/other/cloud_storage_screen.dart';
@@ -45,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
 
   void check() async {
     await Future.delayed(const Duration(seconds: 2));
-    isDefinedVersion = await telegram.isVersionAtLeast('Bot API 6.1');
+    isDefinedVersion = telegram.isVersionAtLeast('Bot API 6.1');
     setState(() {});
   }
 
@@ -80,6 +80,7 @@ class _MainScreenState extends State<MainScreen> {
           InfoExpandableTile('viewportStableHeight', telegram.viewportStableHeight.toString()),
           OneColorExpandableTile('headerColor', telegram.headerColor),
           OneColorExpandableTile('backgroundColor', telegram.backgroundColor),
+          OneColorExpandableTile('bottomBarColor', telegram.bottomBarColor),
           InfoExpandableTileWithWidget(
             'Closing confirmation',
             expanded: false,
@@ -185,6 +186,20 @@ class _MainScreenState extends State<MainScreen> {
               Color? color = await selectColor(context);
               if (color != null) {
                 await telegram.setBackgroundColor(color);
+                'Setting color: ${color.hexString}'.showSnackbar(context);
+                await Future.delayed(const Duration(seconds: 2));
+                setState(() {});
+              } else {
+                'Selected color is null'.showSnackbar(context);
+              }
+            },
+          ),
+          ListButton(
+            'setBottomBarColor(color)',
+            onPress: () async {
+              Color? color = await selectColor(context);
+              if (color != null) {
+                await telegram.setBottomBarColor(color);
                 'Setting color: ${color.hexString}'.showSnackbar(context);
                 await Future.delayed(const Duration(seconds: 2));
                 setState(() {});

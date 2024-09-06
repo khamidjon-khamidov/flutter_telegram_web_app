@@ -38,6 +38,9 @@ class TelegramWebAppImpl extends TelegramWebApp {
   Color? get headerColor => telegram_js.headerColor.toColor();
 
   @override
+  Color? get bottomBarColor => telegram_js.bottomBarColor.toColor();
+
+  @override
   Color? get backgroundColor => telegram_js.backgroundColor.toColor();
 
   @override
@@ -47,7 +50,10 @@ class TelegramWebAppImpl extends TelegramWebApp {
   BackButton get backButton => BackButton.instance;
 
   @override
-  MainButton get mainButton => MainButton.instance;
+  BottomButton get mainButton => BottomButton.mainButtonInstance;
+
+  @override
+  BottomButton get secondaryButton => BottomButton.secondaryButtonInstance;
 
   @override
   SettingsButton get settingButton => SettingsButton.instance;
@@ -62,10 +68,13 @@ class TelegramWebAppImpl extends TelegramWebApp {
   BiometricManager get biometricManager => BiometricManager(telegram_js.BiometricManager);
 
   @override
-  Future<bool> isVersionAtLeast(String version) => telegram_js.isVersionAtLeast(version);
+  bool isVersionAtLeast(String version) => telegram_js.isVersionAtLeast(version);
 
   @override
   Future<void> setHeaderColor(Color color) => telegram_js.setHeaderColor(color.hexString);
+
+  @override
+  Future<void> setBottomBarColor(Color color) => telegram_js.setBottomBarColor(color.hexString);
 
   @override
   Future<void> setBackgroundColor(Color color) => telegram_js.setBackgroundColor(color.hexString);

@@ -23,6 +23,8 @@ class ThemeParams {
 
   external String get header_bg_color;
 
+  external String get bottom_bar_bg_color;
+
   external String get accent_text_color;
 
   external String get section_bg_color;

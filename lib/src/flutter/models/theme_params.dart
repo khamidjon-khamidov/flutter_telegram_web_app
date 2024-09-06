@@ -20,6 +20,8 @@ class ThemeParams {
 
   Color? get headerBgColor => telegram_js.themeParams.header_bg_color.toColor();
 
+  Color? get bottomBarBgColor => telegram_js.themeParams.bottom_bar_bg_color.toColor();
+
   Color? get accentTextColor => telegram_js.themeParams.accent_text_color.toColor();
 
   Color? get sectionBgColor => telegram_js.themeParams.section_bg_color.toColor();

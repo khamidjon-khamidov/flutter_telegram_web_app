@@ -43,7 +43,10 @@ class TelegramWebAppFake extends TelegramWebApp {
   BackButton get backButton => BackButton.instance;
 
   @override
-  MainButton get mainButton => MainButton.instance;
+  BottomButton get mainButton => BottomButton.mainButtonInstance;
+
+  @override
+  BottomButton get secondaryButton => BottomButton.secondaryButtonInstance;
 
   @override
   SettingsButton get settingButton => SettingsButton.instance;
@@ -58,7 +61,7 @@ class TelegramWebAppFake extends TelegramWebApp {
   BiometricManager get biometricManager => throw UnimplementedError();
 
   @override
-  Future<bool> isVersionAtLeast(String version) async => true;
+  bool isVersionAtLeast(String version) => true;
 
   @override
   Future<void> setHeaderColor(Color color) async {}
@@ -139,4 +142,10 @@ class TelegramWebAppFake extends TelegramWebApp {
   Future<void> enableVerticalSwipes() async {}
   @override
   bool get isVerticalSwipesEnabled => true;
+
+  @override
+  Color? get bottomBarColor => const Color(0xff18222d);
+
+  @override
+  Future<void> setBottomBarColor(Color color) async {}
 }

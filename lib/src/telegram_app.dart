@@ -48,6 +48,9 @@ abstract class TelegramWebApp {
 
   Color? get backgroundColor;
 
+  // Current bottom bar color
+  Color? get bottomBarColor;
+
   /// True, if the confirmation dialog is enabled
   /// while the user is trying to close the Mini App.
   /// False, if the confirmation dialog is disabled.
@@ -61,7 +64,12 @@ abstract class TelegramWebApp {
   /// An object for controlling the main button,
   /// which is displayed at the bottom of the
   /// Mini App in the Telegram interface.
-  MainButton get mainButton;
+  BottomButton get mainButton;
+
+  /// An object for controlling the secondary button,
+  /// which is displayed at the bottom of the Mini App
+  /// in the Telegram interface.
+  BottomButton get secondaryButton;
 
   /// An object for controlling the Settings item
   /// in the context menu of the Mini App in the
@@ -80,11 +88,16 @@ abstract class TelegramWebApp {
   /// Returns true if the user's app supports a
   /// version of the Bot API that is equal to or
   /// higher than the version passed as the parameter.
-  Future<bool> isVersionAtLeast(String version);
+  bool isVersionAtLeast(String version);
 
   Future<void> setHeaderColor(Color color);
 
   Future<void> setBackgroundColor(Color color);
+
+  /// Bot API 7.10+ A method that sets the app's bottom
+  /// bar color in the #RRGGBB format. You can also use
+  /// the keywords bg_color, secondary_bg_color and bottom_bar_bg_color.
+  Future<void> setBottomBarColor(Color color);
 
   /// A method that enables a confirmation dialog while
   /// the user is trying to close the Mini App.
