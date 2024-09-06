@@ -37,6 +37,8 @@ part 'src/flutter/models/main_button.dart';
 part 'src/flutter/models/main_button_params.dart';
 part 'src/flutter/models/popup_button.dart';
 part 'src/flutter/models/settings_button.dart';
+part 'src/flutter/models/story/story_share_params.dart';
+part 'src/flutter/models/story/story_widget_link.dart';
 part 'src/flutter/models/telegram_color_scheme.dart';
 part 'src/flutter/models/telegram_init_data.dart';
 part 'src/flutter/models/theme_params.dart';

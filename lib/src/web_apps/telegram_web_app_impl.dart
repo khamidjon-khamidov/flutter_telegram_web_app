@@ -105,6 +105,26 @@ class TelegramWebAppImpl extends TelegramWebApp {
           : telegram_js.openInvoice(url);
 
   @override
+  Future<void> shareToStory(
+    String mediaUrl, {
+    StoryShareParams? params,
+  }) {
+    return params != null
+        ? telegram_js.shareToStory(
+            mediaUrl,
+            telegram_js_models.StoryShareParams(
+              text: params.text,
+              widget_link: params.widgetLink != null
+                  ? telegram_js_models.StoryWidgetLink(
+                      url: params.widgetLink!.url,
+                      name: params.widgetLink?.name,
+                    )
+                  : null,
+            ))
+        : telegram_js.shareToStory(mediaUrl);
+  }
+
+  @override
   Future<void> showPopup({
     String? title,
     required String message,

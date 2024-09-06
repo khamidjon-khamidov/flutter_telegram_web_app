@@ -4,7 +4,7 @@ part of '../../telegram_js_models.dart';
 /// This object contains the user's current theme settings.
 ///
 /// More details at [Telegram API](https://core.telegram.org/bots/webapps#themeparams)
-@JS("ThemeParams")
+@JS()
 class ThemeParams {
   external String get bg_color;
 

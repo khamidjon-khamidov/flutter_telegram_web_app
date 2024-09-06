@@ -4,6 +4,7 @@ import 'package:example/screens/buttons/main_button_screen.dart';
 import 'package:example/screens/buttons/settings_button_screen.dart';
 import 'package:example/screens/other/biometric_manager_screen.dart';
 import 'package:example/screens/other/cloud_storage_screen.dart';
+import 'package:example/screens/other/share_to_story_screen.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
 import 'package:example/widgets/expandable_tile.dart';
 import 'package:example/widgets/expandable_tile_with_widget.dart';
@@ -147,6 +148,13 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const CloudStorageScreen()));
+            },
+          ),
+          ListButton(
+            'Share To Story',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const ShareToStoryScreen()));
             },
           ),
           ListButton(

@@ -22,7 +22,11 @@ class ColorWidget extends StatelessWidget {
         const SizedBox(width: 8),
         Text(name, style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.w500)),
         const SizedBox(width: 8),
-        Text(color.toString(), style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.w500)),
+        SelectableText(color.toString(),
+            style: const TextStyle(
+              fontSize: 12.0,
+              fontWeight: FontWeight.w500,
+            )),
       ],
     );
   }
