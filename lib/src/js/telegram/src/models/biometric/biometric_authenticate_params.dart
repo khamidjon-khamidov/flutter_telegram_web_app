@@ -5,5 +5,7 @@ part of '../../../telegram_js_models.dart';
 class BiometricAuthenticateParams {
   external String? get reason;
 
-  external factory BiometricAuthenticateParams({required String? reason});
+  external factory BiometricAuthenticateParams({
+    required String? reason,
+  });
 }

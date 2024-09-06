@@ -91,6 +91,10 @@ class TelegramWebAppFake extends TelegramWebApp {
 
   @override
   Future<void> openInvoice(String url, [Function(dynamic)? onInvoiceStatus]) async {}
+
+  @override
+  Future<void> shareToStory(String mediaUrl, {StoryShareParams? params}) async {}
+
   @override
   Future<void> showPopup({
     String? title,

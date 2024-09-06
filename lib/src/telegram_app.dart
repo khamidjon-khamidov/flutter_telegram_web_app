@@ -137,6 +137,14 @@ abstract class TelegramWebApp {
   /// status will be passed as the first argument
   Future<void> openInvoice(String url, [Function(dynamic)? onInvoiceStatus]);
 
+  /// Bot API 7.8+ A method that opens the native story editor with the media specified
+  /// in the [media_url] parameter as an HTTPS URL. An optional params argument of the type
+  /// [StoryShareParams] describes additional sharing settings.
+  Future<void> shareToStory(
+    String mediaUrl, {
+    StoryShareParams? params,
+  });
+
   /// A method that shows a native popup described by the [params] argument of the
   /// type [PopupParams]. The Mini App will receive the event [popupClosed] when the
   /// popup is closed. If an optional [callback] parameter was passed, the callback

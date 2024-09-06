@@ -45,7 +45,7 @@ external Future<void> readTextFromClipboard([callback]);
 
 external Future<void> requestWriteAccess([callback]);
 external Future<void> requestContact([callback]);
-
+external Future<void> shareToStory(String media_url, [params]);
 external Future<void> showPopup(telegram_js_models.PopupParams params, [callback]);
 external Future<void> showAlert(String message, [callback]);
 external Future<void> showConfirm(String message, [callback]);
