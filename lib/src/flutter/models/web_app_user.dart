@@ -4,9 +4,9 @@ part of '../../../telegram_web_app.dart';
 ///
 /// More details at [Telegram API](https://core.telegram.org/bots/webapps#webappuser)
 class WebAppUser {
-  final telegram_js_models.WebAppUser _webAppUser;
-
   WebAppUser(this._webAppUser);
+
+  final WebAppUserJSObject _webAppUser;
 
   /// A unique identifier for the user or bot.
   /// This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it.

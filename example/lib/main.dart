@@ -5,7 +5,7 @@ import 'package:telegram_web_app/telegram_web_app.dart';
 void main() async {
   try {
     if (TelegramWebApp.instance.isSupported) {
-      await TelegramWebApp.instance.ready();
+      TelegramWebApp.instance.ready();
       Future.delayed(const Duration(seconds: 1), TelegramWebApp.instance.expand);
     }
   } catch (e) {

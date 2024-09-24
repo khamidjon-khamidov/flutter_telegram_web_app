@@ -1,9 +1,8 @@
 part of '../../../telegram_js_models.dart';
 
-@JS()
-@anonymous
-class BiometricRequestAccessParams {
-  external String? get reason;
+@JS('BiometricRequestAccessParams')
+extension type BiometricRequestAccessParamsJSObject._(JSObject _) implements JSObject {
+  external factory BiometricRequestAccessParamsJSObject({required String? reason});
 
-  external factory BiometricRequestAccessParams({required String? reason});
+  external String? get reason;
 }

@@ -1,25 +1,29 @@
 library telegram_web_app;
 
 import 'dart:convert';
+import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
-import 'package:telegram_web_app/src/bridge/flutter_js_bridge.dart';
-import 'package:telegram_web_app/src/bridge/js_callback.dart';
+import 'package:telegram_web_app/src/flutter/mock/mock_bottom_button.dart';
 import 'package:telegram_web_app/src/flutter/util/data_parser.dart';
-import 'package:telegram_web_app/src/js/telegram/telegram_js_models.dart' as telegram_js_models;
 import 'package:telegram_web_app/src/js/telegram/telegram_js_models.dart';
-import 'package:telegram_web_app/src/js/telegram_js.dart' as telegram_js;
+import 'package:telegram_web_app/src/js/telegram_js.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
 export 'src/bridge/color_utils.dart';
 
 part 'src/flutter/events/back_button_clicked_event.dart';
+part 'src/flutter/events/biometric_auth_requested_event.dart';
+part 'src/flutter/events/biometric_manager_updated_event.dart';
+part 'src/flutter/events/biometric_token_updated_event.dart';
 part 'src/flutter/events/clipboard_text_received_event.dart';
 part 'src/flutter/events/contact_requested_event.dart';
 part 'src/flutter/events/invoice_closed_event.dart';
 part 'src/flutter/events/main_button_clicked_event.dart';
 part 'src/flutter/events/popup_closed_event.dart';
 part 'src/flutter/events/qr_text_received_event.dart';
+part 'src/flutter/events/scan_qr_popup_closed_event.dart';
+part 'src/flutter/events/secondary_button_clicked_event.dart';
 part 'src/flutter/events/settings_button_clicked_event.dart';
 part 'src/flutter/events/telegram_event.dart';
 part 'src/flutter/events/theme_changed_event.dart';
@@ -30,11 +34,12 @@ part 'src/flutter/models/back_button.dart';
 part 'src/flutter/models/biometric/biometric_authenticate_params.dart';
 part 'src/flutter/models/biometric/biometric_manager.dart';
 part 'src/flutter/models/biometric/biometric_request_access_params.dart';
+part 'src/flutter/models/bottom_button.dart';
+part 'src/flutter/models/bottom_button_params.dart';
 part 'src/flutter/models/chat_types.dart';
 part 'src/flutter/models/cloud_storage.dart';
 part 'src/flutter/models/haptic_feedback.dart';
-part 'src/flutter/models/main_button.dart';
-part 'src/flutter/models/main_button_params.dart';
+part 'src/flutter/models/invoice_status.dart';
 part 'src/flutter/models/popup_button.dart';
 part 'src/flutter/models/settings_button.dart';
 part 'src/flutter/models/story/story_share_params.dart';

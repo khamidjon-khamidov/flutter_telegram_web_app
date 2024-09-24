@@ -1,7 +1,6 @@
 part of '../../telegram_js_models.dart';
 
-@JS("WebAppChat")
-class WebAppChat {
+extension type WebAppChatJSObject._(JSObject _) implements JSObject {
   external int get id;
 
   external String get type;
