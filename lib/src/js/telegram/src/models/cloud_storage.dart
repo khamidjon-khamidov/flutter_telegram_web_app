@@ -1,16 +1,15 @@
 part of '../../telegram_js_models.dart';
 
-@JS()
-class CloudStorage {
-  external Future<void> setItem(String key, String value, [callback]);
+extension type CloudStorageJSObject._(JSObject _) implements JSObject {
+  external CloudStorageJSObject setItem(String key, String value, [JSExportedDartFunction? callback]);
 
-  external Future<void> getItem(String key, callback);
+  external CloudStorageJSObject getItem(String key, JSExportedDartFunction callback);
 
-  external Future<void> getItems(List<String> keys, callback);
+  external CloudStorageJSObject getItems(JSArray<JSString> keys, JSExportedDartFunction callback);
 
-  external Future<void> removeItem(String key, [callback]);
+  external CloudStorageJSObject removeItem(String key, [JSExportedDartFunction? callback]);
 
-  external Future<void> removeItems(List<String> keys, [callback]);
+  external CloudStorageJSObject removeItems(JSArray<JSString> keys, [JSExportedDartFunction? callback]);
 
-  external Future<void> getKeys([callback]);
+  external CloudStorageJSObject getKeys([JSExportedDartFunction callback]);
 }

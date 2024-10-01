@@ -1,9 +1,20 @@
 part of '../../../telegram_web_app.dart';
 
-/// Occurs when the QR code scanner catches a code with text data.
-// [eventHandler] receives an object with the single field data containing
-// text data from the QR code.
+/// Bot API 6.4+ Occurs when the QR code scanner catches a code with text data.
+/// eventHandler receives an object with the single field data containing text data from
+/// the QR code.
 class QrTextReceivedEvent extends TelegramEvent {
-  QrTextReceivedEvent(Function(String qrjText) eventHandler)
-      : super(TelegramEventType.qrTextReceived, eventHandler);
+  QrTextReceivedEvent(void Function(QrTextReceivedPayload payload) eventHandler)
+      : super(
+          TelegramEventType.qrTextReceived,
+          (QrTextReceivedPayloadJSObject payload) {
+            eventHandler(QrTextReceivedPayload(payload.data.toDart));
+          }.toJS,
+        );
+}
+
+class QrTextReceivedPayload {
+  final String data;
+
+  QrTextReceivedPayload(this.data);
 }

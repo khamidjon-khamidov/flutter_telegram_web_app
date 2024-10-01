@@ -26,6 +26,9 @@ class MockThemeParams implements ThemeParams {
   Color? get headerBgColor => const Color(0xff131415);
 
   @override
+  Color? get bottomBarBgColor => const Color(0xff213040);
+
+  @override
   Color? get accentTextColor => const Color(0xff2ea6ff);
 
   @override

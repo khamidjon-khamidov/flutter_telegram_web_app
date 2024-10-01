@@ -1,3 +1,11 @@
+# Changelog
+
+## [Unreleased]
+* Added support for Bot API 7.10
+* Fixed incorrect implementation of the TelegramWebApp interface (removed invalid Future<T> return types for several methods)
+* Corrected event implementations and added missing events: `BiometricAuthRequestedEvent`, `BiometricManagerUpdatedEvent`, `BiometricTokenUpdatedEvent`, `ScanQrPopupClosedEvent`, `SecondaryButtonClickedEvent`
+* Migrated to the dart:js_interop package
+
 ## 0.1.6
 * Support for Bot Api 7.8 - shareToStory
 

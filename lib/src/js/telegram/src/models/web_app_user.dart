@@ -1,7 +1,6 @@
 part of '../../telegram_js_models.dart';
 
-@JS("WebAppUser")
-class WebAppUser {
+extension type WebAppUserJSObject._(JSObject _) implements JSObject {
   external int get id;
 
   external bool? get is_bot;
