@@ -4,7 +4,7 @@ part of '../../../telegram_web_app.dart';
 ///
 /// More details at [Telegram API](https://core.telegram.org/bots/webapps#webappchat)
 class WebAppChat {
-  final telegram_js_models.WebAppChat _webAppChat;
+  final WebAppChatJSObject _webAppChat;
 
   WebAppChat(this._webAppChat);
 

@@ -1,60 +1,59 @@
 part of '../../../telegram_web_app.dart';
 
-class MainButton {
-  static MainButton? _instance;
-  static MainButton get instance => _instance ??= MainButton();
+class BottomButton {
+  BottomButton(BottomButtonJSObject jsObject) : _jsObject = jsObject;
+
+  final BottomButtonJSObject _jsObject;
 
   /// Current button text. Set to CONTINUE by default.
-  String get text => telegram_js.MainButton.text;
+  String get text => _jsObject.text;
 
   /// Current button color. Set to themeParams.button_color by default.
-  Color? get color => telegram_js.MainButton.color.toColor();
+  Color? get color => _jsObject.color.toColor();
 
   /// Current button text color. Set to themeParams.button_text_color by default.
-  Color? get textColor => telegram_js.MainButton.textColor.toColor();
+  Color? get textColor => _jsObject.textColor.toColor();
 
   /// Shows whether the button is visible. Set to false by default.
-  bool get isVisible => telegram_js.MainButton.isVisible;
+  bool get isVisible => _jsObject.isVisible;
 
   /// Shows whether the button is active. Set to true by default.
-  bool get isActive => telegram_js.MainButton.isActive;
+  bool get isActive => _jsObject.isActive;
 
   /// Readonly. Shows whether the button is displaying a loading indicator.
-  bool get isProgressVisible => telegram_js.MainButton.isProgressVisible;
+  bool get isProgressVisible => _jsObject.isProgressVisible;
 
   /// A method to set the button text.
-  void setText(String text) => telegram_js.MainButton.setText(text);
+  void setText(String text) => _jsObject.setText(text);
 
   /// A method that sets the button press event handler.
-  void onClick(void Function() callback) =>
-      telegram_js.MainButton.onClick(JsDynamicCallback(callback));
+  void onClick(void Function() callback) => _jsObject.onClick(callback.toJS);
 
   /// A method that removes the button press event handler.
-  void offClick(void Function() callback) =>
-      telegram_js.MainButton.offClick(JsDynamicCallback(callback));
+  void offClick(void Function() callback) => _jsObject.offClick(callback.toJS);
 
   /// A method to make the button visible.
   /// Note that opening the Mini App from the attachment menu hides the main
   /// button until the user interacts with the Mini App interface.
-  Future<void> show() => telegram_js.MainButton.show();
+  void show() => _jsObject.show();
 
   /// A method to hide the button.
-  Future<void> hide() => telegram_js.MainButton.hide();
+  void hide() => _jsObject.hide();
 
   /// A method to enable the button.
-  void enable() => telegram_js.MainButton..enable();
+  void enable() => _jsObject..enable();
 
   /// A method to disable the button.
-  void disable() => telegram_js.MainButton.disable();
+  void disable() => _jsObject.disable();
 
   /// A method to show a loading indicator on the button.
   /// It is recommended to display loading progress if the action tied to the button may
   /// take a long time. By default, the button is disabled while the action is in progress.
   /// If the parameter leaveActive=true is passed, the button remains enabled.
-  void showProgress(bool leaveActive) => telegram_js.MainButton.showProgress(leaveActive);
+  void showProgress(bool leaveActive) => _jsObject.showProgress(leaveActive);
 
   /// A method to hide the loading indicator
-  void hideProgress() => telegram_js.MainButton.hideProgress();
+  void hideProgress() => _jsObject.hideProgress();
 
   /// A method to set the button parameters. The params parameter is an object containing
   /// one or several fields that need to be changed:
@@ -63,6 +62,15 @@ class MainButton {
   /// text_color - button text color;
   /// is_active - enable the button;
   /// is_visible - show the button.
-  void setParams(MainButtonParams mainButtonParams) =>
-      telegram_js.MainButton.setParams(FlutterJSBridge.convertToJS(mainButtonParams));
+  void setParams(BottomButtonParams secondaryButtonParams) => _jsObject.setParams(
+        BottomButtonParamsJSObject(
+          text: secondaryButtonParams.text,
+          color: secondaryButtonParams.color,
+          textColor: secondaryButtonParams.textColor,
+          hasShineEffect: secondaryButtonParams.hasShineEffect,
+          position: secondaryButtonParams.position,
+          isVisible: secondaryButtonParams.isVisible,
+          isActive: secondaryButtonParams.isActive,
+        ),
+      );
 }

@@ -3,23 +3,23 @@ part of '../../../telegram_web_app.dart';
 ///https://core.telegram.org/bots/webapps#hapticfeedback
 class HapticFeedback {
   static HapticFeedback? _instance;
+
   static HapticFeedback get instance => _instance ??= HapticFeedback();
 
   /// A method tells that an impact occurred. The Telegram app may play
   /// the appropriate haptics based on style value passed
-  void impactOccurred(HapticFeedbackImpact impact) =>
-      telegram_js.HapticFeedback.impactOccurred(impact.name);
+  void impactOccurred(HapticFeedbackImpact impact) => Telegram.WebApp.HapticFeedback.impactOccurred(impact.name);
 
   /// A method tells that a task or action has succeeded, failed, or produced a warning.
   /// The Telegram app may play the appropriate haptics based on type value passed.
   void notificationOccurred(HapticFeedbackNotificationType type) =>
-      telegram_js.HapticFeedback.notificationOccurred(type.name);
+      Telegram.WebApp.HapticFeedback.notificationOccurred(type.name);
 
   /// A method tells that the user has changed a selection. The Telegram app may play
   /// the appropriate haptics.
   /// Warning!!! Do not use this feedback when the user makes or confirms a selection;
   ///            use it only when the selection changes.
-  void selectionChanged() => telegram_js.HapticFeedback.selectionChanged();
+  void selectionChanged() => Telegram.WebApp.HapticFeedback.selectionChanged();
 }
 
 enum HapticFeedbackImpact {

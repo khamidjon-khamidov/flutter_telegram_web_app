@@ -1,11 +1,14 @@
 part of '../../telegram_js_models.dart';
 
 ///https://core.telegram.org/bots/webapps#backbutton
-@JS()
-class BackButton {
+extension type BackButtonJSObject._(JSObject _) implements JSObject {
   external bool isVisible;
-  external void onClick(callback);
-  external void offClick(callback);
-  external Future show();
-  external Future hide();
+
+  external void onClick(JSExportedDartFunction callback);
+
+  external void offClick(JSExportedDartFunction callback);
+
+  external void show();
+
+  external void hide();
 }

@@ -1,13 +1,13 @@
 part of '../../../telegram_js_models.dart';
 
-@JS()
-@anonymous
-class StoryShareParams {
-  external String? get text;
-  external String? get widget_link;
-
-  external factory StoryShareParams({
+@JS('StoryShareParams')
+extension type StoryShareParamsJSObject._(JSObject _) implements JSObject {
+  external factory StoryShareParamsJSObject({
     required String? text,
-    required StoryWidgetLink? widget_link,
+    required StoryWidgetLinkJSObject? widget_link,
   });
+
+  external String? get text;
+
+  external String? get widget_link;
 }

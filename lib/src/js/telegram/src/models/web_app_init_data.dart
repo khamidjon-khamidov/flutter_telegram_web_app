@@ -1,14 +1,13 @@
 part of '../../telegram_js_models.dart';
 
-@JS("WebAppInitData")
-class WebAppInitData {
+extension type WebAppInitDataJSObject._(JSObject _) implements JSObject {
   external String? get query_id;
 
-  external WebAppUser? get user;
+  external WebAppUserJSObject? get user;
 
-  external WebAppUser? get receiver;
+  external WebAppUserJSObject? get receiver;
 
-  external WebAppChat? get chat;
+  external WebAppChatJSObject? get chat;
 
   external String? get chat_type;
 
@@ -18,7 +17,7 @@ class WebAppInitData {
 
   external int? get can_send_after;
 
-  external int? get auth_date;
+  external String? get auth_date;
 
   external String? get hash;
 }

@@ -1,57 +1,114 @@
-@JS("Telegram.WebApp")
 library telegram_js;
 
 /// this library contains all the apis of the telegram js library
 
-import 'package:js/js.dart';
-import 'package:telegram_web_app/src/js/telegram/telegram_js_models.dart' as telegram_js_models;
+import 'dart:js_interop';
 
-external String get initData;
-external String get version;
-external String get platform;
-external String get colorScheme;
-external String get headerColor;
-external String get backgroundColor;
-external bool get isClosingConfirmationEnabled;
-external bool get isExpanded;
-external double? get viewportHeight;
-external double? get viewportStableHeight;
-external String? get tgWebAppStartParam;
-external bool get isVerticalSwipesEnabled;
+import 'package:telegram_web_app/src/js/telegram/telegram_js_models.dart';
 
-external telegram_js_models.ThemeParams get themeParams;
-external telegram_js_models.BackButton get BackButton;
-external telegram_js_models.MainButton get MainButton;
-external telegram_js_models.SettingsButton get SettingsButton;
-external telegram_js_models.HapticFeedback get HapticFeedback;
-external telegram_js_models.CloudStorage get CloudStorage;
-external telegram_js_models.BiometricManager get BiometricManager;
-external telegram_js_models.WebAppInitData get initDataUnsafe;
+@JS()
+external TelegramJSObject get Telegram;
 
-external Future<void> ready();
-external Future<void> expand();
-external Future<void> close();
-external Future<void> enableClosingConfirmation();
-external Future<void> disableClosingConfirmation();
-external Future<void> sendData(String data);
-external Future<bool> isVersionAtLeast(version);
-external Future<void> setHeaderColor(String color);
-external Future<void> setBackgroundColor(String color);
-external Future<void> switchInlineQuery(query, [choose_chat_types]);
-external Future<void> openLink(url, [options]);
-external Future<void> openTelegramLink(String url);
-external Future<void> openInvoice(String url, [callback]);
-external Future<void> readTextFromClipboard([callback]);
+extension type TelegramJSObject._(JSObject _) implements JSObject {
+  external WebAppJSObject get WebApp;
+}
 
-external Future<void> requestWriteAccess([callback]);
-external Future<void> requestContact([callback]);
-external Future<void> shareToStory(String media_url, [params]);
-external Future<void> showPopup(telegram_js_models.PopupParams params, [callback]);
-external Future<void> showAlert(String message, [callback]);
-external Future<void> showConfirm(String message, [callback]);
-external Future<void> showScanQrPopup(telegram_js_models.ScanQrPopupParams params, [callback]);
-external Future<void> closeScanQrPopup();
-external void onEvent(String eventType, callback);
-external void offEvent(String eventType, callback);
-external Future<void> enableVerticalSwipes();
-external Future<void> disableVerticalSwipes();
+extension type WebAppJSObject._(JSObject _) implements JSObject {
+  external String get initData;
+
+  external String get version;
+
+  external String get platform;
+
+  external String get colorScheme;
+
+  external String get headerColor;
+
+  external String get backgroundColor;
+
+  external String get bottomBarColor;
+
+  external bool get isClosingConfirmationEnabled;
+
+  external bool get isExpanded;
+
+  external double? get viewportHeight;
+
+  external double? get viewportStableHeight;
+
+  external String? get tgWebAppStartParam;
+
+  external bool get isVerticalSwipesEnabled;
+
+  external ThemeParamsJSObject get themeParams;
+
+  external BackButtonJSObject get BackButton;
+
+  external BottomButtonJSObject get MainButton;
+
+  external SettingsButtonJSObject get SettingsButton;
+
+  external BottomButtonJSObject get SecondaryButton;
+
+  external HapticFeedbackJSObject get HapticFeedback;
+
+  external CloudStorageJSObject get CloudStorage;
+
+  external BiometricManagerJSObject get BiometricManager;
+
+  external WebAppInitDataJSObject get initDataUnsafe;
+
+  external void ready();
+
+  external void expand();
+
+  external void close();
+
+  external void enableClosingConfirmation();
+
+  external void disableClosingConfirmation();
+
+  external void sendData(String data);
+
+  external JSBoolean isVersionAtLeast(String version);
+
+  external void setHeaderColor(String color);
+
+  external void setBackgroundColor(String color);
+
+  external void setBottomBarColor(String color);
+
+  external void switchInlineQuery(String query, [JSArray<JSString>? choose_chat_types]);
+
+  external void openLink(String url, [OpenLinkParamsJSObject? options]);
+
+  external void openTelegramLink(String url);
+
+  external void openInvoice(String url, [JSExportedDartFunction? callback]);
+
+  external void readTextFromClipboard([JSExportedDartFunction? callback]);
+
+  external void requestWriteAccess([JSExportedDartFunction? callback]);
+
+  external void requestContact([JSExportedDartFunction? callback]);
+
+  external void shareToStory(String media_url, [StoryShareParamsJSObject? params]);
+
+  external void showPopup(PopupParamsJSObject params, [JSExportedDartFunction? callback]);
+
+  external void showAlert(String message, [JSExportedDartFunction? callback]);
+
+  external void showConfirm(String message, [JSExportedDartFunction? callback]);
+
+  external void showScanQrPopup(ScanQrPopupParamsJSObject params, [JSExportedDartFunction? callback]);
+
+  external void closeScanQrPopup();
+
+  external void onEvent(String eventType, JSExportedDartFunction? callback);
+
+  external void offEvent(String eventType, JSExportedDartFunction? callback);
+
+  external void enableVerticalSwipes();
+
+  external void disableVerticalSwipes();
+}
