@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## 0.2.0 BETA
 * Added support for Bot API 7.10
 * Fixed incorrect implementation of the TelegramWebApp interface (removed invalid Future<T> return types for several methods)
 * Corrected event implementations and added missing events: `BiometricAuthRequestedEvent`, `BiometricManagerUpdatedEvent`, `BiometricTokenUpdatedEvent`, `ScanQrPopupClosedEvent`, `SecondaryButtonClickedEvent`
