@@ -32,6 +32,8 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
 
   external bool get isExpanded;
 
+  external bool get isActive;
+
   external double? get viewportHeight;
 
   external double? get viewportStableHeight;
@@ -39,6 +41,14 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
   external String? get tgWebAppStartParam;
 
   external bool get isVerticalSwipesEnabled;
+
+  external bool get isFullscreen;
+
+  external bool get isOrientationLocked;
+
+  external SafeAreaInsetJSObject get safeAreaInset;
+
+  external ContentSafeAreaInsetJSObject get contentSafeAreaInset;
 
   external ThemeParamsJSObject get themeParams;
 
