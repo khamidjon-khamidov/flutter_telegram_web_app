@@ -5,6 +5,7 @@ import 'package:example/screens/buttons/settings_button_screen.dart';
 import 'package:example/screens/other/biometric_manager_screen.dart';
 import 'package:example/screens/other/cloud_storage_screen.dart';
 import 'package:example/screens/other/share_to_story_screen.dart';
+import 'package:example/screens/screens/orientation_screen.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
 import 'package:example/widgets/expandable_tile.dart';
 import 'package:example/widgets/expandable_tile_with_widget.dart';
@@ -78,7 +79,6 @@ class _MainScreenState extends State<MainScreen> {
           InfoExpandableTile('isActive', telegram.isActive.toString()),
           InfoExpandableTile('isExpanded', telegram.isExpanded.toString()),
           InfoExpandableTile('isFullscreen', telegram.isFullscreen.toString()),
-          InfoExpandableTile('isOrientationLocked', telegram.isOrientationLocked.toString()),
           InfoExpandableTile('viewportHeight', telegram.viewportHeight.toString()),
           InfoExpandableTile('viewportStableHeight', telegram.viewportStableHeight.toString()),
           InfoExpandableTile('safeAreaInset', telegram.safeAreaInset.toString()),
@@ -97,7 +97,8 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   const Text('isClosingConfirmationEnabled'),
                   const SizedBox(height: 8),
-                  Text(telegram.isClosingConfirmationEnabled.toString(), style: const TextStyle(fontSize: 16)),
+                  Text(telegram.isClosingConfirmationEnabled.toString(),
+                      style: const TextStyle(fontSize: 16)),
                   const SizedBox(height: 16),
                   Row(
                     children: [
@@ -121,9 +122,17 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
           ListButton(
+            'Orientation',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const OrientationScreen()));
+            },
+          ),
+          ListButton(
             'BackButton',
             onPress: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BackButtonScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const BackButtonScreen()));
             },
           ),
           ListButton(
@@ -149,31 +158,36 @@ class _MainScreenState extends State<MainScreen> {
           ListButton(
             'SettingsButton',
             onPress: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SettingsButtonScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const SettingsButtonScreen()));
             },
           ),
           ListButton(
             'HapticFeedback',
             onPress: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HapticFeedbackScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const HapticFeedbackScreen()));
             },
           ),
           ListButton(
             'CloudStorage',
             onPress: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CloudStorageScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const CloudStorageScreen()));
             },
           ),
           ListButton(
             'Share To Story',
             onPress: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ShareToStoryScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const ShareToStoryScreen()));
             },
           ),
           ListButton(
             'BiometricsManager',
             onPress: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BiometricManagerScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const BiometricManagerScreen()));
             },
           ),
           InfoExpandableTile('isVersionAtLeast(6.1)', isDefinedVersion.toString()),
@@ -287,7 +301,8 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () {
               telegram.readTextFromClipboard(
                 (result) {
-                  'Clipboard text: $result, You can call this method only by MainButton'.showSnackbar(context);
+                  'Clipboard text: $result, You can call this method only by MainButton'
+                      .showSnackbar(context);
                 },
               );
             },
@@ -308,7 +323,8 @@ class _MainScreenState extends State<MainScreen> {
               );
             },
           ),
-          ListButton('Switch inline query', onPress: () => telegram.switchInlineQuery("Hello Telegram")),
+          ListButton('Switch inline query',
+              onPress: () => telegram.switchInlineQuery("Hello Telegram")),
           ListButton('sendData', onPress: () {
             telegram.sendData('Hello this message is from mini app');
           }),

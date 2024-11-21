@@ -24,6 +24,8 @@ part 'src/models/cloud_storage.dart';
 part 'src/models/content_safe_area_inset.dart';
 part 'src/models/haptic_feedback.dart';
 part 'src/models/open_link_params.dart';
+part 'src/models/orientation/device_orientation.dart';
+part 'src/models/orientation/device_orientation_start_params.dart';
 part 'src/models/popup_button.dart';
 part 'src/models/popup_params.dart';
 part 'src/models/safe_area_inset.dart';

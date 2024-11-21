@@ -25,7 +25,11 @@ enum TelegramEventType {
   contactRequested('contactRequested'),
   biometricManagerUpdated('biometricManagerUpdated'),
   biometricAuthRequested('biometricAuthRequested'),
-  biometricTokenUpdated('biometricTokenUpdated');
+  biometricTokenUpdated('biometricTokenUpdated'),
+  deviceOrientationStarted('deviceOrientationStarted'),
+  deviceOrientationStopped('deviceOrientationStopped'),
+  deviceOrientationChanged('deviceOrientationChanged'),
+  deviceOrientationFailed('deviceOrientationFailed');
 
   const TelegramEventType(this.eventName);
 
