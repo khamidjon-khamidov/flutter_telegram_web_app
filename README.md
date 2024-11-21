@@ -56,7 +56,7 @@ You can find full list of api examples in example folder. Please feel free to [c
 void main() async {
   try {
     if (TelegramWebApp.instance.isSupported) {
-      await TelegramWebApp.instance.ready();
+      TelegramWebApp.instance.ready();
       Future.delayed(const Duration(seconds: 1), TelegramWebApp.instance.expand);
     }
   } catch (e) {
