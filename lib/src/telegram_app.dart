@@ -37,6 +37,14 @@ abstract class TelegramWebApp {
   /// the Telegram app.
   ThemeParams get themeParams;
 
+  /// **Bot API 8.0+** 
+  /// 
+  /// True, if the Mini App is currently active.
+  /// False, if the Mini App is minimized.
+  bool get isActive;
+
+  /// **Bot API 8.0+** 
+  /// 
   /// True, if the Mini App is expanded to the maximum
   /// available height. False, if the Mini App occupies part of
   /// the screen and can be expanded to the full height using
@@ -105,6 +113,27 @@ abstract class TelegramWebApp {
   /// be able to minimize and close the Mini App by swiping
   /// the Mini App's header.
   bool get isVerticalSwipesEnabled;
+
+  /// **Bot API 8.0+** 
+  /// 
+  /// True, if the Mini App is currently being displayed in fullscreen mode.
+  bool get isFullscreen;
+
+  /// **Bot API 8.0+** 
+  /// 
+  /// True, if the Mini App’s orientation is currently locked.
+  /// False, if orientation changes freely based on the device’s rotation.
+  bool get isOrientationLocked;
+
+  /// **Bot API 8.0+** 
+  /// 
+  /// An object representing the device's safe area insets, accounting for system UI elements like notches or navigation bars.
+  SafeAreaInset get safeAreaInset;
+
+  /// **Bot API 8.0+**
+  /// 
+  /// An object representing the safe area for displaying content within the app, free from overlapping Telegram UI elements.
+  ContentSafeAreaInset get contentSafeAreaInset;
 
   /// An object for controlling the back button which can
   /// be displayed in the header of the Mini App in the Telegram

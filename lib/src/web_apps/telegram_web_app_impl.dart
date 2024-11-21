@@ -29,6 +29,9 @@ class TelegramWebAppImpl extends TelegramWebApp {
   bool get isExpanded => Telegram.WebApp.isExpanded;
 
   @override
+  bool get isActive => Telegram.WebApp.isActive;
+
+  @override
   double? get viewportHeight => Telegram.WebApp.viewportHeight;
 
   @override
@@ -48,6 +51,18 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   bool get isVerticalSwipesEnabled => Telegram.WebApp.isVerticalSwipesEnabled;
+
+  @override
+  bool get isFullscreen => Telegram.WebApp.isFullscreen;
+
+  @override
+  bool get isOrientationLocked => Telegram.WebApp.isOrientationLocked;
+
+  @override
+  SafeAreaInset get safeAreaInset => SafeAreaInset(Telegram.WebApp.safeAreaInset);
+
+  @override
+  ContentSafeAreaInset get contentSafeAreaInset => ContentSafeAreaInset(Telegram.WebApp.contentSafeAreaInset);
 
   @override
   BackButton get backButton => BackButton.instance;

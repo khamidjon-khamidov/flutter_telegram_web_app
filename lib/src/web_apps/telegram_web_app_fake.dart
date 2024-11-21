@@ -11,7 +11,7 @@ class TelegramWebAppFake extends TelegramWebApp {
   WebAppInitData? get initDataUnsafe => null;
 
   @override
-  String get version => '7.0';
+  String get version => '8.0';
 
   @override
   String get platform => 'android';
@@ -24,6 +24,9 @@ class TelegramWebAppFake extends TelegramWebApp {
 
   @override
   bool get isExpanded => true;
+
+  @override
+  bool get isActive => true;
 
   @override
   double? get viewportHeight => 548.0;
@@ -42,6 +45,21 @@ class TelegramWebAppFake extends TelegramWebApp {
 
   @override
   bool get isClosingConfirmationEnabled => true;
+
+  @override
+  bool get isVerticalSwipesEnabled => true;
+
+  @override
+  bool get isFullscreen => false;
+
+  @override
+  bool get isOrientationLocked => false;
+
+  @override
+  SafeAreaInset get safeAreaInset => throw UnimplementedError();
+
+  @override
+  ContentSafeAreaInset get contentSafeAreaInset => throw UnimplementedError();
 
   @override
   BackButton get backButton => BackButton.instance;
@@ -151,7 +169,4 @@ class TelegramWebAppFake extends TelegramWebApp {
 
   @override
   void enableVerticalSwipes() {}
-
-  @override
-  bool get isVerticalSwipesEnabled => true;
 }
