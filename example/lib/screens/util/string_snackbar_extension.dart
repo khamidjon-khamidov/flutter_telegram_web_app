@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-extension StrinExt on String {
+extension StringExt on String {
   void showSnackbar(BuildContext context) {
     String message = this;
     var snackBar = SnackBar(content: Text(message));
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 }

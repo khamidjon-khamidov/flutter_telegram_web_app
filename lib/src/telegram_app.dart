@@ -37,14 +37,14 @@ abstract class TelegramWebApp {
   /// the Telegram app.
   ThemeParams get themeParams;
 
-  /// **Bot API 8.0+** 
-  /// 
+  /// **Bot API 8.0+**
+  ///
   /// True, if the Mini App is currently active.
   /// False, if the Mini App is minimized.
   bool get isActive;
 
-  /// **Bot API 8.0+** 
-  /// 
+  /// **Bot API 8.0+**
+  ///
   /// True, if the Mini App is expanded to the maximum
   /// available height. False, if the Mini App occupies part of
   /// the screen and can be expanded to the full height using
@@ -114,24 +114,44 @@ abstract class TelegramWebApp {
   /// the Mini App's header.
   bool get isVerticalSwipesEnabled;
 
-  /// **Bot API 8.0+** 
-  /// 
+  /// **Bot API 8.0+**
+  ///
   /// True, if the Mini App is currently being displayed in fullscreen mode.
   bool get isFullscreen;
 
-  /// **Bot API 8.0+** 
-  /// 
+  /// **Bot API 8.0+**
+  ///
   /// True, if the Mini App’s orientation is currently locked.
   /// False, if orientation changes freely based on the device’s rotation.
   bool get isOrientationLocked;
 
-  /// **Bot API 8.0+** 
-  /// 
+  /// **Bot API 8.0+**
+  ///
+  /// A method that locks the Mini App’s orientation to its current mode
+  /// (either portrait or landscape). Once locked, the orientation remains
+  /// fixed, regardless of device rotation. This is useful if a stable
+  /// orientation is needed during specific interactions.
+  void lockOrientation();
+
+  /// **Bot API 8.0+**
+  ///
+  /// A method that unlocks the Mini App’s orientation, allowing it to follow
+  /// the device's rotation freely. Use this to restore automatic orientation
+  /// adjustments based on the device orientation.
+  void unlockOrientation();
+
+  /// **Bot API 8.0+**
+  ///
+  /// An object for accessing device orientation data on the device.
+  DeviceOrientation get deviceOrientation;
+
+  /// **Bot API 8.0+**
+  ///
   /// An object representing the device's safe area insets, accounting for system UI elements like notches or navigation bars.
   SafeAreaInset get safeAreaInset;
 
   /// **Bot API 8.0+**
-  /// 
+  ///
   /// An object representing the safe area for displaying content within the app, free from overlapping Telegram UI elements.
   ContentSafeAreaInset get contentSafeAreaInset;
 

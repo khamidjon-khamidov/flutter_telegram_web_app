@@ -66,6 +66,8 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
 
   external BiometricManagerJSObject get BiometricManager;
 
+  external DeviceOrientationJSObject get DeviceOrientation;
+
   external WebAppInitDataJSObject get initDataUnsafe;
 
   external void ready();
@@ -110,7 +112,8 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
 
   external void showConfirm(String message, [JSExportedDartFunction? callback]);
 
-  external void showScanQrPopup(ScanQrPopupParamsJSObject params, [JSExportedDartFunction? callback]);
+  external void showScanQrPopup(ScanQrPopupParamsJSObject params,
+      [JSExportedDartFunction? callback]);
 
   external void closeScanQrPopup();
 
@@ -121,4 +124,8 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
   external void enableVerticalSwipes();
 
   external void disableVerticalSwipes();
+
+  external void lockOrientation();
+
+  external void unlockOrientation();
 }

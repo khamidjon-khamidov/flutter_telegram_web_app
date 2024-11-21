@@ -56,6 +56,9 @@ class TelegramWebAppFake extends TelegramWebApp {
   bool get isOrientationLocked => false;
 
   @override
+  DeviceOrientation get deviceOrientation => DeviceOrientation.instance;
+
+  @override
   SafeAreaInset get safeAreaInset => throw UnimplementedError();
 
   @override
@@ -169,4 +172,14 @@ class TelegramWebAppFake extends TelegramWebApp {
 
   @override
   void enableVerticalSwipes() {}
+
+  @override
+  void lockOrientation() {
+    print("Mocked lock orientation");
+  }
+
+  @override
+  void unlockOrientation() {
+    print("Mocked unlock orientation");
+  }
 }
