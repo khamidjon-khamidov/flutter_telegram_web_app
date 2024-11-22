@@ -135,4 +135,12 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
   external void lockOrientation();
 
   external void unlockOrientation();
+
+  external void addToHomeScreen();
+
+  external void checkHomeScreenStatus(JSExportedDartFunction callback);
+
+  external void downloadFile(DownloadFileParamsJSObject params, JSExportedDartFunction callback);
+
+  external void shareMessage(String msg_id, JSExportedDartFunction callback);
 }

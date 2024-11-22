@@ -139,14 +139,17 @@ class _OrientationScreenState extends State<OrientationScreen> {
   }
 
   void orientationStarted() {
+    print("Got orientationStarted event");
     "Orientation started".showSnackbar(context);
   }
 
   void orientationStopped() {
+    print("Got orientationStopped event");
     "Orientation stopped".showSnackbar(context);
   }
 
   void orientationFailed(String error) {
+    print("Got orientationFailed event");
     "Orientation failed: $error".showSnackbar(context);
   }
 

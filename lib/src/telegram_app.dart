@@ -126,14 +126,14 @@ abstract class TelegramWebApp {
   bool get isOrientationLocked;
 
   /// **Bot API 8.0+**
-  /// 
-  /// A method that requests opening the Mini App in fullscreen mode. 
-  /// Although the header is transparent in fullscreen mode, it is recommended that the Mini App sets the header color using the setHeaderColor method. 
+  ///
+  /// A method that requests opening the Mini App in fullscreen mode.
+  /// Although the header is transparent in fullscreen mode, it is recommended that the Mini App sets the header color using the setHeaderColor method.
   /// This color helps determine a contrasting color for the status bar and other UI controls.
   void requestFullscreen();
 
   /// **Bot API 8.0+**
-  /// 
+  ///
   /// A method that requests exiting fullscreen mode.
   void exitFullscreen();
 
@@ -151,6 +151,44 @@ abstract class TelegramWebApp {
   /// the device's rotation freely. Use this to restore automatic orientation
   /// adjustments based on the device orientation.
   void unlockOrientation();
+
+  /// **Bot API 8.0+**
+  ///
+  /// A method that prompts the user to add the Mini App to the home screen.
+  /// After successfully adding the icon, the homeScreenAdded event will be
+  /// triggered if supported by the device. Note that if the device cannot
+  /// determine the installation status, the event may not be received even
+  /// if the icon has been added.
+  void addToHomeScreen();
+
+  /// **Bot API 8.0+**
+  ///
+  /// A method that checks if adding to the home screen is supported and if the Mini App has already been added.
+  /// If an optional callback parameter is provided, the callback function will be called with a single argument
+  /// status, which is a string indicating the home screen status. Possible values for status are:
+  /// - unsupported – the feature is not supported, and it is not possible to add the icon to the home screen,
+  /// - unknown – the feature is supported, and the icon can be added, but it is not possible to determine if the icon has already been added,
+  /// - added – the icon has already been added to the home screen,
+  /// - missed – the icon has not been added to the home screen.
+  Future<String> checkHomeScreenStatus();
+
+  /// **Bot API 8.0+**
+  ///
+  ///  A method that displays a native popup prompting the user to download a file specified by the params
+  ///  argument of type DownloadFileParams. If an optional callback parameter is provided, the callback function will
+  ///  be called when the popup is closed, with the first argument as a boolean indicating whether the user accepted
+  ///  the download request.
+  ///  [url] - The HTTPS URL of the file to be downloaded.
+  ///  [filename] - The suggested name for the downloaded file.
+  Future<bool> downloadFile(String url, String filename);
+
+  /// **Bot API 8.0+**
+  ///
+  ///  A method that opens a dialog allowing the user to share a message provided by the bot. If an optional
+  ///  callback parameter is provided, the callback function will be called with a boolean as the first argument,
+  ///  indicating whether the message was successfully sent. The message id passed to this method must belong to a
+  ///  [PreparedInlineMessage] previously obtained via the Bot API method [savePreparedInlineMessage].
+  Future<bool> shareMessage(String messageId);
 
   /// **Bot API 8.0+**
   ///

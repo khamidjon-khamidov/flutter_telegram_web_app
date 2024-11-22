@@ -38,6 +38,11 @@ enum TelegramEventType {
   deviceOrientationFailed('deviceOrientationFailed'),
   locationManagerUpdated('locationManagerUpdated'),
   locationRequested('locationRequested'),
+  shareMessageSent('shareMessageSent'),
+  shareMessageFailed('shareMessageFailed'),
+  fileDownloadRequested('fileDownloadRequested'),
+  homeScreenAdded('homeScreenAdded'),
+  homeScreenChecked('homeScreenChecked'),
   ;
 
   const TelegramEventType(this.eventName);
