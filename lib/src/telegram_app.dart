@@ -126,6 +126,18 @@ abstract class TelegramWebApp {
   bool get isOrientationLocked;
 
   /// **Bot API 8.0+**
+  /// 
+  /// A method that requests opening the Mini App in fullscreen mode. 
+  /// Although the header is transparent in fullscreen mode, it is recommended that the Mini App sets the header color using the setHeaderColor method. 
+  /// This color helps determine a contrasting color for the status bar and other UI controls.
+  void requestFullscreen();
+
+  /// **Bot API 8.0+**
+  /// 
+  /// A method that requests exiting fullscreen mode.
+  void exitFullscreen();
+
+  /// **Bot API 8.0+**
   ///
   /// A method that locks the Mini App’s orientation to its current mode
   /// (either portrait or landscape). Once locked, the orientation remains
@@ -182,6 +194,9 @@ abstract class TelegramWebApp {
 
   /// An object for controlling biometrics on the device.
   BiometricManager get biometricManager;
+
+  /// An object for controlling location on the device.
+  LocationManager get locationManager;
 
   /// Returns true if the user's app supports a version of the
   /// Bot API that is equal to or higher than the version passed

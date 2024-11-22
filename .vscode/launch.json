@@ -9,6 +9,13 @@
             "cwd": "example",
             "request": "launch",
             "type": "dart"
+        },
+        {
+            "name": "bot",
+            "cwd": "flutter_telegram_web_app_bot",
+            "request": "launch",
+            "type": "dart",
+            "program": "bin/flutter_telegram_web_app_bot.dart"
         }
     ]
 }

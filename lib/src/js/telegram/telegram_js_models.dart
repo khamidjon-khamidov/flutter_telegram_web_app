@@ -23,6 +23,8 @@ part 'src/models/bottom_button_params.dart';
 part 'src/models/cloud_storage.dart';
 part 'src/models/content_safe_area_inset.dart';
 part 'src/models/haptic_feedback.dart';
+part 'src/models/location/location_manager.dart';
+part 'src/models/location/location_data.dart';
 part 'src/models/open_link_params.dart';
 part 'src/models/orientation/device_orientation.dart';
 part 'src/models/orientation/device_orientation_start_params.dart';

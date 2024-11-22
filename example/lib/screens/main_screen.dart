@@ -4,6 +4,8 @@ import 'package:example/screens/buttons/main_button_screen.dart';
 import 'package:example/screens/buttons/settings_button_screen.dart';
 import 'package:example/screens/other/biometric_manager_screen.dart';
 import 'package:example/screens/other/cloud_storage_screen.dart';
+import 'package:example/screens/screens/fullscreen_screen.dart';
+import 'package:example/screens/screens/location_manager_screen.dart';
 import 'package:example/screens/other/share_to_story_screen.dart';
 import 'package:example/screens/screens/orientation_screen.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
@@ -78,7 +80,6 @@ class _MainScreenState extends State<MainScreen> {
           ThemeParamsWidget(telegram.themeParams),
           InfoExpandableTile('isActive', telegram.isActive.toString()),
           InfoExpandableTile('isExpanded', telegram.isExpanded.toString()),
-          InfoExpandableTile('isFullscreen', telegram.isFullscreen.toString()),
           InfoExpandableTile('viewportHeight', telegram.viewportHeight.toString()),
           InfoExpandableTile('viewportStableHeight', telegram.viewportStableHeight.toString()),
           InfoExpandableTile('safeAreaInset', telegram.safeAreaInset.toString()),
@@ -120,6 +121,13 @@ class _MainScreenState extends State<MainScreen> {
                 ],
               ),
             ),
+          ),
+          ListButton(
+            'Fullscreen',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const FullscreenScreen()));
+            },
           ),
           ListButton(
             'Orientation',
@@ -188,6 +196,13 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const BiometricManagerScreen()));
+            },
+          ),
+          ListButton(
+            'LocationManager',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const LocationManagerScreen()));
             },
           ),
           InfoExpandableTile('isVersionAtLeast(6.1)', isDefinedVersion.toString()),

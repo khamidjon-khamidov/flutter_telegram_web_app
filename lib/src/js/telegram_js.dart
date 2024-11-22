@@ -68,6 +68,9 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
 
   external DeviceOrientationJSObject get DeviceOrientation;
 
+  @JS("LocationManager")
+  external LocationManagerJSObject get locationManager;
+
   external WebAppInitDataJSObject get initDataUnsafe;
 
   external void ready();
@@ -124,6 +127,10 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
   external void enableVerticalSwipes();
 
   external void disableVerticalSwipes();
+
+  external void requestFullscreen();
+
+  external void exitFullscreen();
 
   external void lockOrientation();
 
