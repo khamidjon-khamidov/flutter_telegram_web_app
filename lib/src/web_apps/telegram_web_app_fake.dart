@@ -86,6 +86,9 @@ class TelegramWebAppFake extends TelegramWebApp {
   BiometricManager get biometricManager => throw UnimplementedError();
 
   @override
+  LocationManager get locationManager => MockLocationManager();
+
+  @override
   bool isVersionAtLeast(String version) => true;
 
   @override
@@ -172,6 +175,16 @@ class TelegramWebAppFake extends TelegramWebApp {
 
   @override
   void enableVerticalSwipes() {}
+
+  @override
+  void requestFullscreen() {
+    print("Mocked request fullscreen");
+  }
+
+  @override
+  void exitFullscreen() {
+    print("Mocked exit fullscreen");
+  }
 
   @override
   void lockOrientation() {

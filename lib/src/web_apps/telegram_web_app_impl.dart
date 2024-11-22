@@ -90,6 +90,9 @@ class TelegramWebAppImpl extends TelegramWebApp {
   BiometricManager get biometricManager => BiometricManager(Telegram.WebApp.BiometricManager);
 
   @override
+  LocationManager get locationManager => LocationManager(Telegram.WebApp.locationManager);
+
+  @override
   bool isVersionAtLeast(String version) => Telegram.WebApp.isVersionAtLeast(version).toDart;
 
   @override
@@ -225,6 +228,12 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   void close() => Telegram.WebApp.close();
+
+  @override
+  void requestFullscreen() => Telegram.WebApp.requestFullscreen();
+
+  @override
+  void exitFullscreen() => Telegram.WebApp.exitFullscreen();
 
   @override
   void lockOrientation() => Telegram.WebApp.lockOrientation();
