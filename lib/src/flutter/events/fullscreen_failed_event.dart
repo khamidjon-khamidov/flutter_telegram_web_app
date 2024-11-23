@@ -4,11 +4,15 @@ part of '../../../telegram_web_app.dart';
 ///
 /// Occurs if a request to enter fullscreen mode fails.
 /// eventHandler receives an object with the single field error, describing the reason for the failure. Possible values for error are:
-/// 
+///
 /// **UNSUPPORTED** – Fullscreen mode is not supported on this device or platform.
-/// 
+///
 /// **ALREADY_FULLSCREEN** – The Mini App is already in fullscreen mode.
 class FullscreenFailedEvent extends TelegramEvent {
   FullscreenFailedEvent(void Function(String error) eventHandler)
-      : super(TelegramEventType.fullscreenChanged, eventHandler.toJS);
+      : super(
+            TelegramEventType.fullscreenFailed,
+            (FullScreenFailedResultJSObject result) {
+              eventHandler(result.error.toDart);
+            }.toJS);
 }
