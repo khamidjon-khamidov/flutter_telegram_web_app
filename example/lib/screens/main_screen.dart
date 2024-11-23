@@ -1,13 +1,16 @@
 import 'package:example/components/color_picker_dialog.dart';
-import 'package:example/screens/buttons/back_button_screen.dart';
-import 'package:example/screens/buttons/main_button_screen.dart';
-import 'package:example/screens/buttons/settings_button_screen.dart';
-import 'package:example/screens/other/biometric_manager_screen.dart';
-import 'package:example/screens/other/cloud_storage_screen.dart';
+import 'package:example/screens/screens/add_to_home_screen.dart';
+import 'package:example/screens/screens/back_button_screen.dart';
+import 'package:example/screens/screens/biometric_manager_screen.dart';
+import 'package:example/screens/screens/cloud_storage_screen.dart';
+import 'package:example/screens/screens/file_download_screen.dart';
 import 'package:example/screens/screens/fullscreen_screen.dart';
 import 'package:example/screens/screens/location_manager_screen.dart';
-import 'package:example/screens/other/share_to_story_screen.dart';
+import 'package:example/screens/screens/main_button_screen.dart';
 import 'package:example/screens/screens/orientation_screen.dart';
+import 'package:example/screens/screens/settings_button_screen.dart';
+import 'package:example/screens/screens/share_message_screen.dart';
+import 'package:example/screens/screens/share_to_story_screen.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
 import 'package:example/widgets/expandable_tile.dart';
 import 'package:example/widgets/expandable_tile_with_widget.dart';
@@ -17,7 +20,7 @@ import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
 import '../widgets/theme_params_widget.dart';
-import 'other/haptic_feedback_screen.dart';
+import 'screens/haptic_feedback_screen.dart';
 
 // ignore_for_file: use_build_context_synchronously
 class MainScreen extends StatefulWidget {
@@ -203,6 +206,27 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const LocationManagerScreen()));
+            },
+          ),
+          ListButton(
+            'AddToHomeScreen',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const AddToHomeScreen()));
+            },
+          ),
+          ListButton(
+            'DownloadFileScreen',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const FileDownloadScreen()));
+            },
+          ),
+          ListButton(
+            'ShareMessageScreen',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const ShareMessageScreen()));
             },
           ),
           InfoExpandableTile('isVersionAtLeast(6.1)', isDefinedVersion.toString()),

@@ -178,21 +178,44 @@ class TelegramWebAppFake extends TelegramWebApp {
 
   @override
   void requestFullscreen() {
-    print("Mocked request fullscreen");
+    print("Mocked requestFullscreen");
   }
 
   @override
   void exitFullscreen() {
-    print("Mocked exit fullscreen");
+    print("Mocked exitFullscreen");
   }
 
   @override
   void lockOrientation() {
-    print("Mocked lock orientation");
+    print("Mocked lockOrientation");
   }
 
   @override
   void unlockOrientation() {
-    print("Mocked unlock orientation");
+    print("Mocked unlockOrientation");
+  }
+
+  @override
+  void addToHomeScreen() {
+    print("Mocked addToHomeScreen");
+  }
+
+  @override
+  Future<String> checkHomeScreenStatus() async {
+    print("Mocked checkHomeScreenStatus");
+    return "unknown";
+  }
+
+  @override
+  Future<bool> downloadFile(String url, String filename) async {
+    print("Mocked downloadFile");
+    return false;
+  }
+
+  @override
+  Future<bool> shareMessage(String messageId) async {
+    print("Mocked shareMessage");
+    return false;
   }
 }

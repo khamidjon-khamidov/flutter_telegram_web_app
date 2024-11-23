@@ -240,4 +240,44 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   void unlockOrientation() => Telegram.WebApp.unlockOrientation();
+
+  @override
+  void addToHomeScreen() => Telegram.WebApp.addToHomeScreen();
+
+  @override
+  Future<String> checkHomeScreenStatus() {
+    final completer = Completer<String>();
+
+    Telegram.WebApp.checkHomeScreenStatus((String status) {
+      completer.complete(status);
+    }.toJS);
+
+    return completer.future;
+  }
+
+  @override
+  Future<bool> downloadFile(String url, String filename) {
+    final completer = Completer<bool>();
+
+    Telegram.WebApp.downloadFile(
+        DownloadFileParamsJSObject(url: url, file_name: filename),
+        (bool status) {
+          completer.complete(status);
+        }.toJS);
+
+    return completer.future;
+  }
+
+  @override
+  Future<bool> shareMessage(String messageId) {
+    final completer = Completer<bool>();
+
+    Telegram.WebApp.shareMessage(
+        messageId,
+        (bool status) {
+          completer.complete(status);
+        }.toJS);
+
+    return completer.future;
+  }
 }
