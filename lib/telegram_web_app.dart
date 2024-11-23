@@ -6,7 +6,6 @@ import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/src/flutter/mock/mock_bottom_button.dart';
-import 'package:telegram_web_app/src/flutter/mock/mock_location_manager.dart';
 import 'package:telegram_web_app/src/flutter/util/data_parser.dart';
 import 'package:telegram_web_app/src/js/telegram/telegram_js_models.dart';
 import 'package:telegram_web_app/src/js/telegram_js.dart';
@@ -14,6 +13,14 @@ import 'package:telegram_web_app/telegram_web_app.dart';
 
 export 'src/bridge/color_utils.dart';
 
+part 'src/flutter/events/accelerometer/accelerometer_changed_event.dart';
+part 'src/flutter/events/accelerometer/accelerometer_failed_event.dart';
+part 'src/flutter/events/accelerometer/accelerometer_started_event.dart';
+part 'src/flutter/events/accelerometer/accelerometer_stopped_event.dart';
+part 'src/flutter/events/gyroscope/gyroscope_changed_event.dart';
+part 'src/flutter/events/gyroscope/gyroscope_failed_event.dart';
+part 'src/flutter/events/gyroscope/gyroscope_started_event.dart';
+part 'src/flutter/events/gyroscope/gyroscope_stopped_event.dart';
 part 'src/flutter/events/activated_event.dart';
 part 'src/flutter/events/back_button_clicked_event.dart';
 part 'src/flutter/events/biometric_auth_requested_event.dart';
@@ -50,9 +57,13 @@ part 'src/flutter/events/viewport_changed_event.dart';
 part 'src/flutter/events/write_access_requested_event.dart';
 part 'src/flutter/mock/mock_theme_params.dart';
 part 'src/flutter/models/back_button.dart';
+part 'src/flutter/models/accelerometer/accelerometer_start_params.dart';
+part 'src/flutter/models/accelerometer/accelerometer.dart';
 part 'src/flutter/models/biometric/biometric_authenticate_params.dart';
 part 'src/flutter/models/biometric/biometric_manager.dart';
 part 'src/flutter/models/biometric/biometric_request_access_params.dart';
+part 'src/flutter/models/gyroscope/gyroscope_start_params.dart';
+part 'src/flutter/models/gyroscope/gyroscope.dart';
 part 'src/flutter/models/bottom_button.dart';
 part 'src/flutter/models/bottom_button_params.dart';
 part 'src/flutter/models/chat_types.dart';

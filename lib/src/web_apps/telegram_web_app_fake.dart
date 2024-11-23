@@ -83,10 +83,16 @@ class TelegramWebAppFake extends TelegramWebApp {
   CloudStorage get cloudStorage => CloudStorage.instance;
 
   @override
+  Accelerometer get accelerometer => Accelerometer.instance;
+
+  @override
   BiometricManager get biometricManager => throw UnimplementedError();
 
   @override
-  LocationManager get locationManager => MockLocationManager();
+  LocationManager get locationManager => LocationManager.instance;
+
+  @override
+  Gyroscope get gyroscope => Gyroscope.instance;
 
   @override
   bool isVersionAtLeast(String version) => true;
