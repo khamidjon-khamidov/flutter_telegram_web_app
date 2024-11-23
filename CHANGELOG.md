@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1
+* BOT API 8.0 partial support
+* isActive, isFullscreen, isOrientationLocked, safeAreaInset, contentSafeAreaInset `OlegNovosad` [#43](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/43)
+* lockOrientation, unlockOrientation, isOrientationLocked, DeviceOrientation, deviceOrientationStarted, deviceOrientationStopped, deviceOrientationChanged, deviceOrientationFailed [#46](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/46)
+* activated, contentSafeAreaChanged, deactivated, fullscreenChanged, locationManagerUpdated, fullscreenFailed, locationRequested, safeAreaChanged, requestFullscreen, exitFullscreen, locationManager `OlegNovosad` [#47](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/47)
+* addToHomeScreen, checkHomeScreenStatus, shareMessage, downloadFile, homeScreenAdded, homeScreenChecked, shareMessageSent, shareMessageFailed, fileDownloadRequested [#48](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/48)
+
 ## 0.2.0 BETA
 * Added support for Bot API 7.10
 * Fixed incorrect implementation of the TelegramWebApp interface (removed invalid Future<T> return types for several methods)
