@@ -21,9 +21,20 @@ class _FullscreenScreenState extends State<FullscreenScreen> {
     initEvents();
   }
 
+  @override
+  void dispose() {
+    stopEvents();
+    super.dispose();
+  }
+
   void initEvents() {
     TelegramWebApp.instance.onEvent(FullscreenChangedEvent(fullscreenChanged));
     TelegramWebApp.instance.onEvent(FullscreenFailedEvent(fullscreenFailed));
+  }
+
+  void stopEvents() {
+    TelegramWebApp.instance.offEvent(FullscreenChangedEvent(fullscreenChanged));
+    TelegramWebApp.instance.offEvent(FullscreenFailedEvent(fullscreenFailed));
   }
 
   @override

@@ -230,8 +230,14 @@ abstract class TelegramWebApp {
   /// An object for controlling cloud storage.
   CloudStorage get cloudStorage;
 
+  /// This object provides access to accelerometer data on the device.
+  Accelerometer get accelerometer;
+
   /// An object for controlling biometrics on the device.
   BiometricManager get biometricManager;
+
+  /// This object provides access to gyroscope data on the device.
+  Gyroscope get gyroscope;
 
   /// An object for controlling location on the device.
   LocationManager get locationManager;

@@ -43,6 +43,14 @@ enum TelegramEventType {
   fileDownloadRequested('fileDownloadRequested'),
   homeScreenAdded('homeScreenAdded'),
   homeScreenChecked('homeScreenChecked'),
+  accelerometerStarted('accelerometerStarted'),
+  accelerometerStopped('accelerometerStopped'),
+  accelerometerChanged('accelerometerChanged'),
+  accelerometerFailed('accelerometerFailed'),
+  gyroscopeStarted('gyroscopeStarted'),
+  gyroscopeStopped('gyroscopeStopped'),
+  gyroscopeChanged('gyroscopeChanged'),
+  gyroscopeFailed('gyroscopeFailed'),
   ;
 
   const TelegramEventType(this.eventName);

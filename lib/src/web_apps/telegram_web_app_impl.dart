@@ -87,10 +87,16 @@ class TelegramWebAppImpl extends TelegramWebApp {
   CloudStorage get cloudStorage => CloudStorage.instance;
 
   @override
+  Accelerometer get accelerometer => Accelerometer.instance;
+
+  @override
   BiometricManager get biometricManager => BiometricManager(Telegram.WebApp.BiometricManager);
 
   @override
-  LocationManager get locationManager => LocationManager(Telegram.WebApp.locationManager);
+  Gyroscope get gyroscope => Gyroscope.instance;
+
+  @override
+  LocationManager get locationManager => LocationManager.instance;
 
   @override
   bool isVersionAtLeast(String version) => Telegram.WebApp.isVersionAtLeast(version).toDart;
