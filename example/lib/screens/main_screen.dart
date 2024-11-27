@@ -1,10 +1,12 @@
 import 'package:example/components/color_picker_dialog.dart';
+import 'package:example/screens/screens/accelerometer_screen.dart';
 import 'package:example/screens/screens/add_to_home_screen.dart';
 import 'package:example/screens/screens/back_button_screen.dart';
 import 'package:example/screens/screens/biometric_manager_screen.dart';
 import 'package:example/screens/screens/cloud_storage_screen.dart';
 import 'package:example/screens/screens/file_download_screen.dart';
 import 'package:example/screens/screens/fullscreen_screen.dart';
+import 'package:example/screens/screens/gyroscope_screen.dart';
 import 'package:example/screens/screens/location_manager_screen.dart';
 import 'package:example/screens/screens/main_button_screen.dart';
 import 'package:example/screens/screens/orientation_screen.dart';
@@ -130,6 +132,20 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const FullscreenScreen()));
+            },
+          ),
+          ListButton(
+            'Accelerometer',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const AccelerometerScreen()));
+            },
+          ),
+          ListButton(
+            'Gyroscope',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const GyroscopeScreen()));
             },
           ),
           ListButton(
