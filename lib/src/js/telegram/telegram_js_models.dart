@@ -5,12 +5,15 @@ library telegram_js_internal;
 
 import 'dart:js_interop';
 
+part 'src/events/accelerometer_failed_result.dart';
 part 'src/events/biometric_auth_requested_payload.dart';
 part 'src/events/biometric_token_updated_payload.dart';
 part 'src/events/clipboard_text_received_payload.dart';
 part 'src/events/contact_requested_payload.dart';
+part 'src/events/device_orientation_failed_result.dart';
 part 'src/events/file_download_result.dart';
 part 'src/events/full_screen_failed_result.dart';
+part 'src/events/gyroscope_failed_result.dart';
 part 'src/events/home_screen_checked_result.dart';
 part 'src/events/invoice_closed_payload.dart';
 part 'src/events/popup_closed_payload.dart';
