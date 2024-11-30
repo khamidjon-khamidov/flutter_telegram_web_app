@@ -36,11 +36,6 @@ enum TelegramEventType {
   deviceOrientationStopped('deviceOrientationStopped'),
   deviceOrientationChanged('deviceOrientationChanged'),
   deviceOrientationFailed('deviceOrientationFailed'),
-  locationManagerUpdated('locationManagerUpdated'),
-  locationRequested('locationRequested'),
-  shareMessageSent('shareMessageSent'),
-  shareMessageFailed('shareMessageFailed'),
-  fileDownloadRequested('fileDownloadRequested'),
   homeScreenAdded('homeScreenAdded'),
   homeScreenChecked('homeScreenChecked'),
   accelerometerStarted('accelerometerStarted'),
@@ -51,6 +46,14 @@ enum TelegramEventType {
   gyroscopeStopped('gyroscopeStopped'),
   gyroscopeChanged('gyroscopeChanged'),
   gyroscopeFailed('gyroscopeFailed'),
+  locationManagerUpdated('locationManagerUpdated'),
+  locationRequested('locationRequested'),
+  shareMessageSent('shareMessageSent'),
+  shareMessageFailed('shareMessageFailed'),
+  emojiStatusSet('emojiStatusSet'),
+  emojiStatusFailed('emojiStatusFailed'),
+  emojiStatusAccessRequested('emojiStatusAccessRequested'),
+  fileDownloadRequested('fileDownloadRequested'),
   ;
 
   const TelegramEventType(this.eventName);

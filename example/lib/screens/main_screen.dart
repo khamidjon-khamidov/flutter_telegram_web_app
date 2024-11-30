@@ -4,6 +4,7 @@ import 'package:example/screens/screens/add_to_home_screen.dart';
 import 'package:example/screens/screens/back_button_screen.dart';
 import 'package:example/screens/screens/biometric_manager_screen.dart';
 import 'package:example/screens/screens/cloud_storage_screen.dart';
+import 'package:example/screens/screens/emoji_status_screen.dart';
 import 'package:example/screens/screens/file_download_screen.dart';
 import 'package:example/screens/screens/fullscreen_screen.dart';
 import 'package:example/screens/screens/gyroscope_screen.dart';
@@ -153,6 +154,13 @@ class _MainScreenState extends State<MainScreen> {
             onPress: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => const OrientationScreen()));
+            },
+          ),
+          ListButton(
+            'Emoji Status',
+            onPress: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => const EmojiStatusScreen()));
             },
           ),
           ListButton(

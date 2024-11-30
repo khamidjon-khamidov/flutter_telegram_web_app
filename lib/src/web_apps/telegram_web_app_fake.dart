@@ -224,4 +224,16 @@ class TelegramWebAppFake extends TelegramWebApp {
     print("Mocked shareMessage");
     return false;
   }
+
+  @override
+  Future<bool> setEmojiStatus(String customEmojiId, {EmojiStatusParams? params}) async {
+    print("Mocked setEmojiStatus");
+    return false;
+  }
+  
+  @override
+  Future<bool> requestEmojiStatusAccess() async {
+    print("Mocked requestEmojiStatusAccess");
+    return false;
+  }
 }
