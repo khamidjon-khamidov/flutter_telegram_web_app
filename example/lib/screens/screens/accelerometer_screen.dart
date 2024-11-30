@@ -1,6 +1,6 @@
 import 'package:example/screens/util/string_snackbar_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' as sr;
+import 'package:flutter/services.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
 import '../../widgets/expandable_tile.dart';
@@ -71,7 +71,7 @@ class _AccelerometerScreenState extends State<AccelerometerScreen> {
               controller: controller,
               keyboardType: TextInputType.number,
               inputFormatters: [
-                sr.FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
               ],
               maxLines: 1,
               maxLength: 4,

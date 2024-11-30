@@ -5,6 +5,8 @@ library telegram_js_internal;
 
 import 'dart:js_interop';
 
+part 'src/events/emoji/emoji_status_access_requested_result.dart';
+part 'src/events/emoji/emoji_status_failed_result.dart';
 part 'src/events/accelerometer_failed_result.dart';
 part 'src/events/biometric_auth_requested_payload.dart';
 part 'src/events/biometric_token_updated_payload.dart';
@@ -34,6 +36,7 @@ part 'src/models/bottom_button_params.dart';
 part 'src/models/cloud_storage.dart';
 part 'src/models/content_safe_area_inset.dart';
 part 'src/models/download_file_params.dart';
+part 'src/models/emoji_status_params.dart';
 part 'src/models/haptic_feedback.dart';
 part 'src/models/location/location_data.dart';
 part 'src/models/location/location_manager.dart';

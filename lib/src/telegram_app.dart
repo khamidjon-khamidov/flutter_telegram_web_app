@@ -183,6 +183,22 @@ abstract class TelegramWebApp {
   Future<bool> downloadFile(String url, String filename);
 
   /// **Bot API 8.0+**
+  /// 
+  /// A method that opens a dialog allowing the user to set the specified custom emoji as their status.
+  /// An optional params argument of type [EmojiStatusParams] specifies additional settings, such as duration.
+  /// If an optional callback parameter is provided, the callback function will be called with a boolean as the first argument, indicating whether the status was set.
+  /// 
+  /// _Note: this method opens a native dialog and cannot be used to set the emoji status without manual user interaction.
+  /// For fully programmatic changes, you should instead use the Bot API method `setUserEmojiStatus` after obtaining authorization to do so via the Mini App method [requestEmojiStatusAccess]._
+  Future<bool> setEmojiStatus(String customEmojiId, {EmojiStatusParams? params});
+
+  /// **Bot API 8.0+**
+  /// 
+  /// A method that shows a native popup requesting permission for the bot to manage user's emoji status.
+  /// If an optional callback parameter was passed, the callback function will be called when the popup is closed and the first argument will be a boolean indicating whether the user granted this access.
+  Future<bool> requestEmojiStatusAccess();
+
+  /// **Bot API 8.0+**
   ///
   ///  A method that opens a dialog allowing the user to share a message provided by the bot. If an optional
   ///  callback parameter is provided, the callback function will be called with a boolean as the first argument,

@@ -286,4 +286,29 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
     return completer.future;
   }
+  
+  @override
+  Future<bool> setEmojiStatus(String customEmojiId, {EmojiStatusParams? params}) {
+    final completer = Completer<bool>();
+
+    Telegram.WebApp.setEmojiStatus(
+        customEmojiId,
+        EmojiStatusParamsJSObject(duration: params?.duration),
+        (bool status) {
+          completer.complete(status);
+        }.toJS);
+
+    return completer.future;
+  }
+
+  @override
+  Future<bool> requestEmojiStatusAccess() {
+    final completer = Completer<bool>();
+
+    Telegram.WebApp.requestEmojiStatusAccess((bool status) {
+      completer.complete(status);
+    }.toJS);
+
+    return completer.future;
+  }
 }
