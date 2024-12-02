@@ -37,6 +37,14 @@ abstract class TelegramWebApp {
   /// the Telegram app.
   ThemeParams get themeParams;
 
+  /// **Bot API 8.0+**
+  ///
+  /// True, if the Mini App is currently active.
+  /// False, if the Mini App is minimized.
+  bool get isActive;
+
+  /// **Bot API 8.0+**
+  ///
   /// True, if the Mini App is expanded to the maximum
   /// available height. False, if the Mini App occupies part of
   /// the screen and can be expanded to the full height using
@@ -106,6 +114,97 @@ abstract class TelegramWebApp {
   /// the Mini App's header.
   bool get isVerticalSwipesEnabled;
 
+  /// **Bot API 8.0+**
+  ///
+  /// True, if the Mini App is currently being displayed in fullscreen mode.
+  bool get isFullscreen;
+
+  /// **Bot API 8.0+**
+  ///
+  /// True, if the Mini App’s orientation is currently locked.
+  /// False, if orientation changes freely based on the device’s rotation.
+  bool get isOrientationLocked;
+
+  /// **Bot API 8.0+**
+  ///
+  /// A method that requests opening the Mini App in fullscreen mode.
+  /// Although the header is transparent in fullscreen mode, it is recommended that the Mini App sets the header color using the setHeaderColor method.
+  /// This color helps determine a contrasting color for the status bar and other UI controls.
+  void requestFullscreen();
+
+  /// **Bot API 8.0+**
+  ///
+  /// A method that requests exiting fullscreen mode.
+  void exitFullscreen();
+
+  /// **Bot API 8.0+**
+  ///
+  /// A method that locks the Mini App’s orientation to its current mode
+  /// (either portrait or landscape). Once locked, the orientation remains
+  /// fixed, regardless of device rotation. This is useful if a stable
+  /// orientation is needed during specific interactions.
+  void lockOrientation();
+
+  /// **Bot API 8.0+**
+  ///
+  /// A method that unlocks the Mini App’s orientation, allowing it to follow
+  /// the device's rotation freely. Use this to restore automatic orientation
+  /// adjustments based on the device orientation.
+  void unlockOrientation();
+
+  /// **Bot API 8.0+**
+  ///
+  /// A method that prompts the user to add the Mini App to the home screen.
+  /// After successfully adding the icon, the homeScreenAdded event will be
+  /// triggered if supported by the device. Note that if the device cannot
+  /// determine the installation status, the event may not be received even
+  /// if the icon has been added.
+  void addToHomeScreen();
+
+  /// **Bot API 8.0+**
+  ///
+  /// A method that checks if adding to the home screen is supported and if the Mini App has already been added.
+  /// If an optional callback parameter is provided, the callback function will be called with a single argument
+  /// status, which is a string indicating the home screen status. Possible values for status are:
+  /// - unsupported – the feature is not supported, and it is not possible to add the icon to the home screen,
+  /// - unknown – the feature is supported, and the icon can be added, but it is not possible to determine if the icon has already been added,
+  /// - added – the icon has already been added to the home screen,
+  /// - missed – the icon has not been added to the home screen.
+  Future<String> checkHomeScreenStatus();
+
+  /// **Bot API 8.0+**
+  ///
+  ///  A method that displays a native popup prompting the user to download a file specified by the params
+  ///  argument of type DownloadFileParams. If an optional callback parameter is provided, the callback function will
+  ///  be called when the popup is closed, with the first argument as a boolean indicating whether the user accepted
+  ///  the download request.
+  ///  [url] - The HTTPS URL of the file to be downloaded.
+  ///  [filename] - The suggested name for the downloaded file.
+  Future<bool> downloadFile(String url, String filename);
+
+  /// **Bot API 8.0+**
+  ///
+  ///  A method that opens a dialog allowing the user to share a message provided by the bot. If an optional
+  ///  callback parameter is provided, the callback function will be called with a boolean as the first argument,
+  ///  indicating whether the message was successfully sent. The message id passed to this method must belong to a
+  ///  [PreparedInlineMessage] previously obtained via the Bot API method [savePreparedInlineMessage].
+  Future<bool> shareMessage(String messageId);
+
+  /// **Bot API 8.0+**
+  ///
+  /// An object for accessing device orientation data on the device.
+  DeviceOrientation get deviceOrientation;
+
+  /// **Bot API 8.0+**
+  ///
+  /// An object representing the device's safe area insets, accounting for system UI elements like notches or navigation bars.
+  SafeAreaInset get safeAreaInset;
+
+  /// **Bot API 8.0+**
+  ///
+  /// An object representing the safe area for displaying content within the app, free from overlapping Telegram UI elements.
+  ContentSafeAreaInset get contentSafeAreaInset;
+
   /// An object for controlling the back button which can
   /// be displayed in the header of the Mini App in the Telegram
   /// interface.
@@ -133,6 +232,9 @@ abstract class TelegramWebApp {
 
   /// An object for controlling biometrics on the device.
   BiometricManager get biometricManager;
+
+  /// An object for controlling location on the device.
+  LocationManager get locationManager;
 
   /// Returns true if the user's app supports a version of the
   /// Bot API that is equal to or higher than the version passed

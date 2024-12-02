@@ -32,6 +32,8 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
 
   external bool get isExpanded;
 
+  external bool get isActive;
+
   external double? get viewportHeight;
 
   external double? get viewportStableHeight;
@@ -39,6 +41,14 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
   external String? get tgWebAppStartParam;
 
   external bool get isVerticalSwipesEnabled;
+
+  external bool get isFullscreen;
+
+  external bool get isOrientationLocked;
+
+  external SafeAreaInsetJSObject get safeAreaInset;
+
+  external ContentSafeAreaInsetJSObject get contentSafeAreaInset;
 
   external ThemeParamsJSObject get themeParams;
 
@@ -55,6 +65,11 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
   external CloudStorageJSObject get CloudStorage;
 
   external BiometricManagerJSObject get BiometricManager;
+
+  external DeviceOrientationJSObject get DeviceOrientation;
+
+  @JS("LocationManager")
+  external LocationManagerJSObject get locationManager;
 
   external WebAppInitDataJSObject get initDataUnsafe;
 
@@ -100,7 +115,8 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
 
   external void showConfirm(String message, [JSExportedDartFunction? callback]);
 
-  external void showScanQrPopup(ScanQrPopupParamsJSObject params, [JSExportedDartFunction? callback]);
+  external void showScanQrPopup(ScanQrPopupParamsJSObject params,
+      [JSExportedDartFunction? callback]);
 
   external void closeScanQrPopup();
 
@@ -111,4 +127,20 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
   external void enableVerticalSwipes();
 
   external void disableVerticalSwipes();
+
+  external void requestFullscreen();
+
+  external void exitFullscreen();
+
+  external void lockOrientation();
+
+  external void unlockOrientation();
+
+  external void addToHomeScreen();
+
+  external void checkHomeScreenStatus(JSExportedDartFunction callback);
+
+  external void downloadFile(DownloadFileParamsJSObject params, JSExportedDartFunction callback);
+
+  external void shareMessage(String msg_id, JSExportedDartFunction callback);
 }

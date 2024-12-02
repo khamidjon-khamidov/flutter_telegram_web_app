@@ -10,8 +10,12 @@ class TelegramEvent {
 
 /// https://core.telegram.org/bots/webapps#events-available-for-mini-apps
 enum TelegramEventType {
+  activated('activated'),
+  deactivated('deactivated'),
   themeChanged('themeChanged'),
   viewportChanged('viewportChanged'),
+  safeAreaChanged('safeAreaChanged'),
+  contentSafeAreaChanged('contentSafeAreaChanged'),
   mainButtonClicked('mainButtonClicked'),
   secondaryButtonClicked('secondaryButtonClicked'),
   backButtonClicked('backButtonClicked'),
@@ -25,7 +29,21 @@ enum TelegramEventType {
   contactRequested('contactRequested'),
   biometricManagerUpdated('biometricManagerUpdated'),
   biometricAuthRequested('biometricAuthRequested'),
-  biometricTokenUpdated('biometricTokenUpdated');
+  biometricTokenUpdated('biometricTokenUpdated'),
+  fullscreenChanged('fullscreenChanged'),
+  fullscreenFailed('fullscreenFailed'),
+  deviceOrientationStarted('deviceOrientationStarted'),
+  deviceOrientationStopped('deviceOrientationStopped'),
+  deviceOrientationChanged('deviceOrientationChanged'),
+  deviceOrientationFailed('deviceOrientationFailed'),
+  locationManagerUpdated('locationManagerUpdated'),
+  locationRequested('locationRequested'),
+  shareMessageSent('shareMessageSent'),
+  shareMessageFailed('shareMessageFailed'),
+  fileDownloadRequested('fileDownloadRequested'),
+  homeScreenAdded('homeScreenAdded'),
+  homeScreenChecked('homeScreenChecked'),
+  ;
 
   const TelegramEventType(this.eventName);
 

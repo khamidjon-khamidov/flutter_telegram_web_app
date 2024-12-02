@@ -29,6 +29,9 @@ class TelegramWebAppImpl extends TelegramWebApp {
   bool get isExpanded => Telegram.WebApp.isExpanded;
 
   @override
+  bool get isActive => Telegram.WebApp.isActive;
+
+  @override
   double? get viewportHeight => Telegram.WebApp.viewportHeight;
 
   @override
@@ -50,6 +53,22 @@ class TelegramWebAppImpl extends TelegramWebApp {
   bool get isVerticalSwipesEnabled => Telegram.WebApp.isVerticalSwipesEnabled;
 
   @override
+  bool get isFullscreen => Telegram.WebApp.isFullscreen;
+
+  @override
+  bool get isOrientationLocked => Telegram.WebApp.isOrientationLocked;
+
+  @override
+  DeviceOrientation get deviceOrientation => DeviceOrientation.instance;
+
+  @override
+  SafeAreaInset get safeAreaInset => SafeAreaInset(Telegram.WebApp.safeAreaInset);
+
+  @override
+  ContentSafeAreaInset get contentSafeAreaInset =>
+      ContentSafeAreaInset(Telegram.WebApp.contentSafeAreaInset);
+
+  @override
   BackButton get backButton => BackButton.instance;
 
   @override
@@ -69,6 +88,9 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   BiometricManager get biometricManager => BiometricManager(Telegram.WebApp.BiometricManager);
+
+  @override
+  LocationManager get locationManager => LocationManager(Telegram.WebApp.locationManager);
 
   @override
   bool isVersionAtLeast(String version) => Telegram.WebApp.isVersionAtLeast(version).toDart;
@@ -95,17 +117,20 @@ class TelegramWebAppImpl extends TelegramWebApp {
   void disableVerticalSwipes() => Telegram.WebApp.disableVerticalSwipes();
 
   @override
-  void onEvent(TelegramEvent event) => Telegram.WebApp.onEvent(event.eventType.eventName, event.eventHandler);
+  void onEvent(TelegramEvent event) =>
+      Telegram.WebApp.onEvent(event.eventType.eventName, event.eventHandler);
 
   @override
-  void offEvent(TelegramEvent event) => Telegram.WebApp.offEvent(event.eventType.eventName, event.eventHandler);
+  void offEvent(TelegramEvent event) =>
+      Telegram.WebApp.offEvent(event.eventType.eventName, event.eventHandler);
 
   @override
   void sendData(String data) => Telegram.WebApp.sendData(data);
 
   @override
   void switchInlineQuery(String query, [List<ChatType>? chatTypes]) =>
-      Telegram.WebApp.switchInlineQuery(query, chatTypes?.map((e) => e.chatType.toJS).toList().toJS);
+      Telegram.WebApp.switchInlineQuery(
+          query, chatTypes?.map((e) => e.chatType.toJS).toList().toJS);
 
   @override
   void openLink(String url, {bool tryInstantView = true}) => Telegram.WebApp.openLink(
@@ -117,10 +142,12 @@ class TelegramWebAppImpl extends TelegramWebApp {
   void openTelegramLink(String url) => Telegram.WebApp.openTelegramLink(url);
 
   @override
-  void openInvoice(String url, [void Function(InvoiceStatus status)? onInvoiceStatus]) => Telegram.WebApp.openInvoice(
+  void openInvoice(String url, [void Function(InvoiceStatus status)? onInvoiceStatus]) =>
+      Telegram.WebApp.openInvoice(
         url,
         onInvoiceStatus != null
-            ? ((String status) => onInvoiceStatus.call(InvoiceStatus.values.firstWhere((e) => e.name == status))).toJS
+            ? ((String status) =>
+                onInvoiceStatus.call(InvoiceStatus.values.firstWhere((e) => e.name == status))).toJS
             : null,
       );
 
@@ -164,14 +191,16 @@ class TelegramWebAppImpl extends TelegramWebApp {
   }
 
   @override
-  void showAlert(String message, [void Function()? callback]) => Telegram.WebApp.showAlert(message, callback?.toJS);
+  void showAlert(String message, [void Function()? callback]) =>
+      Telegram.WebApp.showAlert(message, callback?.toJS);
 
   @override
   void showConfirm(String message, [void Function(bool isOkPressed)? callback]) =>
       Telegram.WebApp.showConfirm(message, callback?.toJS);
 
   @override
-  void showScanQrPopup(String? infoTitle, [bool Function(String result)? callback]) => Telegram.WebApp.showScanQrPopup(
+  void showScanQrPopup(String? infoTitle, [bool Function(String result)? callback]) =>
+      Telegram.WebApp.showScanQrPopup(
         ScanQrPopupParamsJSObject(text: infoTitle),
         callback?.toJS,
       );
@@ -188,7 +217,8 @@ class TelegramWebAppImpl extends TelegramWebApp {
       Telegram.WebApp.requestWriteAccess(onResult.toJS);
 
   @override
-  void requestContact([void Function(bool granted)? onResult]) => Telegram.WebApp.requestContact(onResult?.toJS);
+  void requestContact([void Function(bool granted)? onResult]) =>
+      Telegram.WebApp.requestContact(onResult?.toJS);
 
   @override
   void ready() => Telegram.WebApp.ready();
@@ -198,4 +228,56 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   void close() => Telegram.WebApp.close();
+
+  @override
+  void requestFullscreen() => Telegram.WebApp.requestFullscreen();
+
+  @override
+  void exitFullscreen() => Telegram.WebApp.exitFullscreen();
+
+  @override
+  void lockOrientation() => Telegram.WebApp.lockOrientation();
+
+  @override
+  void unlockOrientation() => Telegram.WebApp.unlockOrientation();
+
+  @override
+  void addToHomeScreen() => Telegram.WebApp.addToHomeScreen();
+
+  @override
+  Future<String> checkHomeScreenStatus() {
+    final completer = Completer<String>();
+
+    Telegram.WebApp.checkHomeScreenStatus((String status) {
+      completer.complete(status);
+    }.toJS);
+
+    return completer.future;
+  }
+
+  @override
+  Future<bool> downloadFile(String url, String filename) {
+    final completer = Completer<bool>();
+
+    Telegram.WebApp.downloadFile(
+        DownloadFileParamsJSObject(url: url, file_name: filename),
+        (bool status) {
+          completer.complete(status);
+        }.toJS);
+
+    return completer.future;
+  }
+
+  @override
+  Future<bool> shareMessage(String messageId) {
+    final completer = Completer<bool>();
+
+    Telegram.WebApp.shareMessage(
+        messageId,
+        (bool status) {
+          completer.complete(status);
+        }.toJS);
+
+    return completer.future;
+  }
 }
