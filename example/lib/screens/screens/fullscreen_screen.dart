@@ -1,4 +1,6 @@
+import 'package:example/screens/util/app_bar_ext.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
+import 'package:example/screens/widget/tele_appbar.dart';
 import 'package:example/widgets/expandable_tile.dart';
 import 'package:example/widgets/list_button.dart';
 import 'package:flutter/material.dart';
@@ -12,24 +14,38 @@ class FullscreenScreen extends StatefulWidget {
 }
 
 class _FullscreenScreenState extends State<FullscreenScreen> {
-  bool get isFullscreen => TelegramWebApp.instance.isFullscreen;
+  TelegramWebApp get telegram => TelegramWebApp.instance;
+
+  bool get isFullscreen => telegram.isFullscreen;
 
   @override
   void initState() {
     super.initState();
 
-    initEvents();
+    telegram.onEvent(FullscreenChangedEvent(fullscreenChanged));
+    telegram.onEvent(FullscreenFailedEvent(fullscreenFailed));
+    telegram.onEvent(SafeAreaChangedEvent(onInsetChanged));
+    telegram.onEvent(ContentSafeAreaChangedEvent(onInsetChanged));
   }
 
-  void initEvents() {
-    TelegramWebApp.instance.onEvent(FullscreenChangedEvent(fullscreenChanged));
-    TelegramWebApp.instance.onEvent(FullscreenFailedEvent(fullscreenFailed));
+  @override
+  void dispose() {
+    telegram.offEvent(FullscreenChangedEvent(fullscreenChanged));
+    telegram.offEvent(FullscreenFailedEvent(fullscreenFailed));
+    telegram.offEvent(SafeAreaChangedEvent(onInsetChanged));
+    telegram.offEvent(ContentSafeAreaChangedEvent(onInsetChanged));
+
+    super.dispose();
+  }
+
+  void onInsetChanged() {
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Fullscreen')),
+        appBar: TeleAppbar(title: 'Fullscreen', top: safeAreaTop),
         body: Column(
           children: [
             InfoExpandableTile(
@@ -40,12 +56,14 @@ class _FullscreenScreenState extends State<FullscreenScreen> {
             const SizedBox(height: 16),
             ListButton('requestFullscreen()', onPress: requestFullscreen),
             ListButton('exitFullscreen()', onPress: exitFullscreen),
+            // InfoExpandableTile('safeAreaInset', telegram.safeAreaInset.toString()),
+            // InfoExpandableTile('contentSafeAreaInset', telegram.contentSafeAreaInset.toString()),
           ],
         ));
   }
 
-  void requestFullscreen() => TelegramWebApp.instance.requestFullscreen();
-  void exitFullscreen() => TelegramWebApp.instance.exitFullscreen();
+  void requestFullscreen() => telegram.requestFullscreen();
+  void exitFullscreen() => telegram.exitFullscreen();
 
   void fullscreenChanged() {
     'fullscreenChanged'.showSnackbar(context);

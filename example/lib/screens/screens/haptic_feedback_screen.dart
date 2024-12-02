@@ -1,3 +1,5 @@
+import 'package:example/screens/util/app_bar_ext.dart';
+import 'package:example/screens/widget/tele_appbar.dart';
 import 'package:example/widgets/expandable_tile_with_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
@@ -15,7 +17,7 @@ class _HapticFeedbackScreenState extends State<HapticFeedbackScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Haptic Feedback')),
+      appBar: TeleAppbar(title: 'Haptic Feedback', top: safeAreaTop),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(

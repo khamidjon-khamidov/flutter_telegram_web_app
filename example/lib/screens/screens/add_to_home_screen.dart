@@ -1,4 +1,6 @@
+import 'package:example/screens/util/app_bar_ext.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
+import 'package:example/screens/widget/tele_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_web_app/telegram_web_app.dart';
 
@@ -54,7 +56,7 @@ class _AddToHomeScreenState extends State<AddToHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Add to Home Screen')),
+      appBar: TeleAppbar(title: 'Add to Home Screen', top: safeAreaTop),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
