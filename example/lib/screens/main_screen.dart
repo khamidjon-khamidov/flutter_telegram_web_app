@@ -14,7 +14,9 @@ import 'package:example/screens/screens/orientation_screen.dart';
 import 'package:example/screens/screens/settings_button_screen.dart';
 import 'package:example/screens/screens/share_message_screen.dart';
 import 'package:example/screens/screens/share_to_story_screen.dart';
+import 'package:example/screens/util/app_bar_ext.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
+import 'package:example/screens/widget/tele_appbar.dart';
 import 'package:example/widgets/expandable_tile.dart';
 import 'package:example/widgets/expandable_tile_with_widget.dart';
 import 'package:example/widgets/list_button.dart';
@@ -42,13 +44,9 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    // FlutterError.onError = (details) {
-    //   showSnackBar("Flutter error: $details");
-    //   print("Flutter error happened: $details");
-    // };
 
-    TelegramWebApp.instance.ready();
-
+    telegram.onEvent(SafeAreaChangedEvent(onInsetChanged));
+    telegram.onEvent(ContentSafeAreaChangedEvent(onInsetChanged));
     check();
   }
 
@@ -58,10 +56,15 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {});
   }
 
+  void onInsetChanged() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: telegram.backgroundColor,
+      appBar: TeleAppbar(title: 'Flutter Telegram Demo', top: safeAreaTop),
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: [

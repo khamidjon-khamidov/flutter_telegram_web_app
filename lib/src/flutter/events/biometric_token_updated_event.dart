@@ -6,7 +6,7 @@ part of '../../../telegram_web_app.dart';
 class BiometricTokenUpdatedEvent extends TelegramEvent {
   BiometricTokenUpdatedEvent(void Function(BiometricTokenUpdatedPayload payload) eventHandler)
       : super(
-          TelegramEventType.biometricManagerUpdated,
+          TelegramEventType.biometricTokenUpdated,
           (BiometricTokenUpdatedPayloadJSObject payload) {
             eventHandler(BiometricTokenUpdatedPayload(payload.isUpdated.toDart));
           }.toJS,

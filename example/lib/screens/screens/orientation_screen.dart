@@ -1,4 +1,6 @@
+import 'package:example/screens/util/app_bar_ext.dart';
 import 'package:example/screens/util/string_snackbar_extension.dart';
+import 'package:example/screens/widget/tele_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as sr;
 import 'package:telegram_web_app/telegram_web_app.dart';
@@ -64,7 +66,7 @@ class _OrientationScreenState extends State<OrientationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Orientation')),
+      appBar: TeleAppbar(title: 'Orientation', top: safeAreaTop),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
