@@ -34,9 +34,20 @@ class _LocationManagerScreenState extends State<LocationManagerScreen> {
     initEvents();
   }
 
+  @override
+  void dispose() {
+    stopEvents();
+    super.dispose();
+  }
+
   void initEvents() {
     TelegramWebApp.instance.onEvent(LocationManagerUpdatedEvent(locationManagerUpdated));
     TelegramWebApp.instance.onEvent(LocationRequestedEvent(locationRequested));
+  }
+
+  void stopEvents() {
+    TelegramWebApp.instance.offEvent(LocationManagerUpdatedEvent(locationManagerUpdated));
+    TelegramWebApp.instance.offEvent(LocationRequestedEvent(locationRequested));
   }
 
   @override

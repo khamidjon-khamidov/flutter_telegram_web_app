@@ -5,20 +5,23 @@ part of '../../../../telegram_web_app.dart';
 /// This object controls location access on the device.
 /// Before the first use of this object, it needs to be initialized using the init method.
 class LocationManager {
-  final LocationManagerJSObject _lm;
-  LocationManager(this._lm);
+  LocationManager._();
+
+  static LocationManager? _instance;
+
+  static LocationManager get instance => _instance ??= LocationManager._();
 
   /// Shows whether the LocationManager object has been initialized.
-  bool get isInited => _lm.isInited;
+  bool get isInited => Telegram.WebApp.LocationManager.isInited;
 
   /// Shows whether location services are available on the current device.
-  bool get isLocationAvailable => _lm.isLocationAvailable;
+  bool get isLocationAvailable => Telegram.WebApp.LocationManager.isLocationAvailable;
 
   /// Shows whether permission to use location has been requested.
-  bool get isAccessRequested => _lm.isAccessRequested;
+  bool get isAccessRequested => Telegram.WebApp.LocationManager.isAccessRequested;
 
   /// Shows whether permission to use location has been granted.
-  bool get isAccessGranted => _lm.isAccessGranted;
+  bool get isAccessGranted => Telegram.WebApp.LocationManager.isAccessGranted;
 
   /// **Bot API 8.0+**
   ///
@@ -28,7 +31,7 @@ class LocationManager {
   Future<void> init() {
     final completer = Completer<void>();
     
-    _lm.init(() {
+    Telegram.WebApp.LocationManager.init(() {
       completer.complete();
     }.toJS);
 
@@ -42,7 +45,7 @@ class LocationManager {
   Future<LocationData?> getLocation() async {
     final completer = Completer<LocationData?>();
 
-    _lm.getLocation((LocationDataJSObject? data) {
+    Telegram.WebApp.LocationManager.getLocation((LocationDataJSObject? data) {
       completer.complete(data == null ? null : LocationData.from(data));
     }.toJS);
 
@@ -55,6 +58,6 @@ class LocationManager {
   ///
   /// _Note that this method can be called only in response to user interaction with the Mini App interface (e.g., a click inside the Mini App or on the main button)._
   void openSettings() {
-    _lm.openSettings();
+    Telegram.WebApp.LocationManager.openSettings();
   }
 }

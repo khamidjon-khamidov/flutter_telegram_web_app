@@ -83,10 +83,16 @@ class TelegramWebAppFake extends TelegramWebApp {
   CloudStorage get cloudStorage => CloudStorage.instance;
 
   @override
+  Accelerometer get accelerometer => Accelerometer.instance;
+
+  @override
   BiometricManager get biometricManager => throw UnimplementedError();
 
   @override
-  LocationManager get locationManager => MockLocationManager();
+  LocationManager get locationManager => LocationManager.instance;
+
+  @override
+  Gyroscope get gyroscope => Gyroscope.instance;
 
   @override
   bool isVersionAtLeast(String version) => true;
@@ -216,6 +222,18 @@ class TelegramWebAppFake extends TelegramWebApp {
   @override
   Future<bool> shareMessage(String messageId) async {
     print("Mocked shareMessage");
+    return false;
+  }
+
+  @override
+  Future<bool> setEmojiStatus(String customEmojiId, {EmojiStatusParams? params}) async {
+    print("Mocked setEmojiStatus");
+    return false;
+  }
+  
+  @override
+  Future<bool> requestEmojiStatusAccess() async {
+    print("Mocked requestEmojiStatusAccess");
     return false;
   }
 }

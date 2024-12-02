@@ -55,8 +55,12 @@ class WebAppInitData {
   int? get authDate => _jsInitData.auth_date == null ? null : int.tryParse(_jsInitData.auth_date!);
 
   /// A hash of all passed parameters, which the bot server can use
-  /// to check their validity.
+  /// to [check their validity](https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app).
   String? get hash => _jsInitData.hash;
+
+  /// A signature of all passed parameters (except hash), which the third party can use
+  /// to [check their validity](https://core.telegram.org/bots/webapps#validating-data-for-third-party-use).
+  String? get signature => _jsInitData.signature;
 
   String toReadableString() {
     return """
@@ -69,7 +73,8 @@ class WebAppInitData {
       start_param: $startParam,
       can_send_after: $canSendAfter,
       auth_date: $authDate,
-      hash: $hash
+      hash: $hash,
+      signature: $signature
     """;
   }
 }

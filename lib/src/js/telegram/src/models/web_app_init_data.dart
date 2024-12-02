@@ -20,4 +20,6 @@ extension type WebAppInitDataJSObject._(JSObject _) implements JSObject {
   external String? get auth_date;
 
   external String? get hash;
+
+  external String? get signature;
 }

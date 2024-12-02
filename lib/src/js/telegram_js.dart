@@ -64,12 +64,15 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
 
   external CloudStorageJSObject get CloudStorage;
 
+  external AccelerometerJSObject get Accelerometer;
+
   external BiometricManagerJSObject get BiometricManager;
 
   external DeviceOrientationJSObject get DeviceOrientation;
 
-  @JS("LocationManager")
-  external LocationManagerJSObject get locationManager;
+  external GyroscopeJSObject get Gyroscope;
+
+  external LocationManagerJSObject get LocationManager;
 
   external WebAppInitDataJSObject get initDataUnsafe;
 
@@ -143,4 +146,8 @@ extension type WebAppJSObject._(JSObject _) implements JSObject {
   external void downloadFile(DownloadFileParamsJSObject params, JSExportedDartFunction callback);
 
   external void shareMessage(String msg_id, JSExportedDartFunction callback);
+
+  external void setEmojiStatus(String emoji, EmojiStatusParamsJSObject params, JSExportedDartFunction callback);
+
+  external void requestEmojiStatusAccess(JSExportedDartFunction callback);
 }
