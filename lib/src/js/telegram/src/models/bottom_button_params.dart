@@ -7,8 +7,8 @@ extension type BottomButtonParamsJSObject._(JSObject _) implements JSObject {
     required String textColor,
     required bool hasShineEffect,
     required String position,
-    bool isActive = false,
-    bool isVisible = true,
+    required bool isActive,
+    required bool isVisible,
   });
 
   /// Button text
