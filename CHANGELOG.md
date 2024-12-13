@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.3.1
-* [#58] (https://github.com/khamidjon-khamidov/flutter_telegram_web_app/issues/58) fix for Flutter 3.27.0. Thanks to `otopba` [#61](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/61)
+* [#58](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/issues/58) fix for Flutter 3.27.0. Thanks to `otopba` [#61](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/61)
 
 ## 0.3.0
 * BOT API 8.0 full support
