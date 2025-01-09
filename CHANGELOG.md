@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2-BETA
+* Make TelegramEvent mockable
+* Bug fix - some events are not working as expected
+
 ## 0.3.1
 * [#58](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/issues/58) fix for Flutter 3.27.0. Thanks to `otopba` [#61](https://github.com/khamidjon-khamidov/flutter_telegram_web_app/pull/61)
 
