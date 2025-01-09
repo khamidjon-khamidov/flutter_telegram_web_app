@@ -6,10 +6,5 @@ part of '../../../telegram_web_app.dart';
 /// eventHandler receives an object with the single field [locationData] of type [LocationData], containing the current location information.
 class LocationRequestedEvent extends TelegramEvent {
   LocationRequestedEvent(void Function(LocationData locationData) eventHandler)
-      : super(
-          TelegramEventType.locationRequested,
-          (LocationDataJSObject payload) {
-            eventHandler.call(LocationData.from(payload));
-          }.toJS,
-        );
+      : super(TelegramEventType.locationRequested, eventHandler);
 }

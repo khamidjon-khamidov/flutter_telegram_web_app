@@ -5,12 +5,7 @@ part of '../../../telegram_web_app.dart';
 /// indicating whether the token was updated.
 class BiometricTokenUpdatedEvent extends TelegramEvent {
   BiometricTokenUpdatedEvent(void Function(BiometricTokenUpdatedPayload payload) eventHandler)
-      : super(
-          TelegramEventType.biometricTokenUpdated,
-          (BiometricTokenUpdatedPayloadJSObject payload) {
-            eventHandler(BiometricTokenUpdatedPayload(payload.isUpdated.toDart));
-          }.toJS,
-        );
+      : super(TelegramEventType.biometricTokenUpdated, eventHandler);
 }
 
 class BiometricTokenUpdatedPayload {

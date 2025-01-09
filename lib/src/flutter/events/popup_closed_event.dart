@@ -5,12 +5,7 @@ part of '../../../telegram_web_app.dart';
 /// id of the pressed button. If no buttons were pressed, the field button_id will be null.
 class PopupClosedEvent extends TelegramEvent {
   PopupClosedEvent(void Function(PopupClosedPayload payload) eventHandler)
-      : super(
-          TelegramEventType.popupClosed,
-          (PopupClosedPayloadJSObject payload) {
-            eventHandler(PopupClosedPayload(payload.button_id?.toDart));
-          }.toJS,
-        );
+      : super(TelegramEventType.popupClosed, eventHandler);
 }
 
 class PopupClosedPayload {

@@ -8,9 +8,7 @@ part of '../../../telegram_web_app.dart';
 /// - cancelled – user declined this request.
 class FileDownloadRequestedEvent extends TelegramEvent {
   FileDownloadRequestedEvent(void Function(String status) eventHandler)
-      : super(
-            TelegramEventType.fileDownloadRequested,
-            (FileDownloadResultJSObject result) {
-              eventHandler(result.status.toDart);
-            }.toJS);
+      : super(TelegramEventType.fileDownloadRequested, (FileDownloadResultJSObject result) {
+          eventHandler(result.status.toDart);
+        });
 }

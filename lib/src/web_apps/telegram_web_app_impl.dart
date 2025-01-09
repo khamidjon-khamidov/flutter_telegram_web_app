@@ -124,11 +124,11 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
   @override
   void onEvent(TelegramEvent event) =>
-      Telegram.WebApp.onEvent(event.eventType.eventName, event.eventHandler);
+      Telegram.WebApp.onEvent(event.eventType.eventName, JsUtil.toJsFunction(event));
 
   @override
   void offEvent(TelegramEvent event) =>
-      Telegram.WebApp.offEvent(event.eventType.eventName, event.eventHandler);
+      Telegram.WebApp.offEvent(event.eventType.eventName, JsUtil.toJsFunction(event));
 
   @override
   void sendData(String data) => Telegram.WebApp.sendData(data);
@@ -286,7 +286,7 @@ class TelegramWebAppImpl extends TelegramWebApp {
 
     return completer.future;
   }
-  
+
   @override
   Future<bool> setEmojiStatus(String customEmojiId, {EmojiStatusParams? params}) {
     final completer = Completer<bool>();

@@ -4,5 +4,5 @@ part of '../../../telegram_web_app.dart';
 /// eventHandler receives no parameters.
 class SettingsButtonClickedEvent extends TelegramEvent {
   SettingsButtonClickedEvent(void Function() eventHandler)
-      : super(TelegramEventType.settingsButtonClicked, eventHandler.toJS);
+      : super(TelegramEventType.settingsButtonClicked, eventHandler);
 }

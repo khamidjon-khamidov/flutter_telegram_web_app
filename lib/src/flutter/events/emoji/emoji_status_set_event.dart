@@ -6,5 +6,5 @@ part of '../../../../telegram_web_app.dart';
 /// [eventHandler] receives no parameters.
 class EmojiStatusSetEvent extends TelegramEvent {
   EmojiStatusSetEvent(void Function() eventHandler)
-      : super(TelegramEventType.emojiStatusSet, eventHandler.toJS);
+      : super(TelegramEventType.emojiStatusSet, eventHandler);
 }

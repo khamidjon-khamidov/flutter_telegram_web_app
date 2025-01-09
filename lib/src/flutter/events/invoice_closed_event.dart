@@ -10,15 +10,7 @@ part of '../../../telegram_web_app.dart';
 /// about a successful payment when the payment is successfully paid.
 class InvoiceClosedEvent extends TelegramEvent {
   InvoiceClosedEvent(void Function(InvoiceClosedPayload payload) eventHandler)
-      : super(
-          TelegramEventType.invoiceClosed,
-          (InvoiceClosedPayloadJSObject payload) {
-            eventHandler(InvoiceClosedPayload(
-              payload.url.toDart,
-              payload.status.toDart,
-            ));
-          }.toJS,
-        );
+      : super(TelegramEventType.invoiceClosed, eventHandler);
 }
 
 class InvoiceClosedPayload {

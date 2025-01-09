@@ -7,15 +7,7 @@ part of '../../../telegram_web_app.dart';
 /// the device.
 class BiometricAuthRequestedEvent extends TelegramEvent {
   BiometricAuthRequestedEvent(void Function(BiometricAuthRequestedPayload payload) eventHandler)
-      : super(
-          TelegramEventType.biometricAuthRequested,
-          (BiometricAuthRequestedPayloadJSObject payload) {
-            eventHandler.call(BiometricAuthRequestedPayload(
-              payload.isAuthenticated.toDart,
-              payload.biometricToken?.toDart,
-            ));
-          }.toJS,
-        );
+      : super(TelegramEventType.biometricAuthRequested, eventHandler);
 }
 
 class BiometricAuthRequestedPayload {

@@ -4,5 +4,5 @@ part of '../../../telegram_web_app.dart';
 /// eventHandler receives no parameters.
 class BiometricManagerUpdatedEvent extends TelegramEvent {
   BiometricManagerUpdatedEvent(void Function() eventHandler)
-      : super(TelegramEventType.biometricManagerUpdated, eventHandler.toJS);
+      : super(TelegramEventType.biometricManagerUpdated, eventHandler);
 }

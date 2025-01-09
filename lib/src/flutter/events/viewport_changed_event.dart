@@ -7,12 +7,7 @@ part of '../../../telegram_web_app.dart';
 /// current value of the visible section’s height is available in this.viewportHeight.
 class ViewportChangedEvent extends TelegramEvent {
   ViewportChangedEvent(void Function(ViewportChangedPayload payload) eventHandler)
-      : super(
-          TelegramEventType.viewportChanged,
-          (ViewportChangedPayloadJSObject payload) {
-            eventHandler(ViewportChangedPayload(payload.isStateStable.toDart));
-          }.toJS,
-        );
+      : super(TelegramEventType.viewportChanged, eventHandler);
 }
 
 class ViewportChangedPayload {

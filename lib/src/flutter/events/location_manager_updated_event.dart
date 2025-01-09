@@ -6,5 +6,5 @@ part of '../../../telegram_web_app.dart';
 /// eventHandler receives no parameters.
 class LocationManagerUpdatedEvent extends TelegramEvent {
   LocationManagerUpdatedEvent(void Function() eventHandler)
-      : super(TelegramEventType.locationManagerUpdated, eventHandler.toJS);
+      : super(TelegramEventType.locationManagerUpdated, eventHandler);
 }

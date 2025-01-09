@@ -7,12 +7,7 @@ part of '../../../telegram_web_app.dart';
 /// - cancelled – user declined this request.
 class ContactRequestedEvent extends TelegramEvent {
   ContactRequestedEvent(void Function(ContactRequestedPayload payload) eventHandler)
-      : super(
-          TelegramEventType.contactRequested,
-          (ContactRequestedPayloadJSObject payload) {
-            eventHandler(ContactRequestedPayload(payload.status.toDart));
-          }.toJS,
-        );
+      : super(TelegramEventType.contactRequested, eventHandler);
 }
 
 class ContactRequestedPayload {
