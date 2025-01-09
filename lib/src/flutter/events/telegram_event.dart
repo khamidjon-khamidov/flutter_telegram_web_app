@@ -5,7 +5,7 @@ class TelegramEvent {
   TelegramEvent(this.eventType, this.eventHandler);
 
   final TelegramEventType eventType;
-  final JSExportedDartFunction eventHandler;
+  final Function eventHandler;
 }
 
 /// https://core.telegram.org/bots/webapps#events-available-for-mini-apps

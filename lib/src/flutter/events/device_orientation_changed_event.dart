@@ -6,5 +6,5 @@ part of '../../../telegram_web_app.dart';
 /// this.beta and this.gamma respectively.
 class DeviceOrientationChangedEvent extends TelegramEvent {
   DeviceOrientationChangedEvent(void Function() eventHandler)
-      : super(TelegramEventType.deviceOrientationChanged, eventHandler.toJS);
+      : super(TelegramEventType.deviceOrientationChanged, eventHandler);
 }

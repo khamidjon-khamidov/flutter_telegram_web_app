@@ -11,9 +11,5 @@ part of '../../../telegram_web_app.dart';
 /// - missed – the icon has not been added to the home screen.
 class HomeScreenCheckedEvent extends TelegramEvent {
   HomeScreenCheckedEvent(void Function(String status) eventHandler)
-      : super(
-            TelegramEventType.homeScreenChecked,
-            (HomeScreenCheckedResultJSObject result) {
-              eventHandler(result.status.toDart);
-            }.toJS);
+      : super(TelegramEventType.homeScreenChecked, eventHandler);
 }

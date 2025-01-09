@@ -5,12 +5,7 @@ part of '../../../telegram_web_app.dart';
 /// the QR code.
 class QrTextReceivedEvent extends TelegramEvent {
   QrTextReceivedEvent(void Function(QrTextReceivedPayload payload) eventHandler)
-      : super(
-          TelegramEventType.qrTextReceived,
-          (QrTextReceivedPayloadJSObject payload) {
-            eventHandler(QrTextReceivedPayload(payload.data.toDart));
-          }.toJS,
-        );
+      : super(TelegramEventType.qrTextReceived, eventHandler);
 }
 
 class QrTextReceivedPayload {

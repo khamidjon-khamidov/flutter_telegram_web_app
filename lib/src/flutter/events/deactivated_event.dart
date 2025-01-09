@@ -6,5 +6,5 @@ part of '../../../telegram_web_app.dart';
 /// eventHandler receives no parameters.
 class DeactivatedEvent extends TelegramEvent {
   DeactivatedEvent(void Function() eventHandler)
-      : super(TelegramEventType.deactivated, eventHandler.toJS);
+      : super(TelegramEventType.deactivated, eventHandler);
 }

@@ -4,5 +4,5 @@ part of '../../../../telegram_web_app.dart';
 /// [eventHandler] receives no parameters.
 class AccelerometerStoppedEvent extends TelegramEvent {
   AccelerometerStoppedEvent(void Function() eventHandler)
-      : super(TelegramEventType.gyroscopeStopped, eventHandler.toJS);
+      : super(TelegramEventType.accelerometerStopped, eventHandler);
 }

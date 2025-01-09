@@ -6,5 +6,5 @@ part of '../../../telegram_web_app.dart';
 /// eventHandler receives no parameters. The current inset values can be accessed via [TelegramWebApp.safeAreaInset].
 class SafeAreaChangedEvent extends TelegramEvent {
   SafeAreaChangedEvent(void Function() eventHandler)
-      : super(TelegramEventType.safeAreaChanged, eventHandler.toJS);
+      : super(TelegramEventType.safeAreaChanged, eventHandler);
 }

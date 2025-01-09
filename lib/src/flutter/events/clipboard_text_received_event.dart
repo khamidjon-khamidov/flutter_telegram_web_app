@@ -6,12 +6,7 @@ part of '../../../telegram_web_app.dart';
 /// string. If the Mini App has no access to the clipboard, the field data will be null.
 class ClipboardTextReceivedEvent extends TelegramEvent {
   ClipboardTextReceivedEvent(void Function(ClipboardTextReceivedPayload payload) eventHandler)
-      : super(
-          TelegramEventType.clipboardTextReceived,
-          (ClipboardTextReceivedPayloadJSObject payload) {
-            eventHandler(ClipboardTextReceivedPayload(payload.data?.toDart));
-          }.toJS,
-        );
+      : super(TelegramEventType.clipboardTextReceived, eventHandler);
 }
 
 class ClipboardTextReceivedPayload {

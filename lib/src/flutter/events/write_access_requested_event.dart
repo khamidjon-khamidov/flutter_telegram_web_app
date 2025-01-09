@@ -7,12 +7,7 @@ part of '../../../telegram_web_app.dart';
 /// - cancelled – user declined this request.
 class WriteAccessRequestedEvent extends TelegramEvent {
   WriteAccessRequestedEvent(void Function(WriteAccessRequestedPayload result) eventHandler)
-      : super(
-          TelegramEventType.writeAccessRequested,
-          (WriteAccessRequestedPayloadJSObject payload) {
-            eventHandler.call(WriteAccessRequestedPayload(payload.status.toDart));
-          }.toJS,
-        );
+      : super(TelegramEventType.writeAccessRequested, eventHandler);
 }
 
 class WriteAccessRequestedPayload {

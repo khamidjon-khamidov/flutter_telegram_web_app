@@ -6,5 +6,5 @@ part of '../../../telegram_web_app.dart';
 /// this.beta and this.gamma respectively.
 class DeviceOrientationStartedEvent extends TelegramEvent {
   DeviceOrientationStartedEvent(void Function() eventHandler)
-      : super(TelegramEventType.deviceOrientationStarted, eventHandler.toJS);
+      : super(TelegramEventType.deviceOrientationStarted, eventHandler);
 }

@@ -4,5 +4,5 @@ part of '../../../telegram_web_app.dart';
 /// eventHandler receives no parameters
 class SecondaryButtonClickedEvent extends TelegramEvent {
   SecondaryButtonClickedEvent(void Function() eventHandler)
-      : super(TelegramEventType.secondaryButtonClicked, eventHandler.toJS);
+      : super(TelegramEventType.secondaryButtonClicked, eventHandler);
 }

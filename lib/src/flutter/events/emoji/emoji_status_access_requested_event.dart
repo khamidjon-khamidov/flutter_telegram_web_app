@@ -9,9 +9,8 @@ part of '../../../../telegram_web_app.dart';
 /// - **cancelled** – user declined this request.
 class EmojiStatusAccessRequestedEvent extends TelegramEvent {
   EmojiStatusAccessRequestedEvent(void Function(String status) eventHandler)
-      : super(
-            TelegramEventType.emojiStatusAccessRequested,
+      : super(TelegramEventType.emojiStatusAccessRequested,
             (EmojiStatusAccessRequestedResultJSObject result) {
-              eventHandler(result.status.toDart);
-            }.toJS);
+          eventHandler(result.status.toDart);
+        });
 }

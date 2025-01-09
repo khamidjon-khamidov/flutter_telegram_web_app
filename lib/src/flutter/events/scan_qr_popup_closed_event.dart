@@ -4,5 +4,5 @@ part of '../../../telegram_web_app.dart';
 /// eventHandler receives no parameters.
 class ScanQrPopupClosedEvent extends TelegramEvent {
   ScanQrPopupClosedEvent(void Function() eventHandler)
-      : super(TelegramEventType.scanQrPopupClosed, eventHandler.toJS);
+      : super(TelegramEventType.scanQrPopupClosed, eventHandler);
 }
