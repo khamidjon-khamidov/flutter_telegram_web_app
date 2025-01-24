@@ -12,7 +12,5 @@ part of '../../../telegram_web_app.dart';
 /// UNKNOWN_ERROR – An unknown error occurred.
 class ShareMessageFailedEvent extends TelegramEvent {
   ShareMessageFailedEvent(void Function(String error) eventHandler)
-      : super(TelegramEventType.shareMessageFailed, (ShareMessageFailedResultJSObject result) {
-          eventHandler(result.error.toDart);
-        });
+      : super(TelegramEventType.shareMessageFailed, eventHandler);
 }

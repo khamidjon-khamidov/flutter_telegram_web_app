@@ -8,7 +8,5 @@ part of '../../../../telegram_web_app.dart';
 /// **UNSUPPORTED** – Gyroscope tracking is not supported on this device or platform.
 class GyroscopeFailedEvent extends TelegramEvent {
   GyroscopeFailedEvent(void Function(String error) eventHandler)
-      : super(TelegramEventType.gyroscopeFailed, (GyroscopeFailedResultJSObject result) {
-          eventHandler(result.error.toDart);
-        });
+      : super(TelegramEventType.gyroscopeFailed, eventHandler);
 }

@@ -14,7 +14,5 @@ part of '../../../../telegram_web_app.dart';
 /// - **UNKNOWN_ERROR** – An unknown error occurred.
 class EmojiStatusFailedEvent extends TelegramEvent {
   EmojiStatusFailedEvent(void Function(String error) eventHandler)
-      : super(TelegramEventType.emojiStatusFailed, (EmojiStatusFailedResultJSObject result) {
-          eventHandler(result.error.toDart);
-        });
+      : super(TelegramEventType.emojiStatusFailed, eventHandler);
 }

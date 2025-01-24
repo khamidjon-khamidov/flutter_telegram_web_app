@@ -53,12 +53,13 @@ class JsUtil {
       TelegramEventType.fullscreenChanged => (event.eventHandler as void Function()).toJS,
       TelegramEventType.fullscreenFailed => (FullScreenFailedResultJSObject result) {
         event.eventHandler(result.error.toDart);
-      }.toJS,
+        }.toJS,
       TelegramEventType.deviceOrientationStarted => (event.eventHandler as void Function()).toJS,
       TelegramEventType.deviceOrientationStopped => (event.eventHandler as void Function()).toJS,
       TelegramEventType.deviceOrientationChanged => (event.eventHandler as void Function()).toJS,
-      TelegramEventType.deviceOrientationFailed =>
-        (event.eventHandler as void Function(String error)).toJS,
+      TelegramEventType.deviceOrientationFailed => (DeviceOrientationFailedResultJSObject result) {
+        event.eventHandler(result.error.toDart);
+        }.toJS,
       TelegramEventType.homeScreenAdded => (event.eventHandler as void Function()).toJS,
       TelegramEventType.homeScreenChecked => (HomeScreenCheckedResultJSObject result) {
           event.eventHandler(result.status.toDart);
@@ -72,17 +73,21 @@ class JsUtil {
       TelegramEventType.gyroscopeStarted => (event.eventHandler as void Function()).toJS,
       TelegramEventType.gyroscopeStopped => (event.eventHandler as void Function()).toJS,
       TelegramEventType.gyroscopeChanged => (event.eventHandler as void Function()).toJS,
-      TelegramEventType.gyroscopeFailed => (event.eventHandler as void Function(String error)).toJS,
+      TelegramEventType.gyroscopeFailed => (GyroscopeFailedResultJSObject result) {
+          event.eventHandler(result.error.toDart);
+        }.toJS,
       TelegramEventType.locationManagerUpdated => (event.eventHandler as void Function()).toJS,
       TelegramEventType.locationRequested => (LocationDataJSObject payload) {
           event.eventHandler.call(LocationData.from(payload));
         }.toJS,
       TelegramEventType.shareMessageSent => (event.eventHandler as void Function()).toJS,
-      TelegramEventType.shareMessageFailed =>
-        (event.eventHandler as void Function(String error)).toJS,
+      TelegramEventType.shareMessageFailed => (ShareMessageFailedResultJSObject result) {
+          event.eventHandler(result.error.toDart);
+        }.toJS,
       TelegramEventType.emojiStatusSet => (event.eventHandler as void Function()).toJS,
-      TelegramEventType.emojiStatusFailed =>
-        (event.eventHandler as void Function(String error)).toJS,
+      TelegramEventType.emojiStatusFailed => (EmojiStatusFailedResultJSObject result) {
+        event.eventHandler(result.error.toDart);
+        }.toJS,
       TelegramEventType.emojiStatusAccessRequested =>
         (event.eventHandler as void Function(String status)).toJS,
       TelegramEventType.fileDownloadRequested =>

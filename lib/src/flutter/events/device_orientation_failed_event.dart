@@ -7,8 +7,5 @@ part of '../../../telegram_web_app.dart';
 /// **UNSUPPORTED** – Device orientation tracking is not supported on this device or platform.
 class DeviceOrientationFailedEvent extends TelegramEvent {
   DeviceOrientationFailedEvent(void Function(String error) eventHandler)
-      : super(TelegramEventType.deviceOrientationFailed,
-            (DeviceOrientationFailedResultJSObject result) {
-          eventHandler(result.error.toDart);
-        });
+      : super(TelegramEventType.deviceOrientationFailed, eventHandler);
 }
