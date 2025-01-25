@@ -10,7 +10,5 @@ part of '../../../telegram_web_app.dart';
 /// **ALREADY_FULLSCREEN** – The Mini App is already in fullscreen mode.
 class FullscreenFailedEvent extends TelegramEvent {
   FullscreenFailedEvent(void Function(String error) eventHandler)
-      : super(TelegramEventType.fullscreenFailed, (FullScreenFailedResultJSObject result) {
-          eventHandler(result.error.toDart);
-        });
+      : super(TelegramEventType.fullscreenFailed, eventHandler);
 }
